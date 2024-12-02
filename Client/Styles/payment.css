@@ -1,0 +1,740 @@
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #2c3e50;
+  --accent-color: #e74c3c;
+  --background-color: #1a1a2e;
+  --text-color: #e0e0e0;
+  --card-background: #16213e;
+  --success-color: #2ecc71;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  background-color: #0f3460;
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: bold;
+}
+
+.logo img {
+  width: clamp(30px, 8vw, 40px);
+  margin-right: 10px;
+}
+
+.search-bar {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #2c3e50;
+  color: var(--text-color);
+  outline: none;
+  padding-left: 15px;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--card-background);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: none;
+}
+
+.search-result-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart,
+.user-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-icon {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+.user-menu img {
+  width: clamp(30px, 8vw, 40px);
+  border-radius: 50%;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #16213e;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.dropdown-menu a {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.dropdown-menu a:hover {
+  color: var(--primary-color);
+}
+
+.dropdown-menu a.logout {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.dropdown-menu a.logout:hover {
+  color: #c0392b;
+}
+
+.user-menu:hover .dropdown-menu {
+  display: block;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.course-card {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.course-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.course-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.course-card p {
+  margin-bottom: 1rem;
+}
+
+.course-card button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+}
+
+.course-card button:hover {
+  background-color: #3a7bd5;
+}
+
+.course-card button:disabled {
+  background-color: #4a4a4a;
+  cursor: not-allowed;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: #16213e;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+  z-index: 1001;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-sidebar h2 {
+  margin-bottom: 1rem;
+}
+
+.cart-sidebar ul {
+  list-style-type: none;
+  margin-bottom: 1rem;
+}
+
+.cart-sidebar li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: #2c3e50;
+  border-radius: 4px;
+}
+
+.checkout-button {
+  background-color: var(--success-color);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.checkout-button:hover {
+  background-color: #27ae60;
+}
+
+#plansView h1 {
+  text-align: center;
+  color: #fff;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin-bottom: 2rem;
+}
+
+.plans-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.plan-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.plan-card h3 {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.plan-card > p:first-of-type {
+  color: #bbb;
+  margin-bottom: 0.5rem;
+}
+
+.plan-card .price {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+.plan-card .recurring {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #bbb;
+  margin-bottom: 1rem;
+}
+
+.plan-card ul {
+  list-style-type: disc;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.plan-card li {
+  margin-bottom: 0.3rem;
+  position: relative;
+}
+
+.plan-card .installments {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #bbb;
+  margin-bottom: 1rem;
+}
+
+.select-plan {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: bold;
+  margin-top: auto;
+}
+
+.select-plan:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.select-plan:active {
+  transform: translateY(0);
+}
+
+.payment-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.payment-form,
+.purchase-summary {
+  flex: 1 1 300px;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+}
+
+.payment-form h1 {
+  color: var(--text-color);
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  margin-bottom: 1rem;
+}
+
+.payment-form .info-text {
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.payment-form input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #4a4a4a;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #2c3e50;
+  color: var(--text-color);
+}
+
+.card-input {
+  display: flex;
+  gap: 1rem;
+}
+
+.card-input input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #4a4a4a;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #2c3e50;
+  color: var(--text-color);
+}
+
+.card-details {
+  display: flex;
+  gap: 1rem;
+}
+
+.card-details input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #4a4a4a;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #2c3e50;
+  color: var(--text-color);
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.submit-button:hover {
+  background-color: #3a7bd5;
+}
+
+.purchase-summary h2 {
+  color: var(--text-color);
+  font-size: clamp(1.1rem, 3vw, 1.2rem);
+  margin-bottom: 1rem;
+}
+
+.purchase-summary ul {
+  list-style-type: none;
+  margin-bottom: 1rem;
+}
+
+.purchase-summary li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: #2c3e50;
+  border-radius: 4px;
+}
+
+.remove-item {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.remove-item:hover {
+  background-color: #c0392b;
+}
+
+.course-details-container {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.course-details-container h2 {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.course-details-container p {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.course-details-container button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: bold;
+}
+
+.course-details-container button:hover {
+  background-color: #3a7bd5;
+}
+
+.course-details-container button:disabled {
+  background-color: var(--secondary-color);
+  cursor: not-allowed;
+}
+
+.payment-methods {
+  margin-bottom: 2rem;
+}
+
+.payment-methods h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.payment-method-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.payment-method-options label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.payment-method-options label:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.payment-method-options input[type="radio"] {
+  display: none;
+}
+
+.payment-method-options input[type="radio"]:checked + img {
+  border-color: var(--primary-color);
+}
+
+.payment-method-options img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.payment-method-options span {
+  font-size: 0.9rem;
+}
+
+.payment-fields {
+  margin-top: 1rem;
+}
+
+.qr-code {
+  max-width: 200px;
+  margin: 1rem auto;
+  display: block;
+}
+
+#cashPaymentFields ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#cashPaymentFields li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .user-actions {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .cart-sidebar {
+    width: 100%;
+  }
+
+  .payment-container {
+    flex-direction: column;
+  }
+
+  .payment-form,
+  .purchase-summary {
+    width: 100%;
+  }
+
+  .card-input {
+    flex-direction: column;
+  }
+
+  .payment-method-options {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .logo img {
+    width: 30px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin-bottom: 0.5rem;
+  }
+
+  .user-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cart,
+  .user-menu {
+    margin-bottom: 0.5rem;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    left: 0;
+    right: auto;
+  }
+
+  .course-card {
+    padding: 1rem;
+  }
+
+  .plan-card {
+    max-width: 100%;
+  }
+
+  .payment-method-options label {
+    width: calc(50% - 0.5rem);
+  }
+}
+

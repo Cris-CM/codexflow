@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Platform</title>
+    <link rel="stylesheet" href="/Client/Styles/view.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="sidebar">
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Courses</a></li>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+      <main class="content">
+        <div class="video-container">
+          <h2>Curso de desarrolo Movil</h2>
+          <div class="video-player">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/3_dwKqCsbis"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <h3>Introduccion al desarrollo Movil</h3>
+        </div>
+      </main>
+      <aside class="comments">
+        <h3>Comments</h3>
+        <div class="comment-box">
+          <textarea placeholder="Write your comment here..."></textarea>
+          <button>Post</button>
+        </div>
+        <div class="comment-list">
+          <div class="comment">
+            <img
+              src="/Client/Images/pikachu.png"
+              alt="User avatar"
+              class="avatar"
+            />
+            <div class="comment-content">
+              <h4>Cris CM</h4>
+              <p>
+                Me gusto mucho el curso sobre desarrollo movil, Muchas gracias
+              </p>
+            </div>
+          </div>
+          <!-- More comments can be added here -->
+        </div>
+      </aside>
+    </div>
+    <script src="/Client/Js/view.js"></script>
+  </body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShinkaToMirai - Plataforma de Aprendizaje Profesional</title>
+    <link rel="stylesheet" href="/Client/Styles/payment.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
+            <span>ShinkaToMirai</span>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="¿Qué quieres aprender?" />
+            <div class="search-results"></div>
+          </div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#" class="nav-button" data-view="plans">Planes</a></li>
+          <li><a href="#" class="nav-button" data-view="courses">Cursos</a></li>
+          <li><a href="#">Contáctanos</a></li>
+        </ul>
+        <div class="user-actions">
+          <div class="cart" id="cartToggle">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count">0</span>
+          </div>
+          <div class="user-menu">
+            <img src="/Client/Images/pikachu.png" alt="Usuario" />
+            <div class="dropdown-menu">
+              <p>Hola, <span class="user-name">Usuario</span></p>
+              <a href="#" class="nav-button" data-view="courses"
+                >Ver todos mis cursos</a
+              >
+              <a href="/Client/pages/Auth/profile.html">Ver mi perfil</a>
+              <a href="#" class="nav-button" data-view="plans">Mis planes</a>
+              <a href="#">Mi Suscripción</a>
+              <a href="#">Contáctanos</a>
+              <a href="#">Configuración</a>
+              <a href="#" class="logout">Cerrar sesión</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div id="cartSidebar" class="cart-sidebar">
+        <h2>Carrito de Compras</h2>
+        <ul id="cartItems"></ul>
+        <p>Total: S/ <span id="cartTotal">0.00</span></p>
+        <button id="checkoutButton" class="checkout-button">Ir a Pagar</button>
+      </div>
+
+      <div id="coursesView" class="view">
+        <h1>Cursos de Desarrollo Profesional</h1>
+        <div class="course-grid" id="courseGrid"></div>
+      </div>
+
+      <div id="plansView" class="view">
+        <h1>Nuestros Planes</h1>
+        <div class="plans-container">
+          <div class="plan-card">
+            <h3>Básico</h3>
+            <p>Para 1 estudiante</p>
+            <p class="price">S/200 al año</p>
+            <p class="recurring">Cobro anual recurrente de S/600</p>
+            <ul>
+              <li>Contenido profesional actualizado.</li>
+              <li>Certificados digitales.</li>
+              <li>Descarga contenido en la app móvil.</li>
+              <li>Acceso a sesiones de tutoría en vivo.</li>
+              <li>Material adicional exclusivo.</li>
+              <li>Un descuento del 30% para todos los participantes.</li>
+            </ul>
+            <p class="installments">
+              Paga a 4 cuotas sin intereses de S/150 con tarjeta débito o
+              crédito.
+            </p>
+            <button class="select-plan" data-plan="basico">Suscribirse</button>
+          </div>
+          <div class="plan-card">
+            <h3>Duo</h3>
+            <p>Para 2 estudiantes</p>
+            <p class="price">S/350 al año</p>
+            <p class="recurring">Cobro anual recurrente de S/1,080</p>
+            <ul>
+              <li>Contenido profesional actualizado.</li>
+              <li>Certificados digitales.</li>
+              <li>Descarga contenido en la app móvil.</li>
+              <li>Acceso a sesiones de tutoría en vivo.</li>
+              <li>Material adicional exclusivo.</li>
+              <li>Un descuento del 30% para todos los participantes.</li>
+            </ul>
+            <p class="installments">
+              Paga a 4 cuotas sin intereses de S/270 con tarjeta débito o
+              crédito.
+            </p>
+            <button class="select-plan" data-plan="duo">Suscribirse</button>
+          </div>
+          <div class="plan-card">
+            <h3>Expert</h3>
+            <p>Para 4 estudiantes</p>
+            <p class="price">S/500 al año</p>
+            <p class="recurring">Cobro anual recurrente de S/2,040</p>
+            <ul>
+              <li>Contenido profesional actualizado.</li>
+              <li>Certificados digitales.</li>
+              <li>Descarga contenido en la app móvil.</li>
+              <li>Acceso a sesiones de tutoría en vivo.</li>
+              <li>Material adicional exclusivo.</li>
+              <li>Un descuento del 30% para todos los participantes.</li>
+            </ul>
+            <p class="installments">
+              Paga a 4 cuotas sin intereses de S/510 con tarjeta débito o
+              crédito.
+            </p>
+            <button class="select-plan" data-plan="expert">Suscribirse</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="paymentView" class="view">
+        <div class="payment-container">
+          <div class="payment-form">
+            <h1>Información de pago</h1>
+            <p class="info-text">
+              Todas las transacciones son seguras y encriptadas
+            </p>
+            <form id="paymentForm">
+              <div class="payment-methods">
+                <h2>Seleccione el método de pago:</h2>
+                <div class="payment-method-options">
+                  <label>
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      value="card"
+                      checked
+                    />
+                    <img
+                      src="https://seeklogo.com/images/B/bcp-bolivia-logo-87EC694136-seeklogo.com.png"
+                      alt="Tarjeta de crédito/débito"
+                    />
+                    <span>Tarjeta</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="paymentMethod" value="yape" />
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREqKH15YFvMWoZGHyPI_lDQbhYVUeoDbHrlw&s"
+                      alt="Yape"
+                    />
+                    <span>Yape</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="paymentMethod" value="cash" />
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/pago-efectivo-2020.svg"
+                      alt="Efectivo"
+                    />
+                    <span>Efectivo</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="paymentMethod" value="paypal" />
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png"
+                      alt="PayPal"
+                    />
+                    <span>PayPal</span>
+                  </label>
+                </div>
+              </div>
+
+              <div id="cardPaymentFields" class="payment-fields">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="cardNumber"
+                    placeholder="Número de tarjeta"
+                    maxlength="19"
+                    required
+                  />
+                </div>
+                <div class="form-group card-details">
+                  <input
+                    type="text"
+                    id="cardExpiry"
+                    placeholder="MM / AA"
+                    maxlength="7"
+                    required
+                  />
+                  <input
+                    type="text"
+                    id="cardCVC"
+                    placeholder="CVC"
+                    maxlength="4"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div
+                id="depositPaymentFields"
+                class="payment-fields"
+                style="display: none"
+              >
+                <p>Realice el depósito a la siguiente cuenta bancaria:</p>
+                <p>Banco: BBVA</p>
+                <p>Cuenta: 0011-0149-0100083020</p>
+                <p>Titular: ShinkaToMirai S.A.C.</p>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="depositReference"
+                    placeholder="Número de referencia del depósito"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div
+                id="yapePaymentFields"
+                class="payment-fields"
+                style="display: none"
+              >
+                <p>Escanee el siguiente código QR para pagar con Yape:</p>
+                <img
+                  src="/Client/Images/yape.jpeg"
+                  alt="Código QR de Yape"
+                  class="qr-code"
+                />
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="yapeReference"
+                    placeholder="Número de referencia de Yape"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div
+                id="cashPaymentFields"
+                class="payment-fields"
+                style="display: none"
+              >
+                <p>
+                  Puede realizar el pago en efectivo en cualquiera de nuestras
+                  oficinas:
+                </p>
+                <ul>
+                  <li>Lima: Av. Javier Prado Este 4600, Santiago de Surco</li>
+                  <li>Arequipa: Av. Ejercito 710, Yanahuara</li>
+                  <li>Trujillo: Jr. Pizarro 458, Centro Histórico</li>
+                </ul>
+              </div>
+
+              <div
+                id="paypalPaymentFields"
+                class="payment-fields"
+                style="display: none"
+              >
+                <p>Será redirigido a PayPal para completar su pago.</p>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="nombre"
+                  placeholder="Nombre completo"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Correo electrónico"
+                  required
+                />
+              </div>
+              <button type="submit" class="submit-button">
+                Pagar S/ <span id="paymentAmount">0</span> PEN
+              </button>
+            </form>
+          </div>
+          <div class="purchase-summary">
+            <h2>Resumen de compra</h2>
+            <ul id="purchaseItems"></ul>
+            <p>Total: S/ <span id="purchaseTotal">0.00</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="courseDetailsView" class="view">
+        <div id="courseDetails" class="course-details-container"></div>
+      </div>
+    </main>
+
+    <script src="/Client/Js/payment.js"></script>
+  </body>
+</html>

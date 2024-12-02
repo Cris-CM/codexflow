@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShinkaToMirai - Mi Perfil</title>
+    <link rel="stylesheet" href="/Client/Styles/profile.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <img src="/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
+            <span>ShinkaToMirai</span>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="¿Qué quieres aprender?" />
+          </div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/Client/Payment/Card/payment_card.html">Cursos</a></li>
+          <li><a href="/Client/Payment/Card/payment_card.html">Planes</a></li>
+          <li><a href="#">Contáctanos</a></li>
+        </ul>
+        <div class="user-menu">
+          <img src="/Client/Images/pikachu.png" alt="Usuario" />
+          <div class="dropdown-menu">
+            <p>Hola, <span class="user-name">Usuario</span></p>
+            <a href="/Client/pages/Courses/Courses.html"
+              >Ver todos mis cursos</a
+            >
+            <a href="/Client/pages/Auth/profile.html">Ver mi perfil</a>
+            <a href="/Client/pages/Plans/plans.html">Mis planes</a>
+            <a href="#">Mi Suscripción</a>
+            <a href="#">Contáctanos</a>
+            <a href="#">Configuración</a>
+            <a href="#" class="logout">Cerrar sesión</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Mi Perfil</h1>
+      <div class="profile-grid">
+        <section class="profile-section personal-info" style="width: 100%;">
+          <h2>Información Personal</h2>
+          <div class="profile-content">
+            <div class="profile-picture">
+              <img
+                src="/Client/Images/pikachu.png"
+                alt="Foto de Perfil"
+                id="profilePicture"
+              />
+              <button class="btn btn-primary" id="changePhotoBtn">
+                Cambiar Foto
+              </button>
+            </div>
+            <div class="profile-details">
+              <p>
+                <strong>Nombre:</strong> <span id="userName">Cargando...</span>
+              </p>
+              <p>
+                <strong>Email:</strong> <span id="userEmail">Cargando...</span>
+              </p>
+              <button class="btn btn-secondary" id="editInfoBtn">
+                Editar Información
+              </button>
+              <button class="btn btn-primary" id="changePasswordBtn">Cambiar Contraseña</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="profile-section course-history">
+          <h2>Historial de Cursos</h2>
+          <div class="profile-content">
+            <ul class="course-list" id="courseList">
+              <!-- Cursos se cargarán dinámicamente aquí -->
+            </ul>
+          </div>
+        </section>
+
+        <section class="profile-section certificates">
+          <h2>Certificados y Logros</h2>
+          <div class="profile-content">
+            <div class="certificate-grid" id="certificateGrid">
+              <!-- Certificados se cargarán dinámicamente aquí -->
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="modal" id="passwordModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Cambiar Contraseña</h2>
+        <form id="passwordForm">
+          <div class="form-group">
+            <label for="currentPassword">Contraseña Actual:</label>
+            <input type="password" id="currentPassword" required />
+          </div>
+          <div class="form-group">
+            <label for="newPassword">Nueva Contraseña:</label>
+            <input type="password" id="newPassword" required />
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirmar Nueva Contraseña:</label>
+            <input type="password" id="confirmPassword" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 ShinkaToMirai. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/Client/Js/profile.js"></script>
+  </body>
+</html>

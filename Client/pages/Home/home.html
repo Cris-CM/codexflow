@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShinkaMirai</title>
+    <link rel="stylesheet" href="/Client/Styles/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const userTheme = localStorage.getItem("userTheme");
+        if (userTheme) {
+          document.body.className = userTheme;
+        }
+      });
+    </script>
+    <script src="/Server/FIrebase/firebae_confing.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <h1 class="logo">ShinkaMirai</h1>
+          <button
+            id="sidebarClose"
+            class="sidebar-close"
+            aria-label="Close sidebar"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="#" class="nav-link active" data-view="inicio"
+                ><i class="fas fa-home"></i> Inicio</a
+              >
+            </li>
+            <li>
+              <a href="#" class="nav-link" data-view="rutas"
+                ><i class="fas fa-route"></i> Mis Rutas</a
+              >
+            </li>
+            <li>
+              <a href="#" class="nav-link" data-view="progreso"
+                ><i class="fas fa-chart-line"></i> Mi progreso</a
+              >
+            </li>
+            <li>
+              <a href="#" class="nav-link" data-view="chat"
+                ><i class="fas fa-comments"></i> Chat ADA</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <img
+            src="/Client/Images/Hollow Knight.png"
+            alt="Hollow Knight Logo"
+            class="logo-img"
+          />
+        </div>
+      </aside>
+      <main id="main-content">
+        <header class="main-header">
+          <button
+            id="sidebarToggle"
+            class="sidebar-toggle"
+            aria-label="Toggle sidebar"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <nav class="home-nav">
+            <div class="home-search-bar">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="¿Qué quieres aprender?"
+              />
+              <button class="search-button" id="searchButton">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <ul class="home-nav-links">
+              <li>
+                <a href="/Client/pages/Courses/1Courses_page/Courses.html"
+                  >Cursos</a
+                >
+              </li>
+              <li>
+                <a href="/Client/Payment/Card/payment_card.html">Planes</a>
+              </li>
+              <li><a href="#">Contáctanos</a></li>
+              <li><a href="#" id="requestScholarship">Pedir beca</a></li>
+              <li class="streak-container">
+                <img
+                  src="https://i.pinimg.com/originals/c3/00/82/c300823a2fae8c38ea95b5124466ed85.png"
+                  alt="Racha"
+                  class="streak-logo"
+                  id="streakLogo"
+                />
+                <div class="streak-info" id="streakInfo">
+                  <p>Días de racha: <span id="streakDays">0</span></p>
+                  <p id="streakFire">🔥</p>
+                </div>
+              </li>
+            </ul>
+            <div class="home-user-menu">
+              <img src="/Client/Images/pikachu.png" alt="Usuario" />
+              <div class="home-dropdown-menu">
+                <p>Hola, <span id="userNameDisplay"></span></p>
+                <a href="/Client/pages/Courses/Courses.html"
+                  ><i class="fas fa-book"></i> Ver todos mis cursos</a
+                >
+                <a href="/Client/pages/Auth/profile.html"
+                  ><i class="fas fa-user"></i> Ver mi perfil</a
+                >
+                <a href="/Client/pages/Plans/plans.html"
+                  ><i class="fas fa-clipboard-list"></i> Mis planes</a
+                >
+                <a href="#"><i class="fas fa-crown"></i> Mi Suscripción</a>
+                <a href="#"><i class="fas fa-envelope"></i> Contáctanos</a>
+                <a href="#"><i class="fas fa-cog"></i> Configuración</a>
+                <a href="#" class="home-logout" onclick="logout()">
+                  <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </a>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <div id="inicio" class="view active">
+          <section class="schools-section">
+            <h2>Descubre las escuelas</h2>
+            <div class="schools-grid">
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://img.icons8.com/?size=512&id=9OGIyU8hrxW5&format=png"
+                    alt="Visual Studio Code"
+                  />
+                </div>
+                <p>Visual Studio Code</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/9887/9887848.png"
+                    alt="Icono IA"
+                  />
+                </div>
+                <p>Inteligencia Artificial</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://cdn.iconscout.com/icon/free/png-256/free-flutter-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-company-vol-3-pack-logos-icons-3030139.png?f=webp&w=256"
+                    alt="Icono flutter"
+                  />
+                </div>
+                <p>Desarrollo Móvil</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/4882/4882524.png"
+                    alt="Icono Desarrollo Web"
+                  />
+                </div>
+                <p>Desarrollo Web</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://cdn-icons-png.freepik.com/512/7017/7017550.png"
+                    alt="Icono desarrollo de software"
+                  />
+                </div>
+                <p>Ingeniería de Software</p>
+              </button>
+              <button class="school-button">
+                <div class="school-icon">
+                  <img
+                    src="https://static-00.iconduck.com/assets.00/nestjs-icon-512x510-9nvpcyc3.png"
+                    alt="Icono NestJS"
+                  />
+                </div>
+                <p>NestJS</p>
+              </button>
+            </div>
+          </section>
+
+          <section class="filter-section">
+            <h2>Filtrar contenido por edad</h2>
+            <div class="filter-buttons">
+              <button class="filter-btn" data-age="kids">Niños</button>
+              <button class="filter-btn" data-age="teens">Adolescentes</button>
+              <button class="filter-btn" data-age="adults">Adultos</button>
+            </div>
+          </section>
+
+          <section class="courses-section">
+            <h2>Cursos recomendados para ti</h2>
+            <div class="courses-grid" id="coursesGrid">
+              <!-- Los cursos se generarán dinámicamente aquí -->
+            </div>
+          </section>
+        </div>
+
+        <div id="rutas" class="view">
+          <h2>Mis Rutas de Aprendizaje</h2>
+          <div class="routes-grid">
+            <div class="route-card">
+              <h3>Desarrollo Web Frontend</h3>
+              <p>Progreso: 60%</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 60%"></div>
+              </div>
+              <button class="continue-btn">Continuar</button>
+            </div>
+            <div class="route-card">
+              <h3>JavaScript Avanzado</h3>
+              <p>Progreso: 30%</p>
+              <div class="progress-bar">
+                <div class="progress" style="width: 30%"></div>
+              </div>
+              <button class="continue-btn">Continuar</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="progreso" class="view">
+          <h2>Mi Progreso</h2>
+          <div class="progress-stats">
+            <div class="stat-card">
+              <h3>Cursos Completados</h3>
+              <p>5</p>
+            </div>
+            <div class="stat-card">
+              <h3>Horas de Estudio</h3>
+              <p>42</p>
+            </div>
+            <div class="stat-card">
+              <h3>Certificados Obtenidos</h3>
+              <p>3</p>
+            </div>
+          </div>
+          <h3>Actividad Reciente</h3>
+          <ul class="activity-list">
+            <li>Completaste el curso "Introducción a HTML y CSS"</li>
+            <li>Avanzaste un 20% en "JavaScript Avanzado"</li>
+            <li>
+              <a href="/Client/pages/Home/congratulations.html"
+                >Obtuviste el certificado de "Fundamentos de Programación"</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div id="chat" class="view">
+          <div class="chat-container">
+            <div class="chat-header">
+              <h3>Chat con Soporte</h3>
+              <span id="connectionStatus" class="connection-status"
+                >Desconectado</span
+              >
+            </div>
+            <div id="chatMessages" class="chat-messages"></div>
+            <div class="chat-input">
+              <input
+                type="text"
+                id="messageInput"
+                placeholder="Escribe un mensaje..."
+              />
+              <button id="sendMessage">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/Client/Js/home.js"></script>
+  </body>
+</html>
