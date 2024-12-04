@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>GuimarBot</title>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="./img/loguito.png">
+                    <h2>Guimar<span class="danger">Bot</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="../Dashboard/dashboard.html">
+                    <span class="material-icons-sharp">dashboard</span>
+                    <h3>Panel</h3>
+                </a>
+                <a href="../GestionUsuario/gestionuser.html">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Usuarios</h3>
+                </a>
+                <a href="../GestionCurso/gestioncurso.html">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Cursos</h3>
+                </a>
+                <a href="../certificados/certificado.html">
+                    <span class="material-icons-sharp">receipt_long</span>
+                    <h3>Certificados</h3>
+                </a>
+                <a href="../Bandeja de Entrada/bandeja.html" class="active">
+                    <span class="material-icons-sharp">mail_outline</span>
+                    <h3>Bandeja entrada</h3>
+                    <span class="message-count">27</span>
+                </a>
+                <a href="../Ventas/venta.html">
+                    <span class="material-icons-sharp">inventory</span>
+                    <h3>Ventas</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">report_gmailerrorred</span>
+                    <h3>Reportes</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Salir</h3>
+                </a>
+            </div>
+        </aside>
+
+
+
+        
+
+        <main id="messaging" class="content-section hidden">
+            <div class="messaging-container">
+                <div class="chat-list" id="chatsList">
+                    <h2>Nuevos</h2>
+                    <div class="chat">
+                        <img src="./img/profile-1.png" alt="">
+                        <div class="chat-info">
+                            <h3>César Lm</h3>
+                            <p>Los mensajes estan cifrados</p>
+                        </div>
+                       
+                    </div>
+                </div>
+        
+                <div class="chat-area">
+                    <div class="chat-header">
+                        <h3 id="chatHeader">Selecciona un chat</h3>
+                    </div>
+                    <div class="message-history" id="messageHistory">
+                        <!-- Los mensajes se cargarán dinámicamente aquí -->
+                    </div>
+                    <div class="message-input">
+                        <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
+                        <button id="sendButton" class="btn">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="bandeja.js"></script>
+    <script src="/Client/Js/Auth/controllers/admin/admin_page.js"></script>
+</body>
+
+</html>

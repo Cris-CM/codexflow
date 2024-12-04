@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="gestioncurso.css">
+    <title>Cursos</title>
+</head>
+<body>
+    
+
+ <!-- LADO IZQUIERDO -->
+
+ <div class="container">
+    <aside>
+        <div class="toggle">
+            <div class="logo">
+                <img src="../Usuarios/img/loguito.png">
+                <h2>Guimart<span class="danger">Bot</span></h2>
+            </div>
+            <div class="close" id="close-btn">
+                <span class="material-icons-sharp">
+                    close
+                </span>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <a href="../Dashboard/dashboard.html">
+                <span class="material-icons-sharp">dashboard</span>
+                <h3>Panel</h3>
+            </a>
+            <a href="../GestionUsuario/gestionuser.html">
+                <span class="material-icons-sharp">person_outline</span>
+                <h3>Usuarios</h3>
+            </a>
+            <a href="../GestionCurso/gestioncurso.html" class="active">
+                <span class="material-icons-sharp">person_outline</span>
+                <h3>Cursos</h3>
+            </a>
+            <a href="../certificados/certificado.html">
+                <span class="material-icons-sharp">receipt_long</span>
+                <h3>Certificados</h3>
+            </a>
+            <a href="../Bandeja de Entrada/bandeja.html">
+                <span class="material-icons-sharp">mail_outline</span>
+                <h3>Bandeja entrada</h3>
+                <span class="message-count">27</span>
+            </a>
+            <a href="../Ventas/venta.html">
+                <span class="material-icons-sharp">inventory</span>
+                <h3>Ventas</h3>
+            </a>
+            <a href="#">
+                <span class="material-icons-sharp">report_gmailerrorred</span>
+                <h3>Reportes</h3>
+            </a>
+            <a href="#">
+                <span class="material-icons-sharp">logout</span>
+                <h3>Salir</h3>
+            </a>
+        </div>
+    </aside>
+
+
+
+
+
+
+            <!-- EMPIEZA LADO DEL MEDIO -->
+
+
+    <main>
+        <div class="gestion-cursos">
+            <h2>Gestión de Cursos</h2>
+            
+            <!-- Botones de acción -->
+            <div class="botones-accion">
+                <button id="agregar-curso-btn">Agregar Curso</button>
+                <button id="agregar-modulo-btn">Agregar Módulo</button>
+            </div>
+    
+            <!-- Formulario para agregar curso -->
+            <div id="formulario-curso" class="oculto">
+                <h3>Agregar Curso</h3>
+                <label for="nombre-curso">Nombre del Curso:</label>
+                <input type="text" id="nombre-curso" placeholder="Nombre del Curso">
+                
+                <label for="descripcion-curso">Descripción:</label>
+                <textarea id="descripcion-curso" placeholder="Descripción del curso"></textarea>
+
+                <label for="courseLevel">Categoria:</label>
+                <select id="courseLevel" name="courseLevel" required>
+                    <option value="Básico">Programacion</option>
+                    <option value="Intermedio">Arte</option>
+                    <option value="Avanzado">Matematicas</option>
+                </select>
+
+                <label for="courseLevel">Rango De Edad:</label>
+                <select id="courseLevel" name="courseLevel" required>
+                    <option value="Básico">6-9 años</option>
+                    <option value="Intermedio">10-17 años</option>
+                    <option value="Avanzado">18+</option>
+                </select>
+
+                <label for="courseImage">Imagen del Curso:</label>
+                <input type="file" id="courseImage" name="courseImage">
+                
+                <button id="guardar-curso">Guardar Curso</button>
+            </div>
+    
+            <!-- Formulario para agregar módulo -->
+            <div id="formulario-modulo" class="oculto">
+                <h3>Agregar Módulo</h3>
+                <label for="curso-modulo">Seleccionar Curso:</label>
+                <select id="curso-modulo">
+                    <option value="">Selecciona un curso</option>
+                    <option value="python">Aprende Python</option>
+                    <option value="javascript">JavaScript Avanzado</option>
+                    <option value="html-css">Fundamentos de HTML y CSS</option>
+                    <!-- Más cursos -->
+                </select>
+    
+                <label for="modulo-nombre">Nombre del Módulo:</label>
+                <input type="text" id="modulo-nombre" placeholder="Introducción a Python">
+
+                <label for="descripcion-curso">Descripción:</label>
+                <textarea id="descripcion-curso" placeholder="Descripción del curso"></textarea>
+    
+                <label for="modulo-video">URL del Video:</label>
+                <input type="text" id="modulo-video" placeholder="https://url-del-video.com">
+
+                <label for="courseImage">Archivos Adicionales:</label>
+                <input type="file" id="courseImage" name="courseImage">
+                
+                <button id="guardar-modulo">Guardar Módulo</button>
+            </div>
+    
+            <!-- Listado de cursos -->
+            <div class="cursos-lista">
+                <h3>Cursos Registrados</h3>
+                <ul id="lista-cursos">
+                    <!-- Los cursos registrados se listarán aquí -->
+                </ul>
+            </div>
+        </div>
+    
+ 
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- LADO DERECHO -->
+
+
+
+
+    <div class="right-section">
+        <div class="nav">
+            <button id="menu-btn">
+                <span class="material-icons-sharp">
+                    menu
+                </span>
+            </button>
+            <div class="dark-mode">
+                <span class="material-icons-sharp active">
+                    light_mode
+                </span>
+                <span class="material-icons-sharp">
+                    dark_mode
+                </span>
+            </div>
+
+
+
+            <div class="profile">
+                <div class="info">
+                    <p>Hey, <b>Junior</b></p>
+                    <small class="text-muted">Admin</small>
+                </div>
+                <div class="profile-photo">
+                    <img src="../Usuarios/img/loguito.png">
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="user-profile">
+            <div class="logo">
+                <img src="../Usuarios/img/loguito.png">
+                <h2>GuimartBot</h2>
+                <p>Fullstack Web Developer</p>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="reminders">
+            <div class="header">
+                <h2>Reminders</h2>
+                <span class="material-icons-sharp">
+                    notifications_none
+                </span>
+            </div>
+
+            <div class="notification">
+                <div class="icon">
+                    <span class="material-icons-sharp">
+                        volume_up
+                    </span>
+                </div>
+                <div class="content">
+                    <div class="info">
+                        <h3>Workshop</h3>
+                        <small class="text_muted">
+                            08:00 AM - 12:00 PM
+                        </small>
+                    </div>
+                    <span class="material-icons-sharp">
+                        more_vert
+                    </span>
+                </div>
+            </div>
+
+
+
+            <div class="notification deactive">
+                <div class="icon">
+                    <span class="material-icons-sharp">
+                        edit
+                    </span>
+                </div>
+                <div class="content">
+                    <div class="info">
+                        <h3>Workshop</h3>
+                        <small class="text_muted">
+                            08:00 AM - 12:00 PM
+                        </small>
+                    </div>
+                    <span class="material-icons-sharp">
+                        more_vert
+                    </span>
+                </div>
+            </div>
+
+            <div class="notification add-reminder">
+                <div>
+                    <span class="material-icons-sharp">
+                        add
+                    </span>
+                    <h3>Add Reminder</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="gestioncurso.js"></script>
+
+</body>
+</html>
