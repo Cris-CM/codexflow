@@ -95,7 +95,7 @@ document
 
         alert(data.message);
         // Redirigir a la página de inicio
-        window.location.href = "/Client/pages/Auth/login.html";
+        window.location.href = "/Client/pages/Home/home.html";
       } else {
         const textData = await response.text();
         alert(`Respuesta no JSON: ${textData}`);

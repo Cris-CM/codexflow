@@ -7,7 +7,6 @@
     <title>Sign in & Sign up Form</title>
     <link rel="icon" href="pictures/Logo de Codexflow.svg" />
   </head>
-
   <body>
     <div class="container">
       <div class="forms-container">
@@ -16,22 +15,19 @@
             <h2 class="title">Iniciar Sesion</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" id="email" placeholder="Usuario" />
+              <input type="text" id="login-email" placeholder="Usuario" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" id="password" placeholder="Contraseña" />
+              <input
+                type="password"
+                id="login-password"
+                placeholder="Contraseña"
+              />
             </div>
             <input class="btn solid" type="submit" value="Iniciar" />
-            <p class="social-text">O Registrate con Google</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"
-                  ><img src="pictures/google_black_logo_icon_147125.svg" alt=""
-                /></i>
-              </a>
-            </div>
           </form>
+
           <form action="#" class="sign-up-form" id="registration-form">
             <h2 class="title">Registrate</h2>
             <div class="input-field">
@@ -40,26 +36,21 @@
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" id="email" placeholder="Correo" />
+              <input type="email" id="register-email" placeholder="Correo" />
             </div>
-
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" id="password" placeholder="Contraseña" />
+              <input
+                type="password"
+                id="register-password"
+                placeholder="Contraseña"
+              />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
               <input type="date" id="fecha-nacimiento" placeholder="Edad" />
             </div>
             <input type="submit" class="btn" value="Registrate" />
-            <p class="social-text">O registrate con Google</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"
-                  ><img src="pictures/google_black_logo_icon_147125.svg" alt=""
-                /></i>
-              </a>
-            </div>
           </form>
         </div>
       </div>
@@ -97,8 +88,5 @@
       </div>
     </div>
     <script src="/Client/Js/Auth/controllers/login/app.js"></script>
-    <script src="/Client/Js/Auth/controllers/login/login.js"></script>
-    <script type="module" src="/Server/conexiones/server_login.js"></script>
-    <script type="module" src="/Server/conexiones/server_register.js"></script>
   </body>
 </html>

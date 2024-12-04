@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     reconnectionDelay: 1000,
   });
 
-  const userId = localStorage.getItem("userId") || Date.now().toString();
+  const userId = localStorage.getItem("userId");
   const userName = localStorage.getItem("userName");
 
   // Verificar autenticación
@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function logout() {
-    if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
-        localStorage.clear();
-        window.location.href = '/Client/pages/Auth/login.html';
+    if (confirm("¿Estás seguro que deseas cerrar sesión?")) {
+      localStorage.clear();
+      window.location.href = "/Client/pages/Auth/login.html";
     }
   }
 
@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Sistema de Racha (Streak)
   function setupStreak() {
-    let streakCount = parseInt(localStorage.getItem('streakCount') || '0');
+    let streakCount = parseInt(localStorage.getItem("streakCount") || "0");
     updateStreakDisplay(streakCount);
 
     const streakLogo = document.getElementById("streakLogo");
@@ -250,12 +250,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (streakLogo) {
       streakLogo.addEventListener("click", (event) => {
         event.stopPropagation();
-        streakInfo.style.display = streakInfo.style.display === "none" ? "block" : "none";
+        streakInfo.style.display =
+          streakInfo.style.display === "none" ? "block" : "none";
       });
     }
 
     document.addEventListener("click", (event) => {
-      if (streakInfo && !streakLogo.contains(event.target) && !streakInfo.contains(event.target)) {
+      if (
+        streakInfo &&
+        !streakLogo.contains(event.target) &&
+        !streakInfo.contains(event.target)
+      ) {
         streakInfo.style.display = "none";
       }
     });
@@ -263,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Simulating streak increment (replace with actual logic)
     setInterval(() => {
       streakCount++;
-      localStorage.setItem('streakCount', streakCount.toString());
+      localStorage.setItem("streakCount", streakCount.toString());
       updateStreakDisplay(streakCount);
     }, 86400000); // 24 hours
   }
@@ -271,10 +276,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateStreakDisplay(count) {
     const streakDays = document.getElementById("streakDays");
     const streakFire = document.getElementById("streakFire");
-    
+
     if (streakDays && streakFire) {
       streakDays.textContent = count;
-      streakFire.textContent = count < 5 ? "🔥" : count < 10 ? "🔥🔥" : "🔥🔥🔥";
+      streakFire.textContent =
+        count < 5 ? "🔥" : count < 10 ? "🔥🔥" : "🔥🔥🔥";
     }
   }
 
@@ -304,7 +310,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const isClickInsideSidebar = sidebar.contains(event.target);
       const isClickOnToggleButton = sidebarToggle.contains(event.target);
 
-      if (isMobile && !isClickInsideSidebar && !isClickOnToggleButton && !sidebar.classList.contains("collapsed")) {
+      if (
+        isMobile &&
+        !isClickInsideSidebar &&
+        !isClickOnToggleButton &&
+        !sidebar.classList.contains("collapsed")
+      ) {
         toggleSidebar();
       }
     });
@@ -331,106 +342,138 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeApp();
 
   // New code for course filtering and searching
-  const searchInput = document.getElementById('searchInput');
-  const coursesGrid = document.getElementById('coursesGrid');
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const requestScholarshipButton = document.getElementById('requestScholarship');
+  const searchInput = document.getElementById("searchInput");
+  const coursesGrid = document.getElementById("coursesGrid");
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const requestScholarshipButton =
+    document.getElementById("requestScholarship");
 
   const courses = [
-      {
-          title: 'Introducción a la Robótica',
-          description: 'Enfocado en introducir a los estudiantes en el mundo de la robótica y programación básica',
-          image: '/path/to/robotics-image.jpg',
-          age: 'kids',
-          tags: ['robótica', 'programación', 'básico']
-      },
-      { title: 'Desarrollo Web para Adolescentes', age: 'teens', tags: ['web', 'html', 'css'] },
-      { title: 'JavaScript Avanzado', age: 'adults', tags: ['javascript', 'avanzado'] },
-      { title: 'Diseño de Videojuegos para Niños', age: 'kids', tags: ['videojuegos', 'diseño'] },
-      { title: 'Redes Sociales y Seguridad Online', age: 'teens', tags: ['seguridad', 'redes sociales'] },
-      { title: 'Machine Learning y IA', age: 'adults', tags: ['ia', 'machine learning'] }
+    {
+      title: "Introducción a la Robótica",
+      description:
+        "Enfocado en introducir a los estudiantes en el mundo de la robótica y programación básica",
+      image: "/path/to/robotics-image.jpg",
+      age: "kids",
+      tags: ["robótica", "programación", "básico"],
+    },
+    {
+      title: "Desarrollo Web para Adolescentes",
+      age: "teens",
+      tags: ["web", "html", "css"],
+    },
+    {
+      title: "JavaScript Avanzado",
+      age: "adults",
+      tags: ["javascript", "avanzado"],
+    },
+    {
+      title: "Diseño de Videojuegos para Niños",
+      age: "kids",
+      tags: ["videojuegos", "diseño"],
+    },
+    {
+      title: "Redes Sociales y Seguridad Online",
+      age: "teens",
+      tags: ["seguridad", "redes sociales"],
+    },
+    {
+      title: "Machine Learning y IA",
+      age: "adults",
+      tags: ["ia", "machine learning"],
+    },
   ];
 
   function renderCourses(filteredCourses) {
-      coursesGrid.innerHTML = '';
-      filteredCourses.forEach(course => {
-          const courseElement = document.createElement('div');
-          courseElement.classList.add('course-card');
-          
-          courseElement.innerHTML = `
-              <img src="${course.image || '/Client/Images/fondo_hollow knight.jpeg'}" 
+    coursesGrid.innerHTML = "";
+    filteredCourses.forEach((course) => {
+      const courseElement = document.createElement("div");
+      courseElement.classList.add("course-card");
+
+      courseElement.innerHTML = `
+              <img src="${
+                course.image || "/Client/Images/fondo_hollow knight.jpeg"
+              }" 
                    alt="${course.title}" 
                    class="course-image">
               <div class="course-content">
                   <h3 class="course-title">${course.title}</h3>
-                  <p class="course-description">${course.description || 'Enfocado en introducir a los estudiantes en esta área de conocimiento.'}</p>
+                  <p class="course-description">${
+                    course.description ||
+                    "Enfocado en introducir a los estudiantes en esta área de conocimiento."
+                  }</p>
                   <div class="course-buttons">
                       <button class="course-btn course-btn-primary">Ver sesiones</button>
                       <button class="course-btn course-btn-secondary">Ir a Evaluación</button>
                   </div>
               </div>
           `;
-          
-          // Add click handlers for buttons
-          const buttons = courseElement.querySelectorAll('.course-btn');
-          buttons.forEach(button => {
-              button.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  const action = button.textContent;
-                  if (action === 'Ver sesiones') {
-                      // Handle view sessions
-                      console.log('Ver sesiones para:', course.title);
-                  } else {
-                      // Handle evaluation
-                      console.log('Ir a evaluación para:', course.title);
-                  }
-              });
-          });
-          
-          coursesGrid.appendChild(courseElement);
+
+      // Add click handlers for buttons
+      const buttons = courseElement.querySelectorAll(".course-btn");
+      buttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
+          const action = button.textContent;
+          if (action === "Ver sesiones") {
+            // Handle view sessions
+            console.log("Ver sesiones para:", course.title);
+          } else {
+            // Handle evaluation
+            console.log("Ir a evaluación para:", course.title);
+          }
+        });
       });
+
+      coursesGrid.appendChild(courseElement);
+    });
   }
 
   function filterCourses(age) {
-      return courses.filter(course => course.age === age);
+    return courses.filter((course) => course.age === age);
   }
 
   function searchCourses(query) {
-      return courses.filter(course => 
-          course.title.toLowerCase().includes(query.toLowerCase()) ||
-          course.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
-      );
+    return courses.filter(
+      (course) =>
+        course.title.toLowerCase().includes(query.toLowerCase()) ||
+        course.tags.some((tag) =>
+          tag.toLowerCase().includes(query.toLowerCase())
+        )
+    );
   }
 
   // Add a reset button
-  const resetButton = document.createElement('button');
-  resetButton.textContent = 'Restablecer';
-  resetButton.classList.add('filter-btn');
-  resetButton.addEventListener('click', function() {
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      renderCourses(courses);
+  const resetButton = document.createElement("button");
+  resetButton.textContent = "Restablecer";
+  resetButton.classList.add("filter-btn");
+  resetButton.addEventListener("click", function () {
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
+    renderCourses(courses);
   });
-  document.querySelector('.filter-buttons').appendChild(resetButton);
+  document.querySelector(".filter-buttons").appendChild(resetButton);
 
-  filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-          const age = this.dataset.age;
-          filterButtons.forEach(btn => btn.classList.remove('active'));
-          this.classList.add('active');
-          const filteredCourses = filterCourses(age);
-          renderCourses(filteredCourses);
-      });
-  });
-
-  searchInput.addEventListener('input', function() {
-      const query = this.value;
-      const searchResults = searchCourses(query);
-      renderCourses(searchResults);
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const age = this.dataset.age;
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
+      const filteredCourses = filterCourses(age);
+      renderCourses(filteredCourses);
+    });
   });
 
-  requestScholarshipButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      alert('Funcionalidad de solicitud de beca en desarrollo. Pronto estará disponible.');
+  searchInput.addEventListener("input", function () {
+    const query = this.value;
+    const searchResults = searchCourses(query);
+    renderCourses(searchResults);
+  });
+
+  requestScholarshipButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    alert(
+      "Funcionalidad de solicitud de beca en desarrollo. Pronto estará disponible."
+    );
   });
 
   // Initialize with all courses
