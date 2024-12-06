@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="modulos.css">
+    <link rel="icon" href="../img/logo.png">
+    <title>CodexFlow</title>
+</head>
+<body>
+    <div class="container">
+        <main class="full-screen">
+            <header class="curso-header">
+                <div class="return-arrow">
+                    <a href="gestioncurso.html">
+                        <i class='bx bx-arrow-back'></i> Retornar
+                    </a>
+                </div>
+                <h2 class="titulo-curso">Módulos: <span id="curso-nombre">Nombre del Curso</span></h2>
+                <button id="agregar-modulo-btn" class="add-module-btn">
+                    <i class='bx bx-plus'></i> Agregar Módulo
+                </button>
+            </header>
+
+            <div class="modulos-grid">
+                <!-- Los módulos se mostrarán aquí en forma de cards -->
+            </div>
+
+            <div id="modulo-modal" class="modal oculto">
+                <div class="modal-content">
+                    <h3>Agregar Módulo</h3>
+                    <form id="modulo-form">
+                        <div class="form-group">
+                            <label for="modulo-nombre">Nombre del Módulo:</label>
+                            <input type="text" id="modulo-nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modulo-descripcion">Descripción:</label>
+                            <textarea id="modulo-descripcion" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modulo-video">URL del Video:</label>
+                            <input type="url" id="modulo-video" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modulo-archivos">Archivos Adicionales:</label>
+                            <input type="file" id="modulo-archivos" multiple>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="save-btn">Guardar</button>
+                            <button type="button" class="cancel-btn">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="modulos.js"></script>
+</body>
+</html> 

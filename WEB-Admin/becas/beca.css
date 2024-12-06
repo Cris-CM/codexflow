@@ -1,0 +1,532 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-primario: #6C9BCF;
+    --color-peligro: #FF0060;
+    --color-exito: #1B9C85;
+    --color-advertencia: #F7D060;
+    --color-blanco: #fff;
+    --color-oscuro: #363949;
+    --color-luz: rgba(132, 139, 200, 0.18);
+    --sombra-caja: 0 2rem 3rem var(--color-luz);
+    --color-primario: #6C9BCF;
+    --color-peligro: #FF0060;
+    --color-exito: #1B9C85;
+    --color-advertencia: #F7D060;
+    --color-blanco: #fff;
+    --color-informacion-oscura: #7d8da1;
+    --color-oscuro: #363949;
+    --color-luz: rgba(132, 139, 200, 0.18);
+    --color-oscuro-variado: #677483;
+    --color-fondo: #f6f6f9;
+    --radio-borde-tarjeta: 2rem;
+    --radio-borde-1: 0.4rem;
+    --radio-borde-2: 1.2rem;
+    --relleno-tarjeta: 1.8rem;
+    --relleno-1: 1.2rem;
+    --sombra-caja: 0 2rem 3rem var(--color-luz);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    -webkit-user-select: none;
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-oscuro);
+    background-color: var(--color-fondo);
+}
+
+a {
+    color: var(--color-oscuro);
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 0.87rem;
+}
+
+small {
+    font-size: 0.76rem;
+}
+
+p {
+    color: var(--color-oscuro-variado);
+}
+
+b {
+    color: var(--color-oscuro);
+}
+
+.text-muted {
+    color: var(--color-informacion-oscura);
+}
+
+.primary {
+    color: var(--color-primario);
+}
+
+.danger {
+    color: var(--color-peligro);
+}
+
+.success {
+    color: var(--color-exito);
+}
+
+.warning {
+    color: var(--color-advertencia);
+}
+
+.container {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 12rem auto;
+}
+
+aside {
+    height: 100vh;
+}
+
+aside .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+    position: static;
+}
+
+aside .toggle .logo {
+    display: flex;
+    gap: 0.5rem;
+}
+
+aside .toggle .logo img {
+    width: 2rem;
+    height: 2rem;
+}
+
+aside .toggle .close {
+    padding-right: 1rem;
+    display: none;
+}
+
+aside .sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra-caja);
+    border-radius: 15px;
+    height: 88vh;
+    position: relative;
+    top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+aside .sidebar:hover {
+    box-shadow: none;
+}
+
+aside .sidebar a {
+    display: flex;
+    align-items: center;
+    color: var(--color-informacion-oscura);
+    height: 3.7rem;
+    gap: 1rem;
+    position: relative;
+    margin-left: 2rem;
+    transition: all 0.3s ease;
+}
+
+aside .sidebar a span {
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+}
+
+aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+aside .sidebar a.active {
+    width: 100%;
+    color: var(--color-primario);
+    background-color: var(--color-luz);
+    margin-left: 0;
+}
+
+aside .sidebar a.active::before {
+    content: '';
+    width: 6px;
+    height: 18px;
+    background-color: var(--color-primario);
+}
+
+aside .sidebar a.active span {
+    color: var(--color-primario);
+    margin-left: calc(1rem - 3px);
+}
+
+aside .sidebar a:hover {
+    color: var(--color-primario);
+}
+
+aside .sidebar a:hover span {
+    margin-left: 0.6rem;
+}
+
+aside .sidebar .message-count {
+    background-color: var(--color-peligro);
+    padding: 2px 6px;
+    color: var(--color-blanco);
+    font-size: 11px;
+    border-radius: var(--radio-borde-1);
+}
+
+.admin-info {
+    margin-bottom: 20px;
+}
+
+.super-admin {
+    color: #ecf0f1;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.admin-actions a {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-super-admin,
+.btn-logout {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-super-admin:hover,
+.btn-logout:hover {
+    background-color: #2980b9;
+}
+
+.side-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.side-menu li {
+    margin: 10px 0;
+}
+
+.side-menu a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.side-menu a:hover {
+    background-color: #34495e;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+}
+
+h2 {
+    text-align: center;
+    color: #34495e;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.search-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-filters input[type="text"],
+.search-filters select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.search-filters button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-filters button:hover {
+    background-color: #2980b9;
+}
+
+.table-solicitudes {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-solicitudes th,
+.table-solicitudes td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-solicitudes th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+.table-solicitudes tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-solicitudes tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-ver,
+.btn-aceptar,
+.btn-denegar {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ver {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-ver:hover {
+    background-color: #2980b9;
+}
+
+.btn-aceptar {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.btn-aceptar:hover {
+    background-color: #27ae60;
+}
+
+.btn-denegar {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-denegar:hover {
+    background-color: #c0392b;
+}
+
+.detalles-solicitud {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.detalles-solicitud h3 {
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+.detalles-solicitud ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detalles-solicitud ul li {
+    margin: 5px 0;
+}
+
+.detalles-solicitud ul li a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.detalles-solicitud ul li a:hover {
+    color: #2980b9;
+}
+
+.btn-cerrar {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cerrar:hover {
+    background-color: #d35400;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+}
+
+.modal-contenido {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% desde la parte superior y centrado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 600px; /* Ancho máximo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cerrar-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.btn-cerrar-modal:hover,
+.btn-cerrar-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos para el menú desplegable */
+.menu-item {
+    width: 100%;
+    position: relative;
+}
+
+.menu-item .user-toggle {
+    display: flex;
+    align-items: center;
+    color: var(--color-info-dark);
+    height: 2rem;
+    gap: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.arrow {
+    margin-left: auto;
+    margin-right: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.sub-menu {
+    display: none;
+    background-color: var(--color-white);
+    width: 100%;
+    border-radius: 15px;
+}
+
+.sub-menu.active {
+    display: block;
+}
+
+.sub-menu a {
+    height: 1.7rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-info-dark);
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.sub-menu a:hover {
+    background-color: var(--color-light);
+    margin-left: 1rem;
+}
+
+.arrow.active {
+    transform: rotate(180deg);
+}
+
+/* Asegurar que el botón de salir esté al final */
+.logout {
+    position: absolute !important;
+    bottom: 0.5rem !important;
+    width: 100% !important;
+}
