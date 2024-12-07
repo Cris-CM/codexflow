@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Desarrollo Web</title>
+    <link rel="stylesheet" href="./desccurso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Fuente principal para un aspecto serio */
+        }
+        .web-development {
+            font-family: 'Comic Sans MS', cursive; /* Fuente amigable para la sección de desarrollo web */
+        }
+        .curso-aprendizaje, .curso-contenido, .curso-reseñas, .curso-instructores, .cursos-recomendados {
+            font-family: 'Comic Sans MS', cursive; /* Fuente amigable para secciones específicas */
+        }
+        .titulo-requisitos, .titulo-descripcion {
+            font-family: 'Roboto', sans-serif; /* Fuente seria para títulos */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="logo">
+            <img src="./img/logo.png" alt="codexflow Logo" />
+            <span>CodexFlow</span>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="¿Qué quieres aprender?" />
+          </div>
+          <ul class="nav-links">
+            <li>
+              <a href="/Client/pages/Courses/1Courses_page/Courses.html">Cursos</a>
+            </li>
+            <li><a href="/Client/pages/Plans/plans.html">Planes</a></li>
+            <li><a href="">Contáctanos</a></li>
+          </ul>
+          <div class="user-menu">
+            <img src="./img/perfil.png" alt="Usuario" />
+            <div class="dropdown-menu">
+              <p>Hola, <span class="user-name">Usuario</span></p>
+              <a href="#" onclick="window.location.href='/Client/pages/Courses/Courses.html'">Ver todos mis cursos</a>
+              <a href="#" onclick="window.location.href='/Client/pages/Auth/profile.html'">Ver mi perfil</a>
+              <a href="#" onclick="window.location.href='/Client/pages/Plans/plans.html'">Mis planes</a>
+              <a href="#">Mi Suscripción</a>
+              <a href="#">Contáctanos</a>
+              <a href="#">Configuración</a>
+              <a href="#" class="logout">Cerrar sesión</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <section class="web-development">
+        <img src="./img/diseño web.png" alt="Desarrollo Web" class="img-desarrollo">
+        <div class="web-content">
+            <h1>Curso de desarrollo web HTML CSS JavaScript Aprende diseño web</h1>
+            <p>Guía para crear un sitio web aprenda a crear un negocio web HTML CSS y JavaScript cree su propio sitio web</p>
+            <div class="info">
+                <span class="rating">4.4 ★ (5,002 valoraciones)</span>
+                <span class="students">158,213 estudiantes</span>
+                <span class="duration"><i class="fas fa-clock"></i> 5 horas y 7 minutos de video a pedido</span>
+            </div>
+            <p>Creado por Laurence Svekis</p>
+            <button class="btn-curso">Ir al curso</button>
+        </div>
+    </section>
+    <nav class="curso-nav">
+        <ul>
+            <li><a href="#lo-que-aprenderas">Lo que aprenderás</a></li>
+            <li><a href="#contenido-del-curso">Contenido del curso</a></li>
+            <li><a href="#reseñas">Reseñas</a></li>
+            <li><a href="#instructores">Instructores</a></li>
+        </ul>
+        <hr>
+    </nav>
+
+    <section class="curso-aprendizaje" id="lo-que-aprenderas">
+        <ul class="lista-aprendizaje">
+            <li><i class="fas fa-code"></i> Crear sitios web</li>
+            <li><i class="fas fa-laptop-code"></i> Aplicar HTML, CSS y JavaScript</li>
+            <li><i class="fas fa-lightbulb"></i> Entender cómo crear sitios web</li>
+            <li><i class="fas fa-paint-brush"></i> Diseño de sitio web</li>
+            <li><i class="fas fa-folder-plus"></i> Crear sus propios sitios web</li>
+        </ul>
+    </section>
+
+    <section class="curso-contenido" id="contenido-del-curso">
+        <h3 class="titulo-requisitos">Requisitos</h3>
+        <ul class="lista-requisitos">
+            <li><i class="fas fa-desktop"></i> Acceso a la computadora</li>
+            <li><i class="fas fa-graduation-cap"></i> Deseo de aprender</li>
+        </ul>
+        <h3 class="titulo-descripcion">Descripción</h3>
+        <p class="descripcion-curso">Curso completo para desarrolladores web que cubre todo lo que necesitas saber paso a paso para comenzar a crear sitios web.</p>
+        <p class="descripcion-curso">Este curso cubre todo, incluyendo cómo funciona la web, cómo aprender HTML, CSS y JavaScript y mucho más.</p>
+        <p class="descripcion-curso">Guía PDF GRATIS adicional de más de 80 páginas con código fuente y ejemplos de código. Aprenda HTML, CSS y JavaScript.</p>
+    </section>
+
+    <section class="curso-reseñas" id="reseñas">
+        <h2>Comentarios de los estudiantes</h2>
+        <div class="rating-summary">
+            <span class="rating">4.4</span>
+            <span class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </span>
+            <span class="calificacion">Calificación del curso</span>
+        </div>
+        <div class="reseñas">
+            <aside class="comments">
+                <h3>Comentarios</h3>
+                <div class="comment-box">
+                    <textarea placeholder="Escribe tu comentario aquí..."></textarea>
+                    <button id="post-comment">Publicar</button>
+                </div>
+                <div class="comment-list">
+                    <!-- Los comentarios se agregarán aquí -->
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="curso-instructores" id="instructores">
+        <h2>Instructor</h2>
+        <div class="instructor-info">
+            <img src="./img/perfil.png" alt="Laurence Svekis" class="instructor-avatar">
+            <div class="instructor-details">
+                <p><strong>Laurence Svekis</strong></p>
+                <p>Instructor, GDE, Desarrollador de aplicaciones</p>
+                <p>Calificación del instructor: 
+                    <span class="rating">4.3</span>
+                    <span class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </span>
+                </p>
+                <p>Estoy aquí para ayudarte a aprender, a alcanzar tus sueños...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cursos-recomendados">
+        <h2>Cursos Recomendados</h2>
+        <div class="carousel">
+            <button class="carousel-btn prev-btn">⬅</button>
+            <div class="carousel-track">
+                <div class="curso">
+                    <img src="./img/html.jpg" alt="Curso 1">
+                    <h3>Become a Certified Web Developer: HTML, CSS and...</h3>
+                    <span class="rating rating-2">4.6 ★ (3,951 valoraciones)</span>
+                    <span class="precio">S/49.90 <del>S/479.90</del></span>
+                    <p>SkillSprints Inc., Mark Lassoff</p>
+                </div>
+                <div class="curso">
+                    <img src="./img/html.jpg" alt="Curso 2">
+                    <h3>The Complete 2020 Fullstack Web Developer Course</h3>
+                    <span class="rating rating-2">4.6 ★ (7,528 valoraciones)</span>
+                    <span class="precio">S/49.90 <del>S/69.90</del></span>
+                    <p>SkillSprints Inc., Mark Lassoff</p>
+                </div>
+                <div class="curso">
+                    <img src="./img/html.jpg" alt="Curso 3">
+                    <h3>Introduction to Web Development</h3>
+                    <span class="rating rating-2">4.4 ★ (2,571 valoraciones)</span>
+                    <span class="precio">S/49.90 <del>S/64.90</del></span>
+                    <p>SkillSprints Inc., Mark Lassoff</p>
+                </div>
+                <div class="curso">
+                    <img src="./img/html.jpg" alt="Curso 4">
+                    <h3>Ultimate Web Designer & Web Developer Course</h3>
+                    <span class="rating rating-2">4.4 ★ (14,581 valoraciones)</span>
+                    <span class="precio">S/49.90 <del>S/59.90</del></span>
+                    <p>SkillSprints Inc., Mark Lassoff</p>
+                </div>
+                <div class="curso">
+                    <img src="./img/html.jpg" alt="Curso 5">
+                    <h3>Introduction to Programming</h3>
+                    <span class="rating rating-2">4.6 ★ (1,699 valoraciones)</span>
+                    <span class="precio">S/64.90 <del>S/89.90</del></span>
+                    <p>SkillSprints Inc., Mark Lassoff</p>
+                </div>
+                <div class="curso">
+                    <img src="./img/html.jpg" alt="Curso 6">
+                    <h3>Advanced Web Development Techniques</h3>
+                    <span class="rating rating-2">4.5 ★ (1,200 valoraciones)</span>
+                    <span class="precio">S/59.90 <del>S/79.90</del></span>
+                    <p>SkillSprints Inc., Mark Lassoff</p>
+                </div>
+                <div class="curso">
+                    <img src="./img/html.jpg" alt="Curso 7">
+                    <h3>Fullstack Development Bootcamp</h3>
+                    <span class="rating rating-2">4.7 ★ (2,300 valoraciones)</span>
+                    <span class="precio">S/69.90 <del>S/99.90</del></span>
+                    <p>SkillSprints Inc., Mark Lassoff</p>
+                </div>
+            </div>
+            <button class="carousel-btn next-btn">➡</button>
+        </div>
+    </section>
+
+    <script src="./desccurso.js"></script>
+</body>
+</html>
