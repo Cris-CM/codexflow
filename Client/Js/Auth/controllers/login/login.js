@@ -40,6 +40,10 @@ document
         fechaNacimiento,
       });
 
+      // Guardar datos en el almacenamiento local
+      localStorage.setItem('userName', nombre);
+      localStorage.setItem('userEmail', email);
+
       console.log("Usuario registrado y datos guardados en Firestore:", user);
     } catch (error) {
       console.error("Error al registrar:", error);
@@ -57,7 +61,17 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
       email,
       password
     );
-    console.log("Usuario logueado:", userCredential.user);
+    const user = userCredential.user;
+
+    // Recuperar datos del usuario desde Firestore
+    const userDoc = await db.collection("Users").doc(user.uid).get();
+    const userData = userDoc.data();
+
+    // Guardar datos en el almacenamiento local
+    localStorage.setItem('userName', userData.nombre);
+    localStorage.setItem('userEmail', userData.email);
+
+    console.log("Usuario logueado:", user);
   } catch (error) {
     console.error("Error al iniciar sesión:", error);
   }

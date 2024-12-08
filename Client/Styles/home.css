@@ -665,37 +665,7 @@ body {
   color: var(--text-primary);
 }
 
-/* Filter Section */
-.filter-section {
-  background-color: var(--surface-dark);
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
 
-.filter-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.filter-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 25px;
-  background-color: var(--primary-color);
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.filter-btn:hover, .filter-btn.active {
-  background-color: var(--background-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
-}
 
 /* Responsive Styles */
 @media (max-width: 768px) {

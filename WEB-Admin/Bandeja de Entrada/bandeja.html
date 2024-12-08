@@ -1,147 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../img/logo.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="../img/logo.png" />
     <title>CodexFlow</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <aside>
-            <div class="toggle">
-                <div class="logo">
-                    <img src="../img/logo.png" alt="Logo de codexflow">
-                    <h2>CODEX<span class="danger">FLOW</span></h2>
-                </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">close</span>
-                </div>
+      <aside>
+        <div class="toggle">
+          <div class="logo">
+            <img src="../img/logo.png" alt="Logo de codexflow" />
+            <h2>CODEX<span class="danger">FLOW</span></h2>
+          </div>
+          <div class="close" id="close-btn">
+            <span class="material-icons-sharp">close</span>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <a href="../../Dashboard/dashboard.html">
+            <span class="material-icons-sharp">dashboard</span>
+            <h3>Panel</h3>
+          </a>
+
+          <a href="../../GestionCurso/gestioncurso.html">
+            <span class="material-icons-sharp">book</span>
+            <h3>Cursos</h3>
+          </a>
+
+          <a href="../../certificados/certificado.html">
+            <span class="material-icons-sharp">receipt_long</span>
+            <h3>Certificados</h3>
+          </a>
+
+          <a href="../../Bandeja de Entrada/bandeja.html">
+            <span class="material-icons-sharp">mail_outline</span>
+            <h3>Bandeja entrada</h3>
+            <span class="message-count">27</span>
+          </a>
+
+          <a href="../../Ventas/venta.html">
+            <span class="material-icons-sharp">inventory</span>
+            <h3>Ventas</h3>
+          </a>
+
+          <a href="../becas/beca.html">
+            <span class="material-icons-sharp">school</span>
+            <h3>Becas</h3>
+          </a>
+
+          <!-- Menú desplegable de usuarios -->
+          <div class="menu-item">
+            <a href="#" class="user-toggle">
+              <span class="material-icons-sharp">people</span>
+              <h3>Usuarios</h3>
+              <span class="material-icons-sharp arrow">expand_more</span>
+            </a>
+
+            <div class="sub-menu">
+              <a href="../../GestionUsuario/gestion admin/gestionadmin.html">
+                <span class="material-icons-sharp">admin_panel_settings</span>
+                <h3>Administradores</h3>
+              </a>
+              <a
+                href="../../GestionUsuario/gestion profesor/gestionprofesor.html"
+              >
+                <span class="material-icons-sharp">school</span>
+                <h3>Profesores</h3>
+              </a>
+              <a href="../../GestionUsuario/gestion alumno/gestionalumno.html">
+                <span class="material-icons-sharp">person</span>
+                <h3>Alumnos</h3>
+              </a>
             </div>
+          </div>
 
-            <div class="sidebar">
-                <a href="../../Dashboard/dashboard.html">
-                    <span class="material-icons-sharp">dashboard</span>
-                    <h3>Panel</h3>
-                </a>
-                
-                <a href="../../GestionCurso/gestioncurso.html">
-                    <span class="material-icons-sharp">book</span>
-                    <h3>Cursos</h3>
-                </a>
-                
-                <a href="../../certificados/certificado.html">
-                    <span class="material-icons-sharp">receipt_long</span>
-                    <h3>Certificados</h3>
-                </a>
-                
-                <a href="../../Bandeja de Entrada/bandeja.html">
-                    <span class="material-icons-sharp">mail_outline</span>
-                    <h3>Bandeja entrada</h3>
-                    <span class="message-count">27</span>
-                </a>
-                
-                <a href="../../Ventas/venta.html">
-                    <span class="material-icons-sharp">inventory</span>
-                    <h3>Ventas</h3>
-                </a>
+          <a href="#" class="logout">
+            <span class="material-icons-sharp">logout</span>
+            <h3>Salir</h3>
+          </a>
+        </div>
+      </aside>
 
-                <a href="../becas/beca.html">
-                    <span class="material-icons-sharp">school</span>
-                    <h3>Becas</h3>
-                </a>
-    
-                 <!-- Menú desplegable de usuarios -->
-                 <div class="menu-item">
-                    <a href="#" class="user-toggle">
-                        <span class="material-icons-sharp">people</span>
-                        <h3>Usuarios</h3>
-                        <span class="material-icons-sharp arrow">expand_more</span>
-                    </a>
-                    
-                    <div class="sub-menu">
-                        <a href="../../GestionUsuario/gestion admin/gestionadmin.html">
-                            <span class="material-icons-sharp">admin_panel_settings</span>
-                            <h3>Administradores</h3>
-                        </a>
-                        <a href="../../GestionUsuario/gestion profesor/gestionprofesor.html">
-                            <span class="material-icons-sharp">school</span>
-                            <h3>Profesores</h3>
-                        </a>
-                        <a href="../../GestionUsuario/gestion alumno/gestionalumno.html">
-                            <span class="material-icons-sharp">person</span>
-                            <h3>Alumnos</h3>
-                        </a>
-                    </div>
-
-                    
-                </div>
-    
-                <a href="#" class="logout">
-                    <span class="material-icons-sharp">logout</span>
-                    <h3>Salir</h3>
-                </a>
+      <main id="messaging" class="content-section hidden">
+        <div class="messaging-container">
+          <div class="chat-list" id="chatsList">
+            <h2>Nuevos</h2>
+            <div class="chat">
+              <img src="../img/profile-2.png" alt="" />
+              <div class="chat-info">
+                <h3>César Lm</h3>
+                <p>Los mensajes estan cifrados</p>
+              </div>
             </div>
-        </aside>
+          </div>
 
-
-
-        
-
-        <main id="messaging" class="content-section hidden">
-            <div class="messaging-container">
-                <div class="chat-list" id="chatsList">
-                    <h2>Nuevos</h2>
-                    <div class="chat">
-                        <img src="../img/profile-2.png" alt="">
-                        <div class="chat-info">
-                            <h3>César Lm</h3>
-                            <p>Los mensajes estan cifrados</p>
-                        </div>
-                       
-                    </div>
-                </div>
-        
-                <div class="chat-area">
-                    <div class="chat-header">
-                        <h3 id="chatHeader">Selecciona un chat</h3>
-                    </div>
-                    <div class="message-history" id="messageHistory">
-                        <!-- Los mensajes se cargarán dinámicamente aquí -->
-                    </div>
-                    <div class="message-input">
-                        <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
-                        <button id="sendButton" class="btn">Enviar</button>
-                    </div>
-                </div>
+          <div class="chat-area">
+            <div class="chat-header">
+              <h3 id="chatHeader">Selecciona un chat</h3>
             </div>
-        </main>
-        
+            <div class="message-history" id="messageHistory">
+              <!-- Los mensajes se cargarán dinámicamente aquí -->
+            </div>
+            <div class="message-input">
+              <input
+                type="text"
+                id="messageInput"
+                placeholder="Escribe un mensaje..."
+              />
+              <button id="sendButton" class="btn">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
     <script src="bandeja.js"></script>
+    <script src="/Client/Js/Auth/controllers/admin/admin_page.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const userToggle = document.querySelector('.user-toggle');
-            const subMenu = document.querySelector('.sub-menu');
-            const arrow = document.querySelector('.arrow');
-        
-            userToggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                subMenu.classList.toggle('active');
-                arrow.classList.toggle('active');
-            });
-        });
-    </script>
-    
-</body>
+      document.addEventListener("DOMContentLoaded", function () {
+        const userToggle = document.querySelector(".user-toggle");
+        const subMenu = document.querySelector(".sub-menu");
+        const arrow = document.querySelector(".arrow");
 
+        userToggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          subMenu.classList.toggle("active");
+          arrow.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
 </html>

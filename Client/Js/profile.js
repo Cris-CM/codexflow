@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const userName = localStorage.getItem("userName");
+  const userEmail = localStorage.getItem("userEmail");
+
+  console.log("Nombre de usuario:", userName);
+  console.log("Email de usuario:", userEmail);
+
+  const userNameElement = document.getElementById("userName");
+  if (userNameElement) {
+    userNameElement.textContent = userName || "Cargando...";
+  }
+
+  const userEmailElement = document.getElementById("userEmail");
+  if (userEmailElement) {
+    userEmailElement.textContent = userEmail || "Correo no disponible";
+  }
+
   // Simulación de carga de datos del usuario
   const userData = {
     name: localStorage.getItem("userName") || "Nombre no disponible",
@@ -62,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function loadCourses() {
     const courseList = document.getElementById("courseList");
-    courseList.innerHTML = ""; 
+    courseList.innerHTML = "";
     userData.courses.forEach((course) => {
       const li = document.createElement("li");
       li.innerHTML = `
@@ -213,5 +229,5 @@ document.addEventListener("DOMContentLoaded", function () {
   // Simulación de carga de datos adicionales (podría ser una llamada a API en un caso real)
   setTimeout(() => {
     console.log("Datos adicionales cargados");
-    }, 2000);
+  }, 2000);
 });

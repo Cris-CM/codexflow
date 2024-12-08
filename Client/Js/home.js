@@ -429,40 +429,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function filterCourses(age) {
-    return courses.filter((course) => course.age === age);
-  }
-
-  function searchCourses(query) {
-    return courses.filter(
-      (course) =>
-        course.title.toLowerCase().includes(query.toLowerCase()) ||
-        course.tags.some((tag) =>
-          tag.toLowerCase().includes(query.toLowerCase())
-        )
-    );
-  }
-
-  // Add a reset button
-  const resetButton = document.createElement("button");
-  resetButton.textContent = "Restablecer";
-  resetButton.classList.add("filter-btn");
-  resetButton.addEventListener("click", function () {
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
-    renderCourses(courses);
-  });
-  document.querySelector(".filter-buttons").appendChild(resetButton);
-
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const age = this.dataset.age;
-      filterButtons.forEach((btn) => btn.classList.remove("active"));
-      this.classList.add("active");
-      const filteredCourses = filterCourses(age);
-      renderCourses(filteredCourses);
-    });
-  });
-
   searchInput.addEventListener("input", function () {
     const query = this.value;
     const searchResults = searchCourses(query);
