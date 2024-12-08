@@ -287,12 +287,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Funcionalidad del sidebar
   function setupSidebar() {
     const sidebarToggle = document.getElementById("sidebarToggle");
-    const sidebarClose = document.getElementById("sidebarClose");
     const sidebar = document.querySelector(".sidebar");
     const mainContent = document.getElementById("main-content");
 
     function toggleSidebar() {
       sidebar.classList.toggle("collapsed");
+      sidebar.classList.toggle("open");
       mainContent.classList.toggle("sidebar-collapsed");
     }
 
@@ -300,11 +300,6 @@ document.addEventListener("DOMContentLoaded", function () {
       sidebarToggle.addEventListener("click", toggleSidebar);
     }
 
-    if (sidebarClose) {
-      sidebarClose.addEventListener("click", toggleSidebar);
-    }
-
-    // Cerrar sidebar al hacer clic fuera de él en dispositivos móviles
     document.addEventListener("click", function (event) {
       const isMobile = window.innerWidth <= 768;
       const isClickInsideSidebar = sidebar.contains(event.target);
@@ -314,13 +309,12 @@ document.addEventListener("DOMContentLoaded", function () {
         isMobile &&
         !isClickInsideSidebar &&
         !isClickOnToggleButton &&
-        !sidebar.classList.contains("collapsed")
+        sidebar.classList.contains("open")
       ) {
         toggleSidebar();
       }
     });
 
-    // Ajustar el sidebar al cambiar el tamaño de la ventana
     window.addEventListener("resize", function () {
       if (window.innerWidth > 768) {
         sidebar.classList.remove("collapsed");
@@ -439,6 +433,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       coursesGrid.appendChild(courseElement);
     });
+  }
+
+  function searchCourses(query) {
+    return courses.filter((course) =>
+      course.title.toLowerCase().includes(query.toLowerCase())
+    );
   }
 
   searchInput.addEventListener("input", function () {
