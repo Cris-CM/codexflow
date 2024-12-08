@@ -352,34 +352,48 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       title: "Introducción a la Robótica",
       description:
-        "Enfocado en introducir a los estudiantes en el mundo de la robótica y programación básica",
-      image: "/path/to/robotics-image.jpg",
+        "Enfocado en introducir a los estudiantes en el mundo de la robótica básica para niños.",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHdbZVfM9s4OYuAp0MQhIMWO9hWfofWO6hyQ&s",
       age: "kids",
       tags: ["robótica", "programación", "básico"],
     },
     {
-      title: "Desarrollo Web para Adolescentes",
+      title: "Desarrollo Web Frontend",
       age: "teens",
+      description:
+        "Aprende a crear sitios web modernos y atractivos con HTML, CSS y JavaScript.",
       tags: ["web", "html", "css"],
     },
     {
-      title: "JavaScript Avanzado",
+      title: "JavaScript desde 0",
       age: "adults",
+      description:
+        "Aprende JavaScript desde 0 con este curso interactivo y conviertete en un desarrollador frontend.",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFPCKrf1KLJ3hSGfhq7X731GBbRZVlFWuZWA&s",
       tags: ["javascript", "avanzado"],
     },
     {
       title: "Diseño de Videojuegos para Niños",
+      description:
+        "Aprende a crear videojuegos con este curso interactivo y conviertete en un desarrollador de videojuegos.",
+        image: "https://i.ytimg.com/vi/JgSQE24gqVA/maxresdefault.jpg",
       age: "kids",
       tags: ["videojuegos", "diseño"],
     },
     {
-      title: "Redes Sociales y Seguridad Online",
+      title: "Desarrollo de aplicaciones móviles",
       age: "teens",
-      tags: ["seguridad", "redes sociales"],
+      description: "Aprende a desarrollar aplicaciones móviles con Flutter y diseña tus propias aplicaciones.",
+      image: "https://i.ytimg.com/vi/ylLPGBoz3Gw/maxresdefault.jpg",
+      tags: ["movil", "flutter"],
     },
     {
       title: "Machine Learning y IA",
       age: "adults",
+      description: "Aprende los conceptos básicos de la inteligencia artificial y cómo aplicarlos en tu trabajo.",
+      image: "https://i.ytimg.com/vi/UKncFg0PyEk/maxresdefault.jpg",
       tags: ["ia", "machine learning"],
     },
   ];
@@ -391,9 +405,7 @@ document.addEventListener("DOMContentLoaded", function () {
       courseElement.classList.add("course-card");
 
       courseElement.innerHTML = `
-              <img src="${
-                course.image || "/Client/Images/fondo_hollow knight.jpeg"
-              }" 
+              <img src="${course.image || "/Client/Images/html.jpg"}" 
                    alt="${course.title}" 
                    class="course-image">
               <div class="course-content">
@@ -444,4 +456,102 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize with all courses
   renderCourses(courses);
+
+  const schools = [
+    {
+      name: "Visual Studio Code",
+      path: [
+        {
+          title: "Introducción a Visual Studio Code",
+          description: "Aprende a usar el editor de código más popular.",
+          image: "https://i.ytimg.com/vi/vcY5S5kV5jk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDpa52s75XponyaK6PLzYCmaDm-bA",
+        },
+        {
+          title: "Extensiones que no pueden faltar en tu VSCode",
+          description:
+            "Descubre las extensiones que mejorarán tu productividad.",
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV9H_Z303mGKf6kQ186jynKu5KQJin-dlGNg&s",
+        },
+      ],
+    },
+    {
+      name: "Inteligencia Artificial",
+      path: [
+        {
+          title: "Fundamentos de IA",
+          description:
+            "Conoce los conceptos básicos de la inteligencia artificial.",
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMd0Qzk8o9fCKq-ueBOHAfELLHdm6FZdL3GA&s",
+        },
+        {
+          title: "Redes Neuronales",
+          description: "Explora cómo funcionan las redes neuronales y cómo aplicarlas en tu trabajo.",
+        image: "https://i.ytimg.com/vi/jaEIv_E29sk/maxresdefault.jpg",
+        },
+      ],
+    },
+    {
+      name: "Desarrollo Móvil",
+      path: [
+        {
+          title: "Introducción a Flutter",
+          description: "Comienza con el desarrollo móvil usando Flutter.",
+          image: "https://i.ytimg.com/vi/jaEIv_E29sk/maxresdefault.jpg",
+        },
+        {
+          title: "Widgets en Flutter",
+          description: "Aprende sobre los widgets básicos en Flutter.",
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa62DQGO-UxlNUdVz-7uK7KFQwnNwSyoyl5w&s",
+        },
+      ],
+    },
+    // Add more schools and paths as needed
+  ];
+
+  function setupSchoolButtons() {
+    const schoolButtons = document.querySelectorAll(".school-button");
+    const coursesGrid = document.getElementById("coursesGrid");
+    const learningPathContent = document.getElementById("learningPathContent");
+
+    schoolButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const school = schools[index];
+        renderLearningPath(school.path);
+
+        // Add sliding effect to specific sections
+        coursesGrid.classList.add("slide-left");
+        learningPathContent.classList.add("slide-left");
+
+        // Remove sliding effect after animation
+        setTimeout(() => {
+          coursesGrid.classList.remove("slide-left");
+          learningPathContent.classList.remove("slide-left");
+        }, 500);
+      });
+    });
+  }
+
+  function renderLearningPath(path) {
+    const learningPathContent = document.getElementById("learningPathContent");
+    const learningPathSection = document.getElementById("learningPath");
+
+    learningPathContent.innerHTML = path
+      .map(
+        (item) => `
+      <div class="course-card">
+        <img src="${item.image}" alt="${item.title}" class="course-image">
+        <div class="course-content">
+          <h3 class="course-title">${item.title}</h3>
+          <p class="course-description">${item.description}</p>
+        </div>
+      </div>
+    `
+      )
+      .join("");
+
+    learningPathSection.classList.add("active");
+  }
+
+  // Initialize school buttons
+  setupSchoolButtons();
 });
