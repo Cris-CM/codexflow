@@ -1,253 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plataforma de Aprendizaje - ShinkaToMirai</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">
-        <img src="/ShinkaMirai/Client/Images/Guimarbot.png" alt="ShinkaToMirai Logo" />
-        <span>ShinkaToMirai</span>
-      </div>
-      <div class="search-bar">
-        <input type="text" placeholder="¿Qué quieres aprender?" />
-      </div>
-      <ul class="nav-links">
-        <li>
-          <a href="/Client/pages/Courses/1Courses_page/Courses.html">Cursos</a>
-        </li>
-        <li><a href="/Client/pages/Plans/plans.html">Planes</a></li>
-        <li><a href="">Contáctanos</a></li>
-      </ul>
-      <div class="user-menu">
-        <img src="/Client/Images/pikachu.png" alt="Usuario" />
-        <div class="dropdown-menu">
-          <p>Hola, <span class="user-name">Usuario</span></p>
-          <a href="#" onclick="window.location.href='/Client/pages/Courses/Courses.html'">Ver todos mis cursos</a>
-          <a href="#" onclick="window.location.href='/Client/pages/Auth/profile.html'">Ver mi perfil</a>
-          <a href="#" onclick="window.location.href='/Client/pages/Plans/plans.html'">Mis planes</a>
-          <a href="#">Mi Suscripción</a>
-          <a href="#">Contáctanos</a>
-          <a href="#">Configuración</a>
-          <a href="#" class="logout">Cerrar sesión</a>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="course-header">
-      <div class="course-info">
-        <div class="course-title-container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma de Aprendizaje - ShinkaToMirai</title>
+    <link rel="stylesheet" href="/Client/Styles/courses_development.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
           <img
-            src="https://w7.pngwing.com/pngs/428/279/png-transparent-computer-icons-web-page-identity-angle-text-logo-thumbnail.png"
-            alt="Desarrollo Web"
-            class="course-logo"
+            src="/ShinkaMirai/Client/Images/Guimarbot.png"
+            alt="ShinkaToMirai Logo"
           />
-          <h1>Desarrollo Web</h1>
+          <span>ShinkaToMirai</span>
         </div>
-        <p>
-          ¡Bienvenido al emocionante mundo del desarrollo web! En este curso,
-          aprenderás los fundamentos de la web, como HTML, CSS y JavaScript,
-          para crear sitios web dinámicos y atractivos. Descubrirás cómo
-          diseñar páginas web que no solo se vean bien, sino que también
-          funcionen perfectamente en cualquier dispositivo. Además,
-          exploraremos conceptos clave como diseño responsivo, optimización
-          para motores de búsqueda (SEO) y el desarrollo de aplicaciones web
-          modernas. ¡Prepárate para convertirte en un creador de experiencias
-          en línea!
-        </p>
-        <button class="cta-button" id="openModal">Comenzar ahora</button>
-      </div>
-      <div class="instructor-image">
-        <img
-          src="https://i.pinimg.com/564x/d2/bd/2f/d2bd2fc7c604b0384f06f3c0d594b087.jpg"
-          alt="Instructor"
-        />
-      </div>
-    </section>
-
-    <section class="learning-path">
-      <h2>Rutas de aprendizaje</h2>
-      <div class="course-grid">
-        <article class="course-card">
-          <span class="tag">RUTA</span>
-          <h3>Fundamentos de Diseño</h3>
-          <p>
-            Domina las bases del diseño, aprende sobre teoría del color y
-            mejora la estética de tus proyectos.
-          </p>
-          <div class="course-meta">
-            <span>6 cursos</span>
-            <span>22 horas</span>
-          </div>
-          <button
-            class="cta-button"
-            onclick="window.location.href='/Client/pages/Courses/Web_development/view.html'"
-          >
-            Conocer ruta
-          </button>
-        </article>
-        <article class="course-card">
-          <span class="tag">RUTA</span>
-          <h3>Diseño para Frontend</h3>
-          <p>
-            Crea sitios web atractivos y eficientes usando principios de
-            diseño, tipografía, y herramientas de diseño.
-          </p>
-          <div class="course-meta">
-            <span>9 cursos</span>
-            <span>32 horas</span>
-          </div>
-          <button class="cta-button">Conocer ruta</button>
-        </article>
-        <article class="course-card">
-          <span class="tag">RUTA</span>
-          <h3>Frontend con React.js</h3>
-          <p>
-            Especialízate en React.js, la herramienta más demandada para
-            desarrollo frontend.
-          </p>
-          <div class="course-meta">
-            <span>10 cursos</span>
-            <span>38 horas</span>
-          </div>
-          <button class="cta-button">Conocer ruta</button>
-        </article>
-        <article class="course-card">
-          <span class="tag">RUTA</span>
-          <h3>Full Stack con Next.js</h3>
-          <p>
-            Implementa estrategias de autenticación, seguridad y optimización
-            con React.js y Node.js.
-          </p>
-          <div class="course-meta">
-            <span>8 cursos</span>
-            <span>16 horas</span>
-          </div>
-          <button class="cta-button">Conocer ruta</button>
-        </article>
-      </div>
-    </section>
-
-    <section class="learning-path">
-      <h2>Conviértete en Frontend Developer</h2>
-      <p>
-        Familiarízate con las bibliotecas y frameworks más utilizados en el
-        desarrollo frontend.
-      </p>
-      <div class="course-grid">
-        <article class="course-card">
-          <span class="tag">RUTA</span>
-          <h3>Frontend con React.js</h3>
-          <p>
-            Especialízate en React.js, la herramienta más demandada y en mayor
-            crecimiento de JavaScript para desarrollo frontend.
-          </p>
-          <div class="course-meta">
-            <span>10 cursos</span>
-            <span>38 horas</span>
-          </div>
-          <button class="cta-button">Conocer ruta</button>
-        </article>
-        <article class="course-card">
-          <span class="tag">RUTA</span>
-          <h3>Frontend a profundidad con Vue.js</h3>
-          <p>
-            Framework progresivo de Javascript para crear interfaces de forma
-            sencilla y escalable para desarrollar aplicaciones web con
-            diferentes grados de complejidad.
-          </p>
-          <div class="course-meta">
-            <span>20 cursos</span>
-            <span>69 horas</span>
-          </div>
-          <button class="cta-button">Conocer ruta</button>
-        </article>
-        <article class="course-card">
-          <span class="tag">RUTA</span>
-          <h3>Frontend con Angular</h3>
-          <p>
-            Angular es un framework y plataforma para construir aplicaciones
-            web de todos los tamaños usando TypeScript y un poderoso kit de
-            herramientas.
-          </p>
-          <div class="course-meta">
-            <span>10 cursos</span>
-            <span>39 horas</span>
-          </div>
-          <button class="cta-button">Conocer ruta</button>
-        </article>
-        <article class="course-card">
-          <span class="tag">RUTA</span>
-          <h3>Full Stack con Next.js</h3>
-          <p>
-            Especialízate en Next.js, implementando estrategias de
-            autenticación, seguridad y optimización en tus proyectos,
-            desarrollando con React.js y Node.js.
-          </p>
-          <div class="course-meta">
-            <span>5 cursos</span>
-            <span>16 horas</span>
-          </div>
-          <button class="cta-button">Conocer ruta</button>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <!-- Modal -->
-  <div id="courseModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div class="modal-container">
-        <!-- Main Content -->
-        <div class="video-container">
-          <iframe id="videoPlayer" src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+        <div class="search-bar">
+          <input type="text" placeholder="¿Qué quieres aprender?" />
         </div>
-        <div class="sidebar">
-          <div class="video-title">Bienvenido al curso: Introducción a la Programación</div>
-          <div class="sessions">
-            <h3>Sesiones</h3>
-            <button class="session-btn" onclick="changeVideo('https://www.youtube.com/embed/example1')">Sesión 1: Introducción</button>
-            <button class="session-btn" onclick="changeVideo('https://www.youtube.com/embed/example2')">Sesión 2: Variables</button>
-            <button class="session-btn" onclick="changeVideo('https://www.youtube.com/embed/example3')">Sesión 3: Estructuras</button>
+        <ul class="nav-links">
+          <li>
+            <a href="/Client/pages/Courses/1Courses_page/Courses.html"
+              >Cursos</a
+            >
+          </li>
+          <li><a href="/Client/pages/Plans/plans.html">Planes</a></li>
+          <li><a href="">Contáctanos</a></li>
+        </ul>
+        <div class="user-menu">
+          <img src="/Client/Images/pikachu.png" alt="Usuario" />
+          <div class="dropdown-menu">
+            <p>Hola, <span class="user-name">Usuario</span></p>
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Courses/Courses.html'"
+              >Ver todos mis cursos</a
+            >
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Auth/profile.html'"
+              >Ver mi perfil</a
+            >
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Plans/plans.html'"
+              >Mis planes</a
+            >
+            <a href="#">Mi Suscripción</a>
+            <a href="#">Contáctanos</a>
+            <a href="#">Configuración</a>
+            <a href="#" class="logout">Cerrar sesión</a>
           </div>
-          <div class="recommendations">
-            <h3>Cursos Recomendados</h3>
-            <div class="recommendation-item" onclick="changeVideo('https://www.youtube.com/embed/example4')">
-              <div class="thumbnail"></div>
-              <div class="video-info">
-                <span>Curso 1: Java Básico</span>
-              </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="course-header">
+        <div class="course-info">
+          <div class="course-title-container">
+            <img
+              src="https://w7.pngwing.com/pngs/428/279/png-transparent-computer-icons-web-page-identity-angle-text-logo-thumbnail.png"
+              alt="Desarrollo Web"
+              class="course-logo"
+            />
+            <h1>Desarrollo Web</h1>
+          </div>
+          <p>
+            ¡Bienvenido al emocionante mundo del desarrollo web! En este curso,
+            aprenderás los fundamentos de la web, como HTML, CSS y JavaScript,
+            para crear sitios web dinámicos y atractivos. Descubrirás cómo
+            diseñar páginas web que no solo se vean bien, sino que también
+            funcionen perfectamente en cualquier dispositivo. Además,
+            exploraremos conceptos clave como diseño responsivo, optimización
+            para motores de búsqueda (SEO) y el desarrollo de aplicaciones web
+            modernas. ¡Prepárate para convertirte en un creador de experiencias
+            en línea!
+          </p>
+          <button class="cta-button" id="openModal">Comenzar ahora</button>
+        </div>
+        <div class="instructor-image">
+          <img
+            src="https://i.pinimg.com/564x/d2/bd/2f/d2bd2fc7c604b0384f06f3c0d594b087.jpg"
+            alt="Instructor"
+          />
+        </div>
+      </section>
+
+      <section class="learning-path">
+        <h2>Rutas de aprendizaje</h2>
+        <div class="course-grid">
+          <article class="course-card">
+            <span class="tag">RUTA</span>
+            <h3>Fundamentos de Diseño</h3>
+            <p>
+              Domina las bases del diseño, aprende sobre teoría del color y
+              mejora la estética de tus proyectos.
+            </p>
+            <div class="course-meta">
+              <span>6 cursos</span>
+              <span>22 horas</span>
             </div>
-            <div class="recommendation-item" onclick="changeVideo('https://www.youtube.com/embed/example5')">
-              <div class="thumbnail"></div>
-              <div class="video-info">
-                <span>Curso 2: Python Intermedio</span>
+            <button
+              class="cta-button"
+              onclick="window.location.href='/Client/pages/Courses/Web_development/view.html'"
+            >
+              Conocer ruta
+            </button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="courseModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-container">
+          <!-- Main Content -->
+          <div class="video-container">
+            <iframe
+              id="videoPlayer"
+              src="https://www.youtube.com/embed/example1"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="sidebar">
+            <div class="video-title">
+              Bienvenido al curso: Introducción a la Programación
+            </div>
+            <div class="sessions">
+              <h3>Sesiones</h3>
+              <button
+                class="session-btn"
+                onclick="changeVideo('https://www.youtube.com/embed/example1')"
+              >
+                Sesión 1: Introducción
+              </button>
+              <button
+                class="session-btn"
+                onclick="changeVideo('https://www.youtube.com/embed/example2')"
+              >
+                Sesión 2: Variables
+              </button>
+              <button
+                class="session-btn"
+                onclick="changeVideo('https://www.youtube.com/embed/example3')"
+              >
+                Sesión 3: Estructuras
+              </button>
+            </div>
+            <div class="recommendations">
+              <h3>Cursos Recomendados</h3>
+              <div
+                class="recommendation-item"
+                onclick="changeVideo('https://www.youtube.com/embed/example4')"
+              >
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                  <span>Curso 1: Java Básico</span>
+                </div>
+              </div>
+              <div
+                class="recommendation-item"
+                onclick="changeVideo('https://www.youtube.com/embed/example5')"
+              >
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                  <span>Curso 2: Python Intermedio</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Comment Section -->
-      <div class="comments-section">
-        <h2>Comentarios</h2>
-        <div class="add-comment">
-          <textarea id="comment-input" placeholder="Añade un comentario..."></textarea>
-          <button id="post-comment">Publicar</button>
+        <!-- Comment Section -->
+        <div class="comments-section">
+          <h2>Comentarios</h2>
+          <div class="add-comment">
+            <textarea
+              id="comment-input"
+              placeholder="Añade un comentario..."
+            ></textarea>
+            <button id="post-comment">Publicar</button>
+          </div>
+          <div id="comments-container"></div>
         </div>
-        <div id="comments-container"></div>
       </div>
     </div>
-  </div>
 
-  <script src="scripts.js"></script>
-  <script src="/Client/Js/common.js"></script>
-  <script src="/Client/Js/courses_development.js"></script>
-</body>
+    <script src="/Client/Js/common.js"></script>
+    <script src="/Client/Js/courses_development.js"></script>
+  </body>
 </html>
