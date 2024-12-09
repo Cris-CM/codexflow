@@ -372,21 +372,23 @@ document.addEventListener("DOMContentLoaded", function () {
       title: "Diseño de Videojuegos para Niños",
       description:
         "Aprende a crear videojuegos con este curso interactivo y conviertete en un desarrollador de videojuegos.",
-        image: "https://i.ytimg.com/vi/JgSQE24gqVA/maxresdefault.jpg",
+      image: "https://i.ytimg.com/vi/JgSQE24gqVA/maxresdefault.jpg",
       age: "kids",
       tags: ["videojuegos", "diseño"],
     },
     {
       title: "Desarrollo de aplicaciones móviles",
       age: "teens",
-      description: "Aprende a desarrollar aplicaciones móviles con Flutter y diseña tus propias aplicaciones.",
+      description:
+        "Aprende a desarrollar aplicaciones móviles con Flutter y diseña tus propias aplicaciones.",
       image: "https://i.ytimg.com/vi/ylLPGBoz3Gw/maxresdefault.jpg",
       tags: ["movil", "flutter"],
     },
     {
       title: "Machine Learning y IA",
       age: "adults",
-      description: "Aprende los conceptos básicos de la inteligencia artificial y cómo aplicarlos en tu trabajo.",
+      description:
+        "Aprende los conceptos básicos de la inteligencia artificial y cómo aplicarlos en tu trabajo.",
       image: "https://i.ytimg.com/vi/UKncFg0PyEk/maxresdefault.jpg",
       tags: ["ia", "machine learning"],
     },
@@ -464,13 +466,15 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           title: "Introducción a Visual Studio Code",
           description: "Aprende a usar el editor de código más popular.",
-          image: "https://i.ytimg.com/vi/vcY5S5kV5jk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDpa52s75XponyaK6PLzYCmaDm-bA",
+          image:
+            "https://i.ytimg.com/vi/vcY5S5kV5jk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDpa52s75XponyaK6PLzYCmaDm-bA",
         },
         {
           title: "Extensiones que no pueden faltar en tu VSCode",
           description:
             "Descubre las extensiones que mejorarán tu productividad.",
-          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV9H_Z303mGKf6kQ186jynKu5KQJin-dlGNg&s",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV9H_Z303mGKf6kQ186jynKu5KQJin-dlGNg&s",
         },
       ],
     },
@@ -481,12 +485,14 @@ document.addEventListener("DOMContentLoaded", function () {
           title: "Fundamentos de IA",
           description:
             "Conoce los conceptos básicos de la inteligencia artificial.",
-          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMd0Qzk8o9fCKq-ueBOHAfELLHdm6FZdL3GA&s",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMd0Qzk8o9fCKq-ueBOHAfELLHdm6FZdL3GA&s",
         },
         {
           title: "Redes Neuronales",
-          description: "Explora cómo funcionan las redes neuronales y cómo aplicarlas en tu trabajo.",
-        image: "https://i.ytimg.com/vi/jaEIv_E29sk/maxresdefault.jpg",
+          description:
+            "Explora cómo funcionan las redes neuronales y cómo aplicarlas en tu trabajo.",
+          image: "https://i.ytimg.com/vi/jaEIv_E29sk/maxresdefault.jpg",
         },
       ],
     },
@@ -501,7 +507,8 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           title: "Widgets en Flutter",
           description: "Aprende sobre los widgets básicos en Flutter.",
-          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa62DQGO-UxlNUdVz-7uK7KFQwnNwSyoyl5w&s",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa62DQGO-UxlNUdVz-7uK7KFQwnNwSyoyl5w&s",
         },
       ],
     },
@@ -554,4 +561,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize school buttons
   setupSchoolButtons();
+});
+
+//Apartado de cursos rutas
+// Add this to your existing JavaScript file
+document.addEventListener("DOMContentLoaded", function () {
+  const filterButtons = document.querySelectorAll(".filter-button");
+  const courseItems = document.querySelectorAll(".course-item");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Remove active class from all buttons
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      // Add active class to clicked button
+      button.classList.add("active");
+
+      const filter = button.getAttribute("data-filter");
+
+      courseItems.forEach((item) => {
+        if (filter === "todos") {
+          item.style.display = "flex";
+        } else if (filter === "en-progreso") {
+          const progress = parseInt(
+            item.querySelector(".progress").style.width
+          );
+          item.style.display = progress < 100 ? "flex" : "none";
+        } else if (filter === "completados") {
+          const progress = parseInt(
+            item.querySelector(".progress").style.width
+          );
+          item.style.display = progress === 100 ? "flex" : "none";
+        }
+      });
+    });
+  });
 });

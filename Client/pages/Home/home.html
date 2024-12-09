@@ -185,24 +185,78 @@
           </section>
         </div>
 
+        <!-- Replace the existing rutas div with this code -->
         <div id="rutas" class="view">
           <h2>Mis Rutas de Aprendizaje</h2>
-          <div class="routes-grid">
-            <div class="route-card">
-              <h3>Desarrollo Web Frontend</h3>
-              <p>Progreso: 60%</p>
-              <div class="progress-bar">
-                <div class="progress" style="width: 60%"></div>
+
+          <div class="courses-filters">
+            <button class="filter-button active" data-filter="todos">
+              Todos
+            </button>
+            <button class="filter-button" data-filter="en-progreso">
+              En Progreso
+            </button>
+            <button class="filter-button" data-filter="completados">
+              Completados
+            </button>
+          </div>
+
+          <div class="courses-list">
+            <div class="course-item">
+              <img
+                src="/Client/Images/curso1.jpg"
+                alt="Curso de Fundamentos de Programación"
+                class="course-image"
+              />
+              <div class="course-info">
+                <h3>Curso de Fundamentos de Programación</h3>
+                <p class="instructor">María López</p>
+                <div class="progress-container">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 40%"></div>
+                  </div>
+                  <span class="progress-text">Progreso: 40%</span>
+                </div>
+                <button class="continue-button">Continuar Curso</button>
               </div>
-              <button class="continue-btn">Continuar</button>
             </div>
-            <div class="route-card">
-              <h3>JavaScript Avanzado</h3>
-              <p>Progreso: 30%</p>
-              <div class="progress-bar">
-                <div class="progress" style="width: 30%"></div>
+
+            <div class="course-item">
+              <img
+                src="/Client/Images/cureso 2.jpg"
+                alt="Curso Avanzado de Python"
+                class="course-image"
+              />
+              <div class="course-info">
+                <h3>Curso Avanzado de Python</h3>
+                <p class="instructor">Carlos Herrera</p>
+                <div class="progress-container">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 100%"></div>
+                  </div>
+                  <span class="progress-text">Progreso: 100%</span>
+                </div>
+                <button class="continue-button">Revisar Curso</button>
               </div>
-              <button class="continue-btn">Continuar</button>
+            </div>
+
+            <div class="course-item">
+              <img
+                src="/Client/Images/curso 3.jpg"
+                alt="Diseño de Interfaces con Figma"
+                class="course-image"
+              />
+              <div class="course-info">
+                <h3>Diseño de Interfaces con Figma</h3>
+                <p class="instructor">Ana Torres</p>
+                <div class="progress-container">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 60%"></div>
+                  </div>
+                  <span class="progress-text">Progreso: 60%</span>
+                </div>
+                <button class="continue-button">Continuar Curso</button>
+              </div>
             </div>
           </div>
         </div>
@@ -270,6 +324,5 @@
     <script src="/Client/Js/home.js"></script>
   </body>
 </html>
-
 
 <!-- prueba github -->
