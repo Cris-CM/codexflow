@@ -185,7 +185,18 @@ document.querySelectorAll('.no-scroll').forEach(link => {
         event.preventDefault(); // Prevenir el comportamiento predeterminado
     });
 });
-
+    document.addEventListener('DOMContentLoaded', function() {
+        const userToggle = document.querySelector('.user-toggle');
+        const subMenu = document.querySelector('.sub-menu');
+        const arrow = document.querySelector('.arrow');
+    
+        userToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            subMenu.classList.toggle('active');
+            arrow.classList.toggle('active');
+        });
+    });
+    
 document.querySelectorAll('.carousel').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const prevBtn = carousel.querySelector('.prev-btn');

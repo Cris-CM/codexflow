@@ -1,163 +1,98 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const cursosBody = document.getElementById("cursos-body");
-  const cursosRutaSelect = document.getElementById("cursos-ruta");
+  // Mostrar el modal para agregar curso
+  document.getElementById("agregar-curso-btn").addEventListener("click", () => {
+    document.getElementById("modal-curso").classList.remove("oculto");
+  });
 
-  function fillCourseSelect() {
-    if (cursosRutaSelect && cursosBody) {
-      cursosRutaSelect.innerHTML = ""; // Limpiar opciones existentes
-      const cursos = cursosBody.querySelectorAll("tr");
-      cursos.forEach((curso) => {
-        const cursoNombre = curso.querySelector("td").textContent;
-        const option = document.createElement("option");
-        option.value = cursoNombre;
-        option.textContent = cursoNombre;
-        cursosRutaSelect.appendChild(option);
-      });
-    } else {
-      console.error(
-        "No se encontraron los elementos necesarios para llenar el select de cursos."
-      );
-    }
-  }
+  // Cerrar el modal de curso
+  document.getElementById("close-modal-curso").addEventListener("click", () => {
+    document.getElementById("modal-curso").classList.add("oculto");
+  });
 
-  const formCurso = document.getElementById("form-curso");
-  if (formCurso) {
-    formCurso.addEventListener("submit", function (event) {
+  // Mostrar el modal para agregar ruta
+  document.getElementById("agregar-ruta-btn").addEventListener("click", () => {
+    document.getElementById("modal-ruta").classList.remove("oculto");
+  });
+
+  // Cerrar el modal de ruta
+  document.getElementById("close-modal-ruta").addEventListener("click", () => {
+    document.getElementById("modal-ruta").classList.add("oculto");
+  });
+
+  // Enviar datos del formulario de curso
+  document
+    .getElementById("form-curso")
+    .addEventListener("submit", function (event) {
       event.preventDefault();
-
-      const formData = new FormData(formCurso);
-      fetch(formCurso.action, {
+      const formData = new FormData(this);
+      fetch("http://localhost:3000/courses/create", {
         method: "POST",
         body: formData,
       })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Error en la respuesta del servidor");
-          }
-          return response.text();
-        })
+        .then((response) => response.text())
         .then((data) => {
-          console.log(data);
-          Swal.fire(
-            "Éxito",
-            `Curso "${formData.get("nombreCurso")}" añadido exitosamente`,
-            "success"
-          );
+          console.log("Curso creado:", data);
+          this.reset();
           document.getElementById("modal-curso").classList.add("oculto");
-          const nuevoCurso = document.createElement("tr");
-          nuevoCurso.innerHTML = `
-              <td>${formData.get("nombreCurso")}</td>
-              <td>${formData.get("descripcionCurso")}</td>
-              <td>${formData.get("courseLevel")}</td>
-              <td>${formData.get("ageRange")}</td>
-              <td>
-                <button class="edit-btn">
-                  <span class="material-icons-sharp">edit</span>
-                </button>
-                <button class="delete-btn">
-                  <span class="material-icons-sharp">delete</span>
-                </button>
-                <a href="/Client/pages/Courses/Courses_template/${formData
-                  .get("nombreCurso")
-                  .replace(/\s+/g, "_")}.html" class="view-modules-btn">
-                  <span class="material-icons-sharp">visibility</span>
-                </a>
-              </td>
-            `;
-          cursosBody.appendChild(nuevoCurso);
-          fillCourseSelect(); // Actualizar el select de cursos
+          cargarCursos(); // Recargar cursos después de crear uno nuevo
         })
-        .catch((error) => {
-          console.error("Error al añadir el curso:", error);
-          Swal.fire("Error", "Hubo un error al añadir el curso", "error");
-        });
+        .catch((error) => console.error("Error al crear el curso:", error));
     });
-  }
 
-  const formRuta = document.getElementById("form-ruta");
-  if (formRuta) {
-    formRuta.addEventListener("submit", function (event) {
+  // Enviar datos del formulario de ruta
+  document
+    .getElementById("form-ruta")
+    .addEventListener("submit", function (event) {
       event.preventDefault();
-
       const formData = new FormData(this);
-      const entries = Object.fromEntries(formData.entries());
-
-      // Validación simple
-      if (
-        !entries.nombreRuta ||
-        !entries.descripcionRuta ||
-        !entries.nivelRuta ||
-        !entries.duracionRuta ||
-        !entries.nombreCurso
-      ) {
-        Swal.fire("Error", "Todos los campos son requeridos", "error");
-        return;
-      }
-
-      console.log("Datos enviados:", entries); // Verifica los datos antes de enviarlos
-
-      fetch(this.action, {
+      fetch("http://localhost:3000/courses/add-route", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(entries),
+        body: JSON.stringify(Object.fromEntries(formData.entries())),
       })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Error en la respuesta del servidor");
-          }
-          return response.text();
-        })
+        .then((response) => response.text())
         .then((data) => {
-          console.log(data);
-          Swal.fire("Éxito", "Ruta añadida exitosamente", "success");
+          console.log("Ruta añadida:", data);
+          this.reset();
           document.getElementById("modal-ruta").classList.add("oculto");
         })
-        .catch((error) => {
-          console.error("Error al añadir la ruta:", error);
-          Swal.fire("Error", "Hubo un error al añadir la ruta", "error");
+        .catch((error) => console.error("Error al añadir la ruta:", error));
+    });
+
+  // Cargar cursos en el select de rutas
+  function cargarCursos() {
+    fetch("http://localhost:3000/courses/list")
+      .then((response) => response.json())
+      .then((cursos) => {
+        const cursoSelect = document.getElementById("cursos-ruta");
+        cursoSelect.innerHTML = ""; // Limpiar opciones anteriores
+        cursos.forEach((curso) => {
+          const option = document.createElement("option");
+          option.value = curso.nombreCurso;
+          option.textContent = curso.nombreCurso;
+          cursoSelect.appendChild(option);
         });
-    });
+      })
+      .catch((error) => console.error("Error al cargar cursos:", error));
   }
 
-  const agregarCursoBtn = document.getElementById("agregar-curso-btn");
-  const closeModalCurso = document.getElementById("close-modal-curso");
-  const agregarRutaBtn = document.getElementById("agregar-ruta-btn");
-  const closeModalRuta = document.getElementById("close-modal-ruta");
+  cargarCursos(); // Llamar a la función para cargar cursos
 
-  if (agregarCursoBtn) {
-    agregarCursoBtn.addEventListener("click", () => {
-      document.getElementById("modal-curso").classList.remove("oculto");
-    });
-  }
-
-  if (closeModalCurso) {
-    closeModalCurso.addEventListener("click", () => {
-      document.getElementById("modal-curso").classList.add("oculto");
-    });
-  }
-
-  if (agregarRutaBtn) {
-    agregarRutaBtn.addEventListener("click", () => {
-      document.getElementById("modal-ruta").classList.remove("oculto");
-    });
-  }
-
-  if (closeModalRuta) {
-    closeModalRuta.addEventListener("click", () => {
-      document.getElementById("modal-ruta").classList.add("oculto");
-    });
-  }
-
-  window.addEventListener("click", (event) => {
-    const modalCurso = document.getElementById("modal-curso");
-    const modalRuta = document.getElementById("modal-ruta");
-    if (event.target === modalCurso) {
-      modalCurso.classList.add("oculto");
-    }
-    if (event.target === modalRuta) {
-      modalRuta.classList.add("oculto");
+  // Manejar el cambio en el select de precio
+  const precioCursoSelect = document.getElementById("precio-curso");
+  const precioPersonalizadoInput = document.getElementById(
+    "precio-personalizado"
+  );
+  precioCursoSelect.addEventListener("change", function () {
+    if (this.value === "personalizado") {
+      precioPersonalizadoInput.style.display = "block";
+      precioPersonalizadoInput.required = true;
+    } else {
+      precioPersonalizadoInput.style.display = "none";
+      precioPersonalizadoInput.required = false;
+      precioPersonalizadoInput.value = "";
     }
   });
 });

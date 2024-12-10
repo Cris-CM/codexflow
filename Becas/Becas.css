@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #1392ab, #2c2c2c); /* Degradado */
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Barra superior */
+.top-bar {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar span, 
+.top-bar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 20px;
+}
+
+.top-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Redes sociales */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 25px;
+}
+
+/* Contenedor principal */
+main {
+    padding: 40px 0;
+}
+
+/* Sección descripción */
+.description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.beca-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.beca-header h1 {
+    font-size: 40px;
+    color: #1392ab;
+}
+
+.beca-header h1 span {
+    font-weight: normal;
+    font-size: 20px;
+    color: #2c2c2c;
+}
+
+.beca-header h2 {
+    font-size: 22px;
+    color: #555;
+    margin-top: 5px;
+}
+
+.beca-header .year {
+    background-color: #73cbdd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #000000;
+}
+
+.text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.text h3 {
+    font-size: 24px;
+    color: #1392ab;
+    margin-bottom: 10px;
+}
+
+.text p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.buttons .btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buttons .btn.red {
+    background-color: #1392ab;
+}
+
+.buttons .btn.orange {
+    background-color: #555;
+}
+
+.buttons .btn:hover {
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+    flex: 1;
+    text-align: center;
+}
+
+.image img {
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Información de becas */
+.becas-info {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.becas-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.becas-content h2 {
+    font-size: 60px;
+    margin: 0 20px;
+}
+
+.becas-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.becas-icons img {
+    width: 90px;
+    height: auto;
+}
+
+.beneficio {
+    background-color: #ffffff;
+    color: #333;
+    padding: 60px;
+    border-radius: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.beneficio h3 {
+    font-size: 28px;
+    color: #1392ab;
+    margin-bottom: 10px;
+}
+
+.beneficio ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.beneficio ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+courses {
+    margin-bottom: 30px;
+}
+
+.course {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.start-button, .apply-button, .back-button {
+    background-color: #1392ab;
+    color: rgb(35, 31, 31);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.back-button {
+    background-color: #df3206;
+    color: #f2f2f2;
+}
+
+.back-button:hover {
+    background-color: #3e8e41;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.close-button {
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-button:hover {
+    color: #ff6f61;
+}
+
+.modal-title {
+    color: #ff6f61;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+form input[type="text"], form input[type="email"], form textarea, form input[type="file"] {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    margin-top: 20px;
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #ff4f41;
+}
+
+
+select {
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #141414;
+    background-color: #f2f2f2;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .description {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text {
+        margin-bottom: 20px;
+    }
+
+    .becas-icons {
+        flex-direction: column;
+    }
+}
