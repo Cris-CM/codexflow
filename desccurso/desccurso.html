@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Desarrollo Web</title>
+    <link rel="stylesheet" href="./desccurso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Fuente principal para un aspecto serio */
+        }
+        .web-development {
+            font-family: 'Comic Sans MS', cursive; /* Fuente amigable para la sección de desarrollo web */
+        }
+        .curso-aprendizaje, .curso-contenido, .curso-reseñas, .curso-instructores, .cursos-recomendados {
+            font-family: 'Comic Sans MS', cursive; /* Fuente amigable para secciones específicas */
+        }
+        .titulo-requisitos, .titulo-descripcion {
+            font-family: 'Roboto', sans-serif; /* Fuente seria para títulos */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="logo">
+            <img src="./img/logo.png" alt="codexflow Logo" />
+            <span>CodexFlow</span>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="¿Qué quieres aprender?" />
+          </div>
+          <ul class="nav-links">
+            <li>
+              <a href="/Client/pages/Courses/1Courses_page/Courses.html">Cursos</a>
+            </li>
+            <li><a href="/Client/pages/Plans/plans.html">Planes</a></li>
+            <li><a href="">Contáctanos</a></li>
+          </ul>
+          <div class="user-menu">
+            <img src="./img/perfil.png" alt="Usuario" />
+            <div class="dropdown-menu">
+              <p>Hola, <span class="user-name">Usuario</span></p>
+              <a href="#" onclick="window.location.href='/Client/pages/Courses/Courses.html'">Ver todos mis cursos</a>
+              <a href="#" onclick="window.location.href='/Client/pages/Auth/profile.html'">Ver mi perfil</a>
+              <a href="#" onclick="window.location.href='/Client/pages/Plans/plans.html'">Mis planes</a>
+              <a href="#">Mi Suscripción</a>
+              <a href="#">Contáctanos</a>
+              <a href="#">Configuración</a>
+              <a href="#" class="logout">Cerrar sesión</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <section class="web-development">
+        <img src="./img/diseño web.png" alt="Desarrollo Web" class="img-desarrollo">
+        <div class="web-content">
+            <h1>Curso de desarrollo web HTML CSS JavaScript Aprende diseño web</h1>
+            <p>Guía para crear un sitio web aprenda a crear un negocio web HTML CSS y JavaScript cree su propio sitio web</p>
+            <p>Creado por Laurence Svekis</p>
+            <button class="btn-curso">Ir al curso</button>
+        </div>
+    </section>
+    <nav class="curso-nav">
+        <ul>
+            <li><a href="#reseñas" class="active">Reseñas</a></li>
+            <li><a href="#instructores">Instructores</a></li>
+        </ul>
+        <hr>
+    </nav>
+
+    <div class="contenido-seccion">
+        <section class="curso-reseñas" id="reseñas" style="display: block;">
+            <h2>Comentarios de los estudiantes</h2>
+            <div class="reseñas">
+                <aside class="comments">
+                    <h3>Comentarios</h3>
+                    <div class="comment-box">
+                        <textarea id="comment-input" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <button id="post-comment">Publicar</button>
+                    </div>
+                    <div class="comment-list" id="comment-list">
+                        <!-- Los comentarios se agregarán aquí -->
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="curso-instructores" id="instructores" style="display: none;">
+            <h2>Instructor</h2>
+            <div class="instructor-info">
+                <img src="./img/perfil.png" alt="Laurence Svekis" class="instructor-avatar">
+                <div class="instructor-details">
+                    <p><strong>Laurence Svekis</strong></p>
+                    <p>Instructor, GDE, Desarrollador de aplicaciones</p>
+                    <p>Calificación del instructor:</p>
+                    <p>Estoy aquí para ayudarte a aprender, a alcanzar tus sueños...</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="cursos-recomendados">
+        <h2>Cursos Recomendados</h2>
+        <div class="carousel">
+            <button class="carousel-btn prev-btn">⬅</button>
+            <div class="carousel-content"></div>
+            <button class="carousel-btn next-btn">➡</button>
+        </div>
+    </section>
+
+    <script src="./desccurso.js"></script>
+    <script>
+        document.getElementById('post-comment').addEventListener('click', function() {
+            const commentInput = document.getElementById('comment-input');
+            const commentList = document.getElementById('comment-list');
+            const newComment = document.createElement('div');
+            newComment.textContent = commentInput.value;
+            commentList.appendChild(newComment);
+            commentInput.value = ''; // Limpiar el campo de texto
+        });
+
+        // Manejar la navegación entre secciones
+        const navLinks = document.querySelectorAll('.curso-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+                const targetSection = this.getAttribute('href').substring(1);
+                document.querySelectorAll('.contenido-seccion section').forEach(section => {
+                    section.style.display = 'none'; // Ocultar todas las secciones
+                });
+                document.getElementById(targetSection).style.display = 'block'; // Mostrar solo la sección seleccionada
+            });
+        });
+    </script>
+</body>
+</html>
