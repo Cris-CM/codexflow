@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>python</title>
+    <link rel="stylesheet" href="/desccurso/desccurso.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img
+            src="/ShinkaMirai/Client/Images/Guimarbot.png"
+            alt="ShinkaToMirai Logo"
+          />
+          <span>ShinkaToMirai</span>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="¿Qué quieres aprender?" />
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="/Client/pages/Courses/1Courses_page/Courses.html"
+              >Cursos</a
+            >
+          </li>
+          <li><a href="/Client/pages/Plans/plans.html">Planes</a></li>
+          <li><a href="">Contáctanos</a></li>
+        </ul>
+        <div class="user-menu">
+          <img src="/Client/Images/pikachu.png" alt="Usuario" />
+          <div class="dropdown-menu">
+            <p>Hola, <span class="user-name">Usuario</span></p>
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Courses/Courses.html'"
+              >Ver todos mis cursos</a
+            >
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Auth/profile.html'"
+              >Ver mi perfil</a
+            >
+            <a
+              href="#"
+              onclick="window.location.href='/Client/pages/Plans/plans.html'"
+              >Mis planes</a
+            >
+            <a href="#">Mi Suscripción</a>
+            <a href="#">Contáctanos</a>
+            <a href="#">Configuración</a>
+            <a href="#" class="logout">Cerrar sesión</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="web-development">
+        <img
+          src="/Client/Images/Hollow Knight.png"
+          alt="python"
+          class="img-desarrollo"
+        />
+        <div class="web-content">
+          <h1>python</h1>
+          <p>añaaaaaa</p>
+          <p>Creado por nose</p>
+          <button class="btn-curso">Ir al curso</button>
+        </div>
+        <div class="instructor-info">
+          <img
+            src="/Client/Images/pikachu.png"
+            alt="nose"
+            class="instructor-avatar"
+          />
+          <div class="instructor-details">
+            <p><strong>nose</strong></p>
+            <p>espero de</p>
+            <p>Calificación del instructor:</p>
+            <p>Estoy aquí para ayudarte a aprender, a alcanzar tus sueños...</p>
+          </div>
+        </div>
+      </section>
+      <nav class="curso-nav">
+        <ul>
+          <li><a href="#reseñas" class="active">Reseñas</a></li>
+          <li><a href="#instructores">Instructores</a></li>
+        </ul>
+        <hr />
+      </nav>
+      <div class="contenido-seccion">
+        <section class="curso-reseñas" id="reseñas" style="display: block">
+          <h2>Comentarios de los estudiantes</h2>
+          <div class="reseñas">
+            <aside class="comments">
+              <h3>Comentarios</h3>
+              <div class="comment-box">
+                <textarea
+                  id="comment-input"
+                  placeholder="Escribe tu comentario aquí..."
+                ></textarea>
+                <button id="post-comment">Publicar</button>
+              </div>
+              <div class="comment-list" id="comment-list">
+                <!-- Los comentarios se agregarán aquí -->
+              </div>
+            </aside>
+          </div>
+        </section>
+        <section
+          class="curso-instructores"
+          id="instructores"
+          style="display: none"
+        >
+          <h2>Instructor</h2>
+          <div class="instructor-info">
+            <img src="default-image.png" alt="nose" class="instructor-avatar" />
+            <div class="instructor-details">
+              <p><strong>nose</strong></p>
+              <p>espero de</p>
+              <p>Calificación del instructor:</p>
+              <p>
+                Estoy aquí para ayudarte a aprender, a alcanzar tus sueños...
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="cursos-recomendados">
+        <h2>Cursos Recomendados</h2>
+        <div class="carousel">
+          <button class="carousel-btn prev-btn">⬅</button>
+          <div class="carousel-content">
+            <section class="learning-path">
+              <h2>Rutas de aprendizaje</h2>
+              <div class="course-grid">
+                <article class="course-card">
+                  <span class="tag">RUTA</span>
+                  <h3>Ruta de aprendisaje</h3>
+                  <p>aña</p>
+                  <div class="course-meta">
+                    <span>0 cursos</span>
+                    <span>3 horas</span>
+                  </div>
+                  <button class="cta-button">Conocer ruta</button>
+                </article>
+                <!-- Aquí se añadirán las rutas -->
+              </div>
+            </section>
+          </div>
+          <button class="carousel-btn next-btn">➡</button>
+        </div>
+      </section>
+    </main>
+    <script src="/desccurso.js"></script>
+    <script src="/Client/Js/common.js"></script>
+  </body>
+</html>
