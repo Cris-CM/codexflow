@@ -79,17 +79,15 @@
         </div>
       </aside>
       <main>
-        <div class="gestion-cursos">
-          <h2>Gestión de Cursos</h2>
-          <div class="botones-accion">
-            <button id="agregar-curso-btn">Agregar Curso</button>
-            <button id="agregar-ruta-btn">Agregar Ruta</button>
-          </div>
+        <div class="main-content">
+          <h1>Gestión de Cursos</h1>
+          <button id="agregar-curso-btn">Agregar Curso</button>
+          <button id="agregar-ruta-btn">Agregar Ruta</button>
           <div id="modal-curso" class="modal oculto">
             <div class="modal-content">
               <span class="close" id="close-modal-curso">&times;</span>
               <h3>Agregar Curso</h3>
-              <form id="form-curso">
+              <form id="form-curso" enctype="multipart/form-data">
                 <label for="nombre-curso">Nombre del Curso:</label>
                 <input
                   type="text"
@@ -98,26 +96,6 @@
                   placeholder="Nombre del Curso"
                   required
                 />
-                <label for="nombre-docente">Nombre del docente:</label>
-                <input
-                  type="text"
-                  id="nombre-docente"
-                  name="nombreDocente"
-                  placeholder="Nombre del docente"
-                  required
-                />
-                <label for="descripcion-docente"
-                  >Descripción del docente:</label
-                >
-                <input
-                  type="text"
-                  id="descripcion-docente"
-                  name="descripcionDocente"
-                  placeholder="Descripción del docente"
-                  required
-                />
-                <label for="courseImage">Icono del docente:</label>
-                <input type="file" id="courseImage" name="courseImage" />
                 <label for="descripcion-curso">Descripción:</label>
                 <textarea
                   id="descripcion-curso"
@@ -127,22 +105,39 @@
                 ></textarea>
                 <label for="courseLevel">Categoría:</label>
                 <select id="courseLevel" name="courseLevel" required>
-                  <option value="Programacion">Programación</option>
-                  <option value="Arte">Arte</option>
-                  <option value="Matematicas">Matemáticas</option>
+                  <option value="Principiante">Principiante</option>
+                  <option value="Intermedio">Intermedio</option>
+                  <option value="Avanzado">Avanzado</option>
                 </select>
-                <label for="ageRange">Rango De Edad:</label>
+                <label for="ageRange">Rango de Edad:</label>
                 <select id="ageRange" name="ageRange" required>
                   <option value="6-9">6-9 años</option>
                   <option value="10-17">10-17 años</option>
                   <option value="18+">18+</option>
                 </select>
-                <label for="courseImage">Imagen del Curso:</label>
+                <label for="nombre-docente">Nombre del Docente:</label>
+                <input
+                  type="text"
+                  id="nombre-docente"
+                  name="nombreDocente"
+                  placeholder="Nombre del Docente"
+                  required
+                />
+                <label for="descripcion-docente"
+                  >Descripción del Docente:</label
+                >
+                <textarea
+                  id="descripcion-docente"
+                  name="descripcionDocente"
+                  placeholder="Descripción del docente"
+                  required
+                ></textarea>
+                <label for="courseImage">Icono del Curso:</label>
                 <input type="file" id="courseImage" name="courseImage" />
-                <label for="precio-curso">Precio del Curso:</label>
-                <select id="precio-curso" name="precioCurso" required>
-                  <option value="gratis">Gratis</option>
-                  <option value="personalizado">Precio Personalizado</option>
+                <label for="precio-curso">Precio:</label>
+                <select id="precio-curso" name="precioCurso">
+                  <option value="Gratis">Gratis</option>
+                  <option value="personalizado">Personalizado</option>
                 </select>
                 <input
                   type="number"

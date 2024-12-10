@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
           this.reset();
           document.getElementById("modal-curso").classList.add("oculto");
           cargarCursos(); // Recargar cursos después de crear uno nuevo
+          showSuccessAnimation("Curso registrado exitosamente");
         })
         .catch((error) => console.error("Error al crear el curso:", error));
     });
@@ -57,22 +58,43 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log("Ruta añadida:", data);
           this.reset();
           document.getElementById("modal-ruta").classList.add("oculto");
+          showSuccessAnimation("Ruta añadida exitosamente");
         })
         .catch((error) => console.error("Error al añadir la ruta:", error));
     });
 
-  // Cargar cursos en el select de rutas
+  // Cargar cursos en el select de rutas y en la tabla
   function cargarCursos() {
     fetch("http://localhost:3000/courses/list")
       .then((response) => response.json())
       .then((cursos) => {
         const cursoSelect = document.getElementById("cursos-ruta");
+        const tableBody = document.getElementById("cursos-body");
         cursoSelect.innerHTML = ""; // Limpiar opciones anteriores
+        tableBody.innerHTML = ""; // Limpiar la tabla anterior
+
         cursos.forEach((curso) => {
+          // Agregar opciones al select
           const option = document.createElement("option");
           option.value = curso.nombreCurso;
           option.textContent = curso.nombreCurso;
           cursoSelect.appendChild(option);
+
+          // Agregar filas a la tabla
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${curso.nombreCurso}</td>
+            <td>${curso.nombreDocente}</td>
+            <td>${curso.descripcionCurso}</td>
+            <td>${curso.courseLevel}</td>
+            <td>${curso.ageRange}</td>
+            <td>${curso.precioCurso}</td>
+            <td>
+              <button class="edit-btn">Editar</button>
+              <button class="delete-btn">Eliminar</button>
+            </td>
+          `;
+          tableBody.appendChild(row);
         });
       })
       .catch((error) => console.error("Error al cargar cursos:", error));
@@ -95,4 +117,14 @@ document.addEventListener("DOMContentLoaded", function () {
       precioPersonalizadoInput.value = "";
     }
   });
+
+  // Función para mostrar la animación de éxito
+  function showSuccessAnimation(message) {
+    Swal.fire({
+      icon: "success",
+      title: message,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
 });
