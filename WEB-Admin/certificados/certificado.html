@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../img/logo.png">
+    <title>CodexFlow</title>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="../img/logo.png" alt="Logo de CodexFlow">
+                    <h2>CODEX<span class="danger">FLOW</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="../../Dashboard/dashboard.html">
+                    <span class="material-icons-sharp">dashboard</span>
+                    <h3>Panel</h3>
+                </a>
+                
+                <a href="../../GestionCurso/gestioncurso.html">
+                    <span class="material-icons-sharp">book</span>
+                    <h3>Cursos</h3>
+                </a>
+                
+                <a href="../../certificados/certificado.html">
+                    <span class="material-icons-sharp">receipt_long</span>
+                    <h3>Certificados</h3>
+                </a>
+                
+                <a href="../../Bandeja de Entrada/bandeja.html">
+                    <span class="material-icons-sharp">mail_outline</span>
+                    <h3>Bandeja entrada</h3>
+                    <span class="message-count">27</span>
+                </a>
+                
+                <a href="../../Ventas/venta.html">
+                    <span class="material-icons-sharp">inventory</span>
+                    <h3>Ventas</h3>
+                </a>
+
+                <a href="../becas/beca.html">
+                    <span class="material-icons-sharp">school</span>
+                    <h3>Becas</h3>
+                </a>
+    
+                <!-- Menú desplegable de usuarios -->
+                <div class="menu-item">
+                    <a href="#" class="user-toggle">
+                        <span class="material-icons-sharp">people</span>
+                        <h3>Usuarios</h3>
+                        <span class="material-icons-sharp arrow">expand_more</span>
+                    </a>
+                    
+                    <div class="sub-menu">
+                        <a href="../../GestionUsuario/gestion admin/gestionadmin.html">
+                            <span class="material-icons-sharp">admin_panel_settings</span>
+                            <h3>Administradores</h3>
+                        </a>
+                        <a href="../../GestionUsuario/gestion profesor/gestionprofesor.html">
+                            <span class="material-icons-sharp">school</span>
+                            <h3>Profesores</h3>
+                        </a>
+                        <a href="../../GestionUsuario/gestion alumno/gestionalumno.html">
+                            <span class="material-icons-sharp">person</span>
+                            <h3>Alumnos</h3>
+                        </a>
+                    </div>
+                </div>
+    
+                <a href="#" class="logout">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Salir</h3>
+                </a>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Validar Certificado</h1>
+
+            <div class="containers">
+                <!-- Barra de búsqueda y botones de ordenamiento -->
+                <div class="filters">
+                    <div class="search-bar">
+                        <i class='bx bx-search'></i>
+                        <input type="text" id="search-code" placeholder="Buscar por código de certificado...">
+                    </div>
+                    <div class="date-filter">
+                        <label for="filter-date">Fecha:</label>
+                        <input type="date" id="filter-date" class="filter-date-input" placeholder="Seleccione una fecha" title="Filtrar por fecha">
+                        <button id="filter-date-btn" class="filter-button"><i class='bx bx-calendar'></i> Filtrar por fecha</button>
+                    </div>
+                </div>
+        
+                <table class="full-width">
+                    <thead>
+                        <tr>
+                            <th>ID Certificado</th>
+                            <th>Nombre</th>
+                            <th>Curso</th>
+                            <th>Fecha de Emisión</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="certificadosTable">
+                        <!-- Los certificados se llenarán dinámicamente aquí -->
+                    </tbody>
+                </table>
+        
+                <!-- Resultados de la validación -->
+                <div id="resultadoValidacion" class="resultado-validacion">
+                    <!-- Aquí se mostrará el resultado de la validación -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="certificado.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userToggle = document.querySelector('.user-toggle');
+            const subMenu = document.querySelector('.sub-menu');
+            const arrow = document.querySelector('.arrow');
+        
+            userToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                subMenu.classList.toggle('active');
+                arrow.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

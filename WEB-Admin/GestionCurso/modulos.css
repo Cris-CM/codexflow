@@ -1,0 +1,240 @@
+:root{
+    --color-primary: #6C9BCF;
+    --color-danger: #073258;
+    --color-success: #1B9C85;
+    --color-warning: #F7D060;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif; /* Asegúrate de usar la misma fuente */
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+aside {
+    width: 250px; /* Ancho del sidebar */
+    background-color: var(--color-background);
+    /* Otros estilos para el sidebar */
+}
+
+main.full-screen {
+    flex: 1; /* Ocupa el espacio restante */
+    padding: 1rem;
+    background-color: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Asegúrate de que ocupe toda la altura */
+}
+
+.curso-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-background);
+}
+
+.titulo-curso {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.return-arrow a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+.add-module-btn {
+    background-color: var(--color-success);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-module-btn:hover {
+    background-color: darkgreen; /* Cambia a un color más oscuro al pasar el mouse */
+}
+
+.modulos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.modulo-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius-1);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    max-width: 320px;
+    margin: 1rem;
+    overflow: hidden;
+}
+
+.modulo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modulo-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modulo-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.modulo-descripcion {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--color-dark-variant);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.modulo-links {
+    margin-top: auto; /* Empuja los enlaces hacia abajo */
+}
+
+.video-link {
+    text-decoration: none;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+}
+
+.video-link i {
+    margin-right: 0.5rem;
+}
+
+.archivo-info {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--color-info-dark);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+}
+
+.close {
+    cursor: pointer;
+    float: right;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.save-btn {
+    background-color: var(--color-success);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+    background-color: darkgreen; /* Cambia a un color más oscuro al pasar el mouse */
+}
+
+.cancel-btn {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+    background-color: darkred; /* Cambia a un color más oscuro al pasar el mouse */
+}
+
+.oculto {
+    display: none;
+}
+
+.edit-btn, .delete-btn {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+    background-color: darkblue; /* Color más oscuro al pasar el mouse */
+}
+
+.delete-btn {
+    background-color: var(--color-danger);
+}
+
+.delete-btn:hover {
+    background-color: darkred; /* Color más oscuro al pasar el mouse */
+} 
