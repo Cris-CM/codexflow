@@ -1,0 +1,711 @@
+:root {
+    --highcharts-background-color: var(--color-white);
+    --highcharts-neutral-color-100: var(--color-gray-600);
+    --highcharts-neutral-color-80: var(--color-gray-550);
+    --highcharts-neutral-color-60: var(--color-gray-500);
+    --highcharts-neutral-color-40: var(--color-gray-400);
+    --highcharts-neutral-color-20: var(--color-gray-200);
+    --highcharts-neutral-color-10: var(--color-gray-100);
+    --highcharts-positive-color: var(--color-green-400);
+    --highcharts-negative-color: var(--color-red-400);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color:#4aa0fc;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Lato', sans-serif;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+  
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+  
+  .logo img {
+    height: clamp(30px, 5vw, 50px);
+    margin-right: 0.5rem;
+  }
+  
+  .search-bar input {
+    padding: 0.7rem;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    color: var(--text-color);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    width: clamp(200px, 30vw, 400px);
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background-color: var(--secondary-bg);
+    color: #c70039;
+  }
+  
+  .user-menu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .user-menu img {
+    width: clamp(30px, 5vw, 50px);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: var(--secondary-bg);
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: rgb(226, 226, 226);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 160px;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .user-menu:hover .dropdown-menu {
+    display: block;
+    
+  }
+
+  .dropdown-menu a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: var(--secondary-bg);
+  }
+
+.curso-info, .cursos-gratuitos {
+    padding: 20px;
+}
+
+.cursos {
+    display: flex;
+    justify-content: space-around;
+}
+
+.curso {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 45%;
+    text-align: center;
+}
+
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.web-development {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: none;
+    margin-bottom: 20px;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.img-desarrollo {
+    width: 40%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.web-content {
+    flex: 1;
+    padding-left: 20px;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-size: clamp(2rem, calc(2rem +(3.2 - 2)* calc((100vw - 36rem) /(144 - 36))), 3.2rem);
+}
+
+p {
+    font-family: var(--font-stack-text);
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: clamp(1.65rem, calc(1.65rem +(1.8 - 1.65)* calc((100vw - 36rem) /(144 - 36))), 1.8rem);
+}
+
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.tutorial {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.rating, .students, .duration {
+    color: #777;
+}
+
+.students {
+    transform: translateY(15px);
+}
+
+.btn-curso {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn-curso:hover {
+    background-color: #0056b3;
+}
+
+.curso-nav {
+    background-color: #f8f9fa;
+    margin: 0px 20px;
+    text-decoration: none;
+}
+
+.curso-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 20px 0px 20px;
+}
+
+.curso-nav li {
+    display: inline;
+    margin: 20px 15px;
+}
+
+.curso-nav a {
+    text-decoration: none;
+    color: #5d666e;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.curso-nav a:hover {
+    text-decoration: underline;
+}
+
+.curso-nav hr {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    margin-left: 20px;
+}
+
+.curso-contenido, .curso-reseñas, .curso-instructores {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin: 20px;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.curso-contenido h2, .curso-reseñas h2, .curso-instructores h2 {
+    margin-top: 0;
+}
+
+.rating {
+    font-weight: bold;
+    color: #ff9800;
+    margin-left: 5px;
+}
+
+.stars {
+    color: #ff9800;
+    margin-left: 5px;
+}
+
+.calificacion {
+    font-weight: bold;
+    color: #7a7a7a;
+}
+
+.rating-bars {
+    display: flex;
+    flex-direction: column;
+}
+
+.bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin: 5px 0;
+    position: relative;
+    height: 20px;
+}
+
+.bar span {
+    position: absolute;
+    left: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.rating-summary {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.rating {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #d67d2b;
+    margin-right: 10px;
+}
+
+.stars {
+    color: #d67d2b;
+    margin-right: 10px;
+}
+
+.calificacion {
+    font-weight: bold;
+    color: #7a7a7a;
+}
+
+.rating-bars {
+    display: flex;
+    flex-direction: column;
+}
+
+.bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin: 5px 0;
+    position: relative;
+    height: 20px;
+}
+
+.bar span {
+    position: absolute;
+    left: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+.comments {
+    margin-top: 20px;
+}
+
+.comment-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.comment-box textarea {
+    width: 30%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.comment-box button {
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+}
+
+.comment-box button:hover {
+    background-color: #0056b3;
+}
+
+.comment-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.comment {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.comment img.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-actions {
+    margin-top: 5px;
+}
+
+.like-btn, .dislike-btn {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.like-btn:hover, .dislike-btn:hover {
+    text-decoration: underline;
+}
+
+.instructor-info {
+    display: flex;
+    align-items: center;
+}
+
+.instructor-avatar {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+}
+
+.instructor-details {
+    font-size: 16px;
+}
+
+.instructor-details p {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+}
+
+.curso-aprendizaje, .curso-contenido {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin: 20px;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.curso-aprendizaje h2, .curso-contenido h3 {
+    color: #007bff; 
+}
+
+.lista-aprendizaje, .lista-requisitos {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lista-aprendizaje li, .lista-requisitos li {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.cursos-recomendados {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.carrusel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.curso {
+    min-width: 300px;
+    margin: 0 10px;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+.curso img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.rating .icon-star {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.precio {
+    color: #e74c3c;
+    font-size: 1.2em;
+}
+
+.del {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.reply-section {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.reply-input {
+    width: 30%;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.reply-button {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+}
+
+.reply-button:hover {
+    background-color: #0056b3;
+}
+
+.curso-nav a.active {
+    color: #000000;
+    font-weight: bold;  
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    width: 90%; 
+    overflow: hidden; 
+    scroll-behavior: smooth;
+}
+
+.curso {
+    min-width: 300px;
+    margin: 0 10px;
+}
+
+.carousel-btn {
+    background-color: #0072ff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn.prev-btn {
+    left: 10px;
+}
+
+.carousel-btn.next-btn {
+    right: 10px;
+}
+
+.rating-2 {
+    font-size: 1.1rem;
+    height: auto;
+}
+
+.curso-reseñas, .curso-instructores {
+    display: none; /* Ocultar por defecto */
+}
+
+.curso-reseñas.active, .curso-instructores.active {
+    display: block; /* Mostrar cuando se activa */
+}
+
+.comments {
+    margin-top: 20px;
+}
+
+.comment-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.comment-box textarea {
+    width: 30%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.comment-box button {
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+}
+
+.comment-box button:hover {
+    background-color: #0056b3;
+}
+
+.comment-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.comment {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.comment img.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-actions {
+    margin-top: 5px;
+}
+
+.like-btn, .dislike-btn {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.like-btn:hover, .dislike-btn:hover {
+    text-decoration: underline;
+}
+
+
+#reseñas {
+  display: block;
+}
+
+#instructores {
+  display: none;
+}
