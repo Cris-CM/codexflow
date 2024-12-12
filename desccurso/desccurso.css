@@ -884,3 +884,191 @@ button.next {
     border-radius: 50%;
     margin-right: 10px;
 }
+
+/* Estilo del contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilo de los formularios */
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Media Queries para Responsividad */
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        padding: 8px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .cursos {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar los cursos */
+    }
+
+    .curso {
+        width: 90%; /* Ajustar el ancho de los cursos en pantallas más pequeñas */
+        margin: 10px 0; /* Espaciado entre cursos */
+    }
+
+    .web-development {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar contenido */
+    }
+
+    .img-desarrollo {
+        width: 100%; /* Hacer la imagen responsiva */
+        height: auto; /* Mantener la proporción */
+    }
+
+    .search-bar input {
+        width: 100%; /* Hacer la barra de búsqueda responsiva */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    button {
+        padding: 8px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        padding: 6px;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    .cursos {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar los cursos */
+    }
+
+    .curso {
+        width: 100%; /* Ajustar el ancho de los cursos en pantallas más pequeñas */
+    }
+
+    .web-development {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar contenido */
+    }
+
+    .img-desarrollo {
+        width: 100%; /* Hacer la imagen responsiva */
+        height: auto; /* Mantener la proporción */
+    }
+
+    .search-bar input {
+        width: 100%; /* Hacer la barra de búsqueda responsiva */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+
+    button {
+        padding: 6px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        padding: 5px;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+
+    .cursos {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar los cursos */
+    }
+
+    .curso {
+        width: 100%; /* Ajustar el ancho de los cursos en pantallas más pequeñas */
+    }
+
+    .web-development {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: center; /* Centrar contenido */
+    }
+
+    .img-desarrollo {
+        width: 100%; /* Hacer la imagen responsiva */
+        height: auto; /* Mantener la proporción */
+    }
+
+    .search-bar input {
+        width: 100%; /* Hacer la barra de búsqueda responsiva */
+    }
+}

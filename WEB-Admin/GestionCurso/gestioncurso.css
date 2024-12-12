@@ -66,6 +66,9 @@ img{
 }
 
 h1{
+    margin: 1.5rem;
+    max-width: 100%;
+    text-align: center;
     font-weight: 800;
     font-size: 1.8rem;
 }
@@ -243,16 +246,23 @@ h2 {
 }
 
 button {
-    padding: 0.7rem 1.5rem;
-    background-color: #3498db;
+    background-color: var(--color-primary);
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 10px 20px 40px;
+    transform: translate(200%);
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #0056b3;
 }
 
 .oculto {
@@ -305,7 +315,6 @@ textarea {
     margin-right: 10px;
 }
 
-/* Estilos para el menú desplegable */
 .menu-item {
     width: 100%;
     position: relative;
@@ -357,14 +366,12 @@ textarea {
     transform: rotate(180deg);
 }
 
-/* Asegurar que el botón de salir esté al final */
 .logout {
     position: absolute !important;
     bottom: 0.5rem !important;
     width: 100% !important;
 }
 
-/*MODO RESPONSIVE*/
 
 @media screen and (max-width: 1200px) {
     .container{
@@ -677,7 +684,7 @@ textarea {
     padding: 12px;
 }
 
-/* Estilos para la sección de módulos */
+/* Estilos para la sección de m��dulos */
 .modulo-card {
     background: white;
     border-radius: 10px;
@@ -829,4 +836,73 @@ textarea {
 
 #precio-personalizado {
     display: none;
+}
+
+/* Estilo del contenedor principal */
+.main-content {
+    padding: 20px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los formularios */
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Estilo de los mensajes de error o éxito */
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: var(--border-radius-1);
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.btn-guardar{
+    background-color: var(--color-primary);
+    color: white;
+    transform: translate(60%);
+    transition: background-color 0.3s;
+}
+
+.btn-guardar:hover{
+    background-color: #0056b3;
 }
