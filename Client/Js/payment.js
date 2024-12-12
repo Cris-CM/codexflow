@@ -1,12 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
   const courses = [
-      {
-          id: 1,
-          title: "Desarrollo Web Fullstack",
-          price: 299.99,
-          image: "/Client/Images/html.jpg",
-      },
-      
+    {
+      id: 1,
+      title: "Desarrollo Web Fullstack",
+      price: 299.99,
+      image: "/Client/Images/courses/web-dev.jpg",
+    },
+    {
+      id: 2,
+      title: "Diseño UX/UI Avanzado",
+      price: 249.99,
+      image: "/Client/Images/courses/ux-ui.jpg",
+    },
+    {
+      id: 3,
+      title: "Machine Learning y Data Science",
+      price: 349.99,
+      image: "/Client/Images/courses/ml-ds.jpg",
+    },
+    {
+      id: 4,
+      title: "Desarrollo de Apps Móviles",
+      price: 279.99,
+      image: "/Client/Images/courses/mobile-apps.jpg",
+    },
+    {
+      id: 5,
+      title: "DevOps y Cloud Computing",
+      price: 329.99,
+      image: "/Client/Images/courses/devops.jpg",
+    },
+    {
+      id: 6,
+      title: "Ciberseguridad Empresarial",
+      price: 299.99,
+      image: "/Client/Images/courses/cybersecurity.jpg",
+    },
   ];
 
   const plans = [

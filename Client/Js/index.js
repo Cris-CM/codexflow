@@ -1,109 +1,54 @@
-// Add smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetElement = document.querySelector(this.getAttribute('href'));
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
-        }
-    });
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentSlide = 0;
 
-// Add navbar background on scroll
-window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    function goToSlide(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        currentSlide = index;
     }
-});
 
-// Add animation class to elements when they come into view
-const observerOptions = {
-    threshold: 0.1
-};
+    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-        } else {
-            entry.target.classList.remove('animate-in');
-        }
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const index = Array.from(slides).indexOf(target);
+                goToSlide(index);
+            }
+        });
     });
-}, observerOptions);
 
-document.querySelectorAll('.panda-content, .panda-image, .feature-content, .feature-description, .porque-card')
-    .forEach(el => observer.observe(el));
+    // Add hover effect to plan cards
+    const planCards = document.querySelectorAll('.plan');
+    planCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            card.style.boxShadow = '';
+        });
+    });
 
-
-/* INICIO MENU HAMBURGUESA */
-
-const menuIcon = document.getElementById('menu-icon');
-const navLinks = document.querySelector('.nav-links');
-const body = document.querySelector('body');
-
-// Toggle menu function
-function toggleMenu() {
-    navLinks.classList.toggle('show');
-    menuIcon.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-}
-
-// Event Listeners
-menuIcon.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleMenu();
-});
-
-// Close menu when clicking links
-document.querySelectorAll('.nav-links a, .nav-links button').forEach(item => {
-    item.addEventListener('click', () => {
-        navLinks.classList.remove('show');
-        menuIcon.classList.remove('active');
-        document.body.classList.remove('menu-open');
+    // Add animation to features in footer
+    const features = document.querySelectorAll('.feature');
+    features.forEach((feature, index) => {
+        feature.style.opacity = '0';
+        feature.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            feature.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            feature.style.opacity = '1';
+            feature.style.transform = 'translateY(0)';
+        }, 200 * index);
     });
 });
-
-// Close menu when clicking outside
-document.addEventListener('click', (event) => {
-    const isClickInsideMenu = navLinks.contains(event.target);
-    const isClickOnMenuIcon = menuIcon.contains(event.target);
-
-    if (!isClickInsideMenu && !isClickOnMenuIcon && navLinks.classList.contains('show')) {
-        toggleMenu();
-    }
-});
-// Desplazamiento suave para los enlaces del navbar
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetElement = document.querySelector(this.getAttribute('href'));
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
-        }
-    });
-});
-
-// Cambiar el fondo del navbar al hacer scroll
-window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-
-/* FIN MENU HAMBURGUESA */
-
-/* Seccion Escuiela */
-
