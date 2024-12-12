@@ -101,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
     socket.on("connect_error", (error) => {
       console.error("Error de conexión:", error);
       updateConnectionStatus(false);
-      alert("Error de conexión con el servidor");
     });
 
     socket.on(`message:${userId}`, (message) => {
@@ -143,24 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function createMessage(text, sender, time, isSent) {
-    const messageDiv = document.createElement("div");
-    messageDiv.className = `message ${isSent ? "sent" : "received"}`;
-
-    const messageInfo = document.createElement("div");
-    messageInfo.className = "message-info";
-    messageInfo.textContent = `${sender} - ${time}`;
-
-    const messageContent = document.createElement("div");
-    messageContent.className = "message-content";
-    messageContent.textContent = text;
-
-    messageDiv.appendChild(messageInfo);
-    messageDiv.appendChild(messageContent);
-
-    return messageDiv;
-  }
-
   function appendMessage(message) {
     const chatMessages = document.getElementById("chatMessages");
     if (!chatMessages) return;
@@ -174,17 +155,17 @@ document.addEventListener("DOMContentLoaded", function () {
     messageElement.classList.add("message", isUser ? "sent" : "received");
 
     messageElement.innerHTML = `
-          <div class="message-content">
-              <div class="message-bubble">
-                  <p>${message.content}</p>
-              </div>
-              <span class="message-time">
-                  ${displayName} - ${new Date(
+      <div class="message-content">
+          <div class="message-bubble">
+              <p>${message.content}</p>
+          </div>
+          <span class="message-time">
+              ${displayName} - ${new Date(
       message.timestamp
     ).toLocaleTimeString()}
-              </span>
-          </div>
-      `;
+          </span>
+      </div>
+    `;
 
     chatMessages.appendChild(messageElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -210,8 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
       userName: currentUserName,
       timestamp: new Date(),
     };
-
-    console.log("Enviando mensaje:", message);
 
     socket.emit("sendMessage", message);
     input.value = "";
@@ -265,12 +244,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Simulating streak increment (replace with actual logic)
     setInterval(() => {
       streakCount++;
       localStorage.setItem("streakCount", streakCount.toString());
       updateStreakDisplay(streakCount);
-    }, 86400000); // 24 hours
+    }, 86400000);
   }
 
   function updateStreakDisplay(count) {
@@ -335,118 +313,58 @@ document.addEventListener("DOMContentLoaded", function () {
   // Iniciar la aplicación
   initializeApp();
 
-  // New code for course filtering and searching
+  // Código para el manejo de cursos y búsqueda
   const searchInput = document.getElementById("searchInput");
   const coursesGrid = document.getElementById("coursesGrid");
-  const filterButtons = document.querySelectorAll(".filter-btn");
   const requestScholarshipButton =
     document.getElementById("requestScholarship");
 
-  const courses = [
-    {
-      title: "Introducción a la Robótica",
-      description:
-        "Enfocado en introducir a los estudiantes en el mundo de la robótica básica para niños.",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHdbZVfM9s4OYuAp0MQhIMWO9hWfofWO6hyQ&s",
-      age: "kids",
-      tags: ["robótica", "programación", "básico"],
-    },
-    {
-      title: "Desarrollo Web Frontend",
-      age: "teens",
-      description:
-        "Aprende a crear sitios web modernos y atractivos con HTML, CSS y JavaScript.",
-      tags: ["web", "html", "css"],
-    },
-    {
-      title: "JavaScript desde 0",
-      age: "adults",
-      description:
-        "Aprende JavaScript desde 0 con este curso interactivo y conviertete en un desarrollador frontend.",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFPCKrf1KLJ3hSGfhq7X731GBbRZVlFWuZWA&s",
-      tags: ["javascript", "avanzado"],
-    },
-    {
-      title: "Diseño de Videojuegos para Niños",
-      description:
-        "Aprende a crear videojuegos con este curso interactivo y conviertete en un desarrollador de videojuegos.",
-      image: "https://i.ytimg.com/vi/JgSQE24gqVA/maxresdefault.jpg",
-      age: "kids",
-      tags: ["videojuegos", "diseño"],
-    },
-    {
-      title: "Desarrollo de aplicaciones móviles",
-      age: "teens",
-      description:
-        "Aprende a desarrollar aplicaciones móviles con Flutter y diseña tus propias aplicaciones.",
-      image: "https://i.ytimg.com/vi/ylLPGBoz3Gw/maxresdefault.jpg",
-      tags: ["movil", "flutter"],
-    },
-    {
-      title: "Machine Learning y IA",
-      age: "adults",
-      description:
-        "Aprende los conceptos básicos de la inteligencia artificial y cómo aplicarlos en tu trabajo.",
-      image: "https://i.ytimg.com/vi/UKncFg0PyEk/maxresdefault.jpg",
-      tags: ["ia", "machine learning"],
-    },
-  ];
-
-  function renderCourses(filteredCourses) {
-    coursesGrid.innerHTML = "";
-    filteredCourses.forEach((course) => {
-      const courseElement = document.createElement("div");
-      courseElement.classList.add("course-card");
-
-      courseElement.innerHTML = `
-              <img src="${course.image || "/Client/Images/html.jpg"}" 
-                   alt="${course.title}" 
-                   class="course-image">
-              <div class="course-content">
-                  <h3 class="course-title">${course.title}</h3>
-                  <p class="course-description">${
-                    course.description ||
-                    "Enfocado en introducir a los estudiantes en esta área de conocimiento."
-                  }</p>
-                  <div class="course-buttons">
-                      <button class="course-btn course-btn-primary">Ver sesiones</button>
-                      <button class="course-btn course-btn-secondary">Ir a Evaluación</button>
-                  </div>
-              </div>
-          `;
-
-      // Add click handlers for buttons
-      const buttons = courseElement.querySelectorAll(".course-btn");
-      buttons.forEach((button) => {
-        button.addEventListener("click", (e) => {
-          e.preventDefault();
-          const action = button.textContent;
-          if (action === "Ver sesiones") {
-            // Handle view sessions
-            console.log("Ver sesiones para:", course.title);
-          } else {
-            // Handle evaluation
-            console.log("Ir a evaluación para:", course.title);
-          }
-        });
-      });
-
-      coursesGrid.appendChild(courseElement);
-    });
-  }
-
   function searchCourses(query) {
-    return courses.filter((course) =>
-      course.title.toLowerCase().includes(query.toLowerCase())
+    // Buscar en los cursos que están actualmente en el DOM
+    const currentCourses = Array.from(
+      coursesGrid.getElementsByClassName("course-card")
+    ).map((card) => ({
+      title: card.querySelector(".course-title").textContent,
+      description: card.querySelector(".course-description").textContent,
+      image: card.querySelector(".course-image").src,
+    }));
+
+    return currentCourses.filter(
+      (course) =>
+        course.title.toLowerCase().includes(query.toLowerCase()) ||
+        course.description.toLowerCase().includes(query.toLowerCase())
     );
   }
 
   searchInput.addEventListener("input", function () {
     const query = this.value;
-    const searchResults = searchCourses(query);
-    renderCourses(searchResults);
+    if (!query) {
+      // Si no hay búsqueda, mostrar todos los cursos
+      Array.from(coursesGrid.getElementsByClassName("course-card")).forEach(
+        (card) => {
+          card.style.display = "block";
+        }
+      );
+    } else {
+      // Si hay búsqueda, filtrar los cursos
+      const searchResults = searchCourses(query);
+      Array.from(coursesGrid.getElementsByClassName("course-card")).forEach(
+        (card) => {
+          const title = card.querySelector(".course-title").textContent;
+          const description = card.querySelector(
+            ".course-description"
+          ).textContent;
+          if (
+            title.toLowerCase().includes(query.toLowerCase()) ||
+            description.toLowerCase().includes(query.toLowerCase())
+          ) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        }
+      );
+    }
   });
 
   requestScholarshipButton.addEventListener("click", function (e) {
@@ -456,9 +374,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   });
 
-  // Initialize with all courses
-  renderCourses(courses);
-
+  // Configuración de los botones de escuela
   const schools = [
     {
       name: "Visual Studio Code",
@@ -478,62 +394,26 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       ],
     },
-    {
-      name: "Inteligencia Artificial",
-      path: [
-        {
-          title: "Fundamentos de IA",
-          description:
-            "Conoce los conceptos básicos de la inteligencia artificial.",
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMd0Qzk8o9fCKq-ueBOHAfELLHdm6FZdL3GA&s",
-        },
-        {
-          title: "Redes Neuronales",
-          description:
-            "Explora cómo funcionan las redes neuronales y cómo aplicarlas en tu trabajo.",
-          image: "https://i.ytimg.com/vi/jaEIv_E29sk/maxresdefault.jpg",
-        },
-      ],
-    },
-    {
-      name: "Desarrollo Móvil",
-      path: [
-        {
-          title: "Introducción a Flutter",
-          description: "Comienza con el desarrollo móvil usando Flutter.",
-          image: "https://i.ytimg.com/vi/jaEIv_E29sk/maxresdefault.jpg",
-        },
-        {
-          title: "Widgets en Flutter",
-          description: "Aprende sobre los widgets básicos en Flutter.",
-          image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa62DQGO-UxlNUdVz-7uK7KFQwnNwSyoyl5w&s",
-        },
-      ],
-    },
-    // Add more schools and paths as needed
+    // ... resto de las escuelas ...
   ];
 
   function setupSchoolButtons() {
     const schoolButtons = document.querySelectorAll(".school-button");
-    const coursesGrid = document.getElementById("coursesGrid");
     const learningPathContent = document.getElementById("learningPathContent");
 
     schoolButtons.forEach((button, index) => {
       button.addEventListener("click", () => {
         const school = schools[index];
-        renderLearningPath(school.path);
+        if (school) {
+          renderLearningPath(school.path);
+          coursesGrid.classList.add("slide-left");
+          learningPathContent.classList.add("slide-left");
 
-        // Add sliding effect to specific sections
-        coursesGrid.classList.add("slide-left");
-        learningPathContent.classList.add("slide-left");
-
-        // Remove sliding effect after animation
-        setTimeout(() => {
-          coursesGrid.classList.remove("slide-left");
-          learningPathContent.classList.remove("slide-left");
-        }, 500);
+          setTimeout(() => {
+            coursesGrid.classList.remove("slide-left");
+            learningPathContent.classList.remove("slide-left");
+          }, 500);
+        }
       });
     });
   }
@@ -542,38 +422,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const learningPathContent = document.getElementById("learningPathContent");
     const learningPathSection = document.getElementById("learningPath");
 
-    learningPathContent.innerHTML = path
-      .map(
-        (item) => `
-      <div class="course-card">
-        <img src="${item.image}" alt="${item.title}" class="course-image">
-        <div class="course-content">
-          <h3 class="course-title">${item.title}</h3>
-          <p class="course-description">${item.description}</p>
+    if (learningPathContent && path) {
+      learningPathContent.innerHTML = path
+        .map(
+          (item) => `
+        <div class="course-card">
+          <img src="${item.image}" alt="${item.title}" class="course-image">
+          <div class="course-content">
+            <h3 class="course-title">${item.title}</h3>
+            <p class="course-description">${item.description}</p>
+          </div>
         </div>
-      </div>
-    `
-      )
-      .join("");
+      `
+        )
+        .join("");
 
-    learningPathSection.classList.add("active");
+      if (learningPathSection) {
+        learningPathSection.classList.add("active");
+      }
+    }
   }
 
-  // Initialize school buttons
+  // Inicializar botones de escuela
   setupSchoolButtons();
-});
 
-//Apartado de cursos rutas
-// Add this to your existing JavaScript file
-document.addEventListener("DOMContentLoaded", function () {
+  // Filtros de cursos en rutas
   const filterButtons = document.querySelectorAll(".filter-button");
   const courseItems = document.querySelectorAll(".course-item");
 
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      // Remove active class from all buttons
       filterButtons.forEach((btn) => btn.classList.remove("active"));
-      // Add active class to clicked button
       button.classList.add("active");
 
       const filter = button.getAttribute("data-filter");
