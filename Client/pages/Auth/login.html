@@ -11,79 +11,75 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
+          <!-- Formulario de Login -->
           <form action="#" class="sign-in-form" id="login-form">
-            <h2 class="title">Iniciar Sesion</h2>
+            <img src="pictures/Logo de Codexflow.svg" class="logo" alt="Logo">
+            <h2 class="title">Accede a tu aventura 🔑</h2>
             <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" id="login-email" placeholder="Usuario" />
+                <i class="fas fa-user"></i>
+                <input type="text" id="login-email" placeholder="Usuario" />
             </div>
             <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input
-                type="password"
-                id="login-password"
-                placeholder="Contraseña"
-              />
+                <i class="fas fa-lock"></i>
+                <input type="password" id="login-password" placeholder="Contraseña" />
             </div>
-            <input class="btn solid" type="submit" value="Iniciar" />
-          </form>
+            <input type="submit" class="btn solid" value="LOGIN" />
+            <p class="social-text">¿No tienes cuenta? 
+                <a href="#" id="sign-up-btn">Regístrate</a>
+            </p>
+        </form>
 
+          <!-- Formulario de Registro -->
           <form action="#" class="sign-up-form" id="registration-form">
-            <h2 class="title">Registrate</h2>
+            <img src="pictures/Logo de Codexflow.svg" class="logo" alt="Logo">
+            <h2 class="title">¡Crea tu cuenta y despega!🌟</h2>
             <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" id="nombre" placeholder="Usuario" />
+                <i class="fas fa-user"></i>
+                <input type="text" id="nombre" placeholder="Usuario" />
             </div>
             <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="email" id="register-email" placeholder="Correo" />
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="register-email" placeholder="Correo" />
             </div>
             <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input
-                type="password"
-                id="register-password"
-                placeholder="Contraseña"
-              />
+                <i class="fas fa-lock"></i>
+                <input type="password" id="register-password" placeholder="Contraseña" />
             </div>
             <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="date" id="fecha-nacimiento" placeholder="Edad" />
+                <i class="fas fa-calendar"></i>
+                <input type="date" id="fecha-nacimiento" />
             </div>
-            <input type="submit" class="btn" value="Registrate" />
-          </form>
+            <input type="submit" class="btn" value="REGISTRATE" />
+            <p class="social-text">Ya cuento con una cuenta
+                <a href="#" id="sign-in-btn">Iniciar Sesión</a>
+            </p>
+        </form>
         </div>
       </div>
 
       <div class="panels-container">
         <div class="panel left-panel">
-          <img src="pictures/imagen1.svg" class="image" alt="" />
           <div class="content">
-            <h3>¿Nuevo aquí?</h3>
+            <h1>¡Bienvenido a CodexFlow! 🚀</h1>
             <p>
-              Bienvenido a CodexFlow, tu plataforma de estudios en línea. Inicia
-              sesión para acceder a tus cursos, materiales de aprendizaje y
-              recursos exclusivos. Si aún no tienes cuenta, regístrate en pocos
-              pasos para comenzar a estudiar y avanzar en tu conocimiento
+              Tu viaje hacia el conocimiento comienza ahora. En CodexFlow, cada curso es una oportunidad para crecer, desafiarte y alcanzar tus metas. Explora un mundo lleno de aprendizaje, herramientas y nuevas habilidades que te prepararán para el futuro.
+              Inicia sesión, acepta el desafío y embárcate en una aventura única donde el conocimiento no tiene límites. ¡Tu éxito comienza aquí!
             </p>
-            <button class="btn transparent" id="sign-up-btn">Registrate</button>
+
           </div>
+          <img src="pictures/imagen1.png" class="image" alt="CodexFlow Image" />
         </div>
+
         <div class="panel right-panel">
           <div class="content">
-            <h3>
-              ¡Únete a CodexFlow y comienza tu camino hacia el aprendizaje!
-            </h3>
-            <p>
-              Regístrate en pocos pasos para acceder a cursos, materiales
-              exclusivos y recursos diseñados para ayudarte a crecer. Da el
-              primer paso hacia tu éxito académico
+            <h1>¡Explora un mundo de oportunidades!🎓</h1>
+            <p> 
+              Únete a CODEXFLOW y comienza a descubrir cursos virtuales que te ayudarán a crecer, alcanzar tus metas y potenciar tus habilidades. Da el primer paso hacia el aprendizaje que te llevará más lejos.
+              ¡Crea tu cuenta ahora y comienza esta increíble aventura! 🌱 
             </p>
-            <button class="btn transparent" id="sign-in-btn">
-              Iniciar Sesion
-            </button>
+           
           </div>
-          <img src="pictures/imagen2.svg" class="image" alt="A picture here" />
+          <img src="pictures/imagen2.png" class="image" alt="CodexFlow Image" />
         </div>
       </div>
     </div>
