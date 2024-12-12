@@ -67,57 +67,18 @@
             <h3>Básico</h3>
             <p>Para 1 estudiante</p>
             <p class="price">S/200 al año</p>
-            <p class="recurring">Cobro anual recurrente de S/600</p>
-            <ul>
-              <li>Contenido profesional actualizado.</li>
-              <li>Certificados digitales.</li>
-              <li>Descarga contenido en la app móvil.</li>
-              <li>Acceso a sesiones de tutoría en vivo.</li>
-              <li>Material adicional exclusivo.</li>
-              <li>Un descuento del 30% para todos los participantes.</li>
-            </ul>
-            <p class="installments">
-              Paga a 4 cuotas sin intereses de S/150 con tarjeta débito o
-              crédito.
-            </p>
             <button class="select-plan" data-plan="basico">Suscribirse</button>
           </div>
           <div class="plan-card">
             <h3>Duo</h3>
             <p>Para 2 estudiantes</p>
             <p class="price">S/350 al año</p>
-            <p class="recurring">Cobro anual recurrente de S/1,080</p>
-            <ul>
-              <li>Contenido profesional actualizado.</li>
-              <li>Certificados digitales.</li>
-              <li>Descarga contenido en la app móvil.</li>
-              <li>Acceso a sesiones de tutoría en vivo.</li>
-              <li>Material adicional exclusivo.</li>
-              <li>Un descuento del 30% para todos los participantes.</li>
-            </ul>
-            <p class="installments">
-              Paga a 4 cuotas sin intereses de S/270 con tarjeta débito o
-              crédito.
-            </p>
             <button class="select-plan" data-plan="duo">Suscribirse</button>
           </div>
           <div class="plan-card">
             <h3>Expert</h3>
             <p>Para 4 estudiantes</p>
             <p class="price">S/500 al año</p>
-            <p class="recurring">Cobro anual recurrente de S/2,040</p>
-            <ul>
-              <li>Contenido profesional actualizado.</li>
-              <li>Certificados digitales.</li>
-              <li>Descarga contenido en la app móvil.</li>
-              <li>Acceso a sesiones de tutoría en vivo.</li>
-              <li>Material adicional exclusivo.</li>
-              <li>Un descuento del 30% para todos los participantes.</li>
-            </ul>
-            <p class="installments">
-              Paga a 4 cuotas sin intereses de S/510 con tarjeta débito o
-              crédito.
-            </p>
             <button class="select-plan" data-plan="expert">Suscribirse</button>
           </div>
         </div>
@@ -141,34 +102,18 @@
                       value="card"
                       checked
                     />
-                    <img
-                      src="https://seeklogo.com/images/B/bcp-bolivia-logo-87EC694136-seeklogo.com.png"
-                      alt="Tarjeta de crédito/débito"
-                    />
                     <span>Tarjeta</span>
                   </label>
                   <label>
                     <input type="radio" name="paymentMethod" value="yape" />
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREqKH15YFvMWoZGHyPI_lDQbhYVUeoDbHrlw&s"
-                      alt="Yape"
-                    />
                     <span>Yape</span>
                   </label>
                   <label>
                     <input type="radio" name="paymentMethod" value="cash" />
-                    <img
-                      src="https://cdn.worldvectorlogo.com/logos/pago-efectivo-2020.svg"
-                      alt="Efectivo"
-                    />
                     <span>Efectivo</span>
                   </label>
                   <label>
                     <input type="radio" name="paymentMethod" value="paypal" />
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png"
-                      alt="PayPal"
-                    />
                     <span>PayPal</span>
                   </label>
                 </div>
@@ -215,6 +160,7 @@
                   <input
                     type="text"
                     id="depositReference"
+                    name="depositReference"
                     placeholder="Número de referencia del depósito"
                     required
                   />
@@ -236,6 +182,7 @@
                   <input
                     type="text"
                     id="yapeReference"
+                    name="yapeReference"
                     placeholder="Número de referencia de Yape"
                     required
                   />
@@ -282,7 +229,11 @@
                   required
                 />
               </div>
-              <button type="submit" class="submit-button">
+              <button
+                type="submit"
+                class="submit-button"
+                id="submitPaymentButton"
+              >
                 Pagar S/ <span id="paymentAmount">0</span> PEN
               </button>
             </form>
