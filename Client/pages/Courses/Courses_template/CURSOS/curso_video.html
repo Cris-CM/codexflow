@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de JavaScript para Niños</title>
+    <link rel="stylesheet" href="/Client/pages/Courses/Courses_template/CURSOS/curso_video.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme03">
+    <div class="container">
+        <div class="main-content">
+            <div class="video-container">
+                <video id="videoPlayer" controls>
+                    <source src="https://example.com/video1.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+            <h1 id="videoTitle">Lección 1: Introducción a JavaScript</h1>
+            <div class="video-description">
+                <p id="videoDescription">Bienvenidos a nuestra primera lección de JavaScript para niños. Aquí aprenderemos los conceptos básicos de programación de una manera divertida y fácil de entender.</p>
+                <button id="showMoreBtn">Mostrar más</button>
+            </div>
+            <div class="comments-section">
+                <h2>Comentarios</h2>
+                <div class="comment-input">
+                    <textarea id="commentInput" placeholder="Añade un comentario..."></textarea>
+                    <button id="submitComment">Comentar</button>
+                </div>
+                <div id="commentsList"></div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <h2>Lista de reproducción</h2>
+            <div id="playlist"></div>
+        </div>
+    </div>
+    <script src="/Client/pages/Courses/Courses_template/CURSOS/curso_video.js"></script>
+</body>
+</html>
+
