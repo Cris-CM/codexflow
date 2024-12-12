@@ -1,148 +1,561 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
-    <title>LogicCraft - Aprende a Programar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
+    <script
+      src="https://kit.fontawesome.com/4cc1d373f1.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>The Yield Automation Protocol</title>
     <link rel="stylesheet" href="/Client/Styles/index.css" />
   </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <div class="logo-container">
-          <img
-            src="/placeholder.svg?height=48&width=48"
-            alt="LogicCraft Logo"
-            class="logo"
-          />
-          <span class="logo-text">LogicCraft</span>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#cursos">Cursos</a></li>
-          <li><a href="#planes">Planes</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-        <div class="auth-buttons">
-          <button class="btn btn-login" onclick="location.href='/Client/pages/Auth/login.html'">Iniciar Sesión</button>
-          <button class="btn btn-register" onclick="location.href='/Client/pages/Auth/register.html'">Registrarse</button>
-        </div>
-      </nav>
-    </header>
 
-    <main class="slider-container">
-      <div class="slider">
-        <div class="slide" id="inicio">
-          <div class="content">
-            <h1>LogicCraft</h1>
-            <p>
-              ¡Bienvenido a LogicCraft! Aquí te guiaremos desde lo más básico
-              hasta lo avanzado, ayudándote a dominar el arte de la programación
-              desde cero. No necesitas experiencia previa, solo la curiosidad de
-              explorar el mundo del código.
-            </p>
-            <button class="btn btn-cta">Comienza tu viaje</button>
+  <body>
+    <nav class="navbar container" id="navbar">
+      <a class="logo" href="#">
+        <img
+          src="https://res.cloudinary.com/dxnx6awui/image/upload/v1733982814/CodexFlow_sin_bg_euooiz.png"
+          alt="logo"
+          class="logo-img"
+        />
+        <div class="logo-text">Codex<span>Flow</span></div>
+      </a>
+
+      <div class="menu-icon" id="menu-icon">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#">Inicio</a>
+        <a href="#">Cursos</a>
+        <a href="#">Planes</a>
+        <a href="/Client/pages/Auth/login.html" class="enter-app-btn"
+          >Iniciar Sesión</a
+        >
+      </div>
+    </nav>
+
+    <!-- Seccion Main -->
+    <section class="section-main">
+      <div class="panda container">
+        <div class="panda-content">
+          <h1>Codex<span>Flow</span></h1>
+          <p class="panda-text">Aprende a tu ritmo,<br />crece a tu manera.</p>
+          <div class="cta-buttons">
+            <button class="primary-btn">Inicia tu aprendizaje hoy</button>
           </div>
         </div>
-        <div class="slide" id="cursos">
-          <div class="content">
-            <h1>Crea aplicaciones impactantes</h1>
-            <p>
-              En LogicCraft, no solo aprenderás a programar, aprenderás a
-              construir. Te damos las herramientas para que crees aplicaciones
-              que marquen la diferencia, capaces de resolver problemas reales y
-              transformar la forma en que interactuamos con la tecnología.
-            </p>
+        <div class="panda-image">
+          <div class="placeholder-image">
+            <img
+              src="https://res.cloudinary.com/dxnx6awui/image/upload/v1733984723/4-remove_nn03hw.png"
+              alt="codexflow-main"
+              class="panda-main"
+            />
           </div>
         </div>
-        <div class="slide">
-          <div class="content">
-            <h1>Conviértete en un experto</h1>
-            <p>
-              A través de ejercicios y proyectos reales, te ayudaremos a
-              convertirte en un desarrollador experto, con habilidades que te
-              permitirán sobresalir en la industria. Nuestro enfoque es
-              práctico, para que lo que aprendas hoy lo puedas aplicar mañana.
-            </p>
-          </div>
+      </div>
+      <div class="features container">
+        <div class="feature-content">
+          <p class="feature-label">Tu educación empieza aquí.</p>
+          <h2>Academia Codex<span>Flow</span></h2>
         </div>
-        <div class="slide" id="planes">
-          <div class="content">
-            <h1>Planes de Suscripción</h1>
-            <div class="plan-container">
-              <div class="plan">
-                <h2>Plan Básico</h2>
-                <p class="price">S/200 <span>al año</span></p>
-                <ul>
-                  <li>Para 1 estudiante</li>
-                  <li>Acceso a todos los cursos</li>
-                  <li>Certificados digitales</li>
-                  <li>Soporte por correo</li>
-                </ul>
-                <button class="btn btn-plan">Suscribirse</button>
-              </div>
-              <div class="plan featured">
-                <h2>Plan Duo</h2>
-                <p class="price">S/350 <span>al año</span></p>
-                <ul>
-                  <li>Para 2 estudiantes</li>
-                  <li>Acceso a todos los cursos</li>
-                  <li>Certificados digitales</li>
-                  <li>Soporte prioritario</li>
-                  <li>Sesiones de tutoría en vivo</li>
-                </ul>
-                <button class="btn btn-plan">Suscribirse</button>
-              </div>
-              <div class="plan">
-                <h2>Plan Experto</h2>
-                <p class="price">S/500 <span>al año</span></p>
-                <ul>
-                  <li>Para 4 estudiantes</li>
-                  <li>Acceso a todos los cursos</li>
-                  <li>Certificados digitales</li>
-                  <li>Soporte 24/7</li>
-                  <li>Sesiones de tutoría personalizadas</li>
-                  <li>Acceso anticipado a nuevos cursos</li>
-                </ul>
-                <button class="btn btn-plan">Suscribirse</button>
-              </div>
+        <div class="feature-description">
+          <p>
+            ¡Bienvenido a CodexFlow! Aquí te guiaremos desde lo más básico hasta
+            lo avanzado, ayudándote a dominar el arte de la programación desde
+            cero. No necesitas experiencia previa, solo la curiosidad de
+            explorar el mundo del código.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seccion Porque CodexFlow -->
+    <section class="section-porque">
+      <div class="container container-porque">
+        <div class="porque-title">
+          <h2>¿Por qué CodexFlow?</h2>
+        </div>
+
+        <div class="porque-container">
+          <!-- Primer Card -->
+          <div class="porque-card">
+            <div class="porque-context">
+              <h3>Fácil de Aprender</h3>
+              <p>
+                En CodexFlow, te ayudamos a aprender de forma sencilla y sin
+                complicaciones. Queremos que comprendas conceptos difíciles de
+                manera clara, adaptándonos siempre a tu propio ritmo de
+                aprendizaje personalizado.
+              </p>
+            </div>
+            <div class="porque-img">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1733988792/5-removebg-preview_mti2wr.png"
+                alt="panda-estudiante"
+              />
+            </div>
+          </div>
+
+          <!-- Segundo Card -->
+          <div class="porque-card">
+            <div class="porque-img">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1733988834/1-removebg-preview_wkuzmb.png"
+                alt=""
+              />
+            </div>
+            <div class="porque-context">
+              <h3>Acceso a las 24 horas</h3>
+              <p>
+                Puedes acceder a nuestras clases y recursos cuando mejor te
+                convenga. Estudia a tu manera, con la libertad de aprender en el
+                momento y lugar que te resulten más cómodos siempre, sin ninguna
+                restricción que limite tu proceso de aprendizaje.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tercer Card -->
+          <div class="porque-card">
+            <div class="porque-context">
+              <h3>Certificado Digital</h3>
+              <p>
+                Al terminar nuestros cursos, recibirás un certificado digital
+                que podrás agregar a tu portafolio. Con él, mostrarás tus
+                habilidades en robótica y programación, destacando para futuras
+                oportunidades profesionales en el campo tecnológico y educativo.
+              </p>
+            </div>
+            <div class="porque-img">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1733990482/4-removebg-preview_qxybki.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
       </div>
-      <div class="slider-nav">
-        <button class="prev">&lt;</button>
-        <button class="next">&gt;</button>
+    </section>
+
+    <!-- Seccion Escuelas -->
+    <section class="schools-section">
+      <div class="schools-title">
+        <h2>Principales escuelas de CodexFlow</h2>
       </div>
-    </main>
+
+      <div class="container">
+        <div class="schools-grid">
+          <!-- Data Science Card -->
+          <a href="#" class="school-card">
+            <div class="card-icon">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1734001281/DataScience_mvvjqf.webp"
+                alt="Data Science Icon"
+              />
+            </div>
+            <div class="card-content">
+              <span class="card-label">ESCUELA DE</span>
+              <h3 class="card-title">Data Science e Inteligencia Artificial</h3>
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <!-- Cybersecurity Card -->
+          <a href="#" class="school-card">
+            <div class="card-icon">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1734001324/Ciberseguridad_rd44h6.webp"
+                alt="Cybersecurity Icon"
+              />
+            </div>
+            <div class="card-content">
+              <span class="card-label">ESCUELA DE</span>
+              <h3 class="card-title">Ciberseguridad</h3>
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <!-- Leadership Card -->
+          <a href="#" class="school-card">
+            <div class="card-icon">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1734001346/Liderazgo_n1wu0n.webp"
+                alt="Leadership Icon"
+              />
+            </div>
+            <div class="card-content">
+              <span class="card-label">ESCUELA DE</span>
+              <h3 class="card-title">Liderazgo y Management</h3>
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <!-- English Academy Card -->
+          <a href="#" class="school-card">
+            <div class="card-icon">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1734001370/Ingles_oohrpp.webp"
+                alt="English Icon"
+              />
+            </div>
+            <div class="card-content">
+              <span class="card-label">ESCUELA DE</span>
+              <h3 class="card-title">English Academy</h3>
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <!-- Web Development Card -->
+          <a href="#" class="school-card">
+            <div class="card-icon">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1734001390/DesarrolloWeb_ygm0xb.webp"
+                alt="Web Dev Icon"
+              />
+            </div>
+            <div class="card-content">
+              <span class="card-label">ESCUELA DE</span>
+              <h3 class="card-title">Desarrollo Web</h3>
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <!-- Digital Marketing Card -->
+          <a href="#" class="school-card">
+            <div class="card-icon">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1734001411/MarketingDigital_tyk6ou.webp"
+                alt="Marketing Icon"
+              />
+            </div>
+            <div class="card-content">
+              <span class="card-label">ESCUELA DE</span>
+              <h3 class="card-title">Marketing Digital</h3>
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <!-- Product Card -->
+          <a href="#" class="school-card">
+            <div class="card-icon">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1734001427/AudioVisual_ydrogm.webp"
+                alt="Product Icon"
+              />
+            </div>
+            <div class="card-content">
+              <span class="card-label">ESCUELA DE</span>
+              <h3 class="card-title">Producto</h3>
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <!-- Audiovisual Content Card -->
+          <a href="#" class="school-card">
+            <div class="card-icon">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1734001390/DesarrolloWeb_ygm0xb.webp"
+                alt="Audiovisual Icon"
+              />
+            </div>
+            <div class="card-content">
+              <span class="card-label">ESCUELA DE</span>
+              <h3 class="card-title">Contenido Audiovisual</h3>
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <!-- Data Science Card -->
+          <a href="#" class="school-card">
+            <div class="card-icon">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1734001346/Liderazgo_n1wu0n.webp"
+                alt="Negocios"
+              />
+            </div>
+            <div class="card-content">
+              <span class="card-label">ESCUELA DE</span>
+              <h3 class="card-title">Negocios</h3>
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <!-- Cybersecurity Card -->
+          <a href="#" class="school-card">
+            <div class="card-icon">
+              <img
+                src="https://res.cloudinary.com/dxnx6awui/image/upload/v1734001509/Devops_g8osbu.webp"
+                alt="DevOps y Cloud Computing"
+              />
+            </div>
+            <div class="card-content">
+              <span class="card-label">ESCUELA DE</span>
+              <h3 class="card-title">DevOps y Cloud Computing</h3>
+            </div>
+            <div class="card-arrow">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <div class="schools-footer">
+          <a href="#" class="view-all">
+            Ver todas las escuelas
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 12H5M12 19L5 12L12 5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seccion Datos de CodexFlow -->
+
+    <section class="governance-section">
+      <div class="container">
+        <div class="governance-header">
+          <h2>Nuestros Logros</h2>
+          <p>Cifras que Respaldan a CodexFlow</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3 class="stat-number">250+</h3>
+            <p class="stat-label">Alumnos Registrados</p>
+          </div>
+          <div class="stat-item">
+            <h3 class="stat-number">120+</h3>
+            <p class="stat-label">Cursos en Plataforma</p>
+          </div>
+          <div class="stat-item">
+            <h3 class="stat-number">15+</h3>
+            <p class="stat-label">Docentes Especializados</p>
+          </div>
+          <div class="stat-item">
+            <h3 class="stat-number">5+</h3>
+            <p class="stat-label">Años de Experiencia</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seccion Planes -->
+
+    <section class="section-planes">
+      <div class="container">Planes</div>
+    </section>
+
+    <!-- Footer -->
 
     <footer class="footer">
-      <div class="feature">
-        <i class="fas fa-home"></i>
-        <div>
-          <p>Estudia desde casa</p>
-          <small>Tú eliges cuándo y dónde aprender</small>
+      <div class="container footer-content">
+        <!-- Redes -->
+        <div class="social-links">
+          <a
+            href="https://www.facebook.com/GuimarbotPeru/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon"
+          >
+            <i class="fa fa-facebook"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fa fa-youtube"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fa fa-twitter"></i>
+          </a>
         </div>
-      </div>
-      <div class="feature">
-        <i class="fas fa-headset"></i>
-        <div>
-          <p>Soporte personalizado</p>
-          <small>Profesores dispuestos a resolver tus dudas</small>
+
+        <!-- Copyright -->
+        <div class="copyright">
+          <p>&copy; Copyright Academia CodexFlow 2024</p>
         </div>
-      </div>
-      <div class="feature">
-        <i class="fas fa-users"></i>
-        <div>
-          <p>Comunidad activa</p>
-          <small>+5000 estudiantes satisfechos</small>
+
+        <!-- Política -->
+        <div class="terms">
+          <a href="#">Términos y Condiciones</a>
         </div>
       </div>
     </footer>
