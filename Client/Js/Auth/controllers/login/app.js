@@ -1,5 +1,23 @@
-// Client/Js/Auth/controllers/login/app.js
+// Configuración de Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyBW6eeHtxDaaN4gEO34dfao39ppU_Nc6YM",
+  authDomain: "codexflow-ae4fb.firebaseapp.com",
+  projectId: "codexflow-ae4fb",
+  storageBucket: "codexflow-ae4fb.firebasestorage.app",
+  messagingSenderId: "49650120730",
+  appId: "1:49650120730:web:d50102f2ef63bd1847b9a3",
+  measurementId: "G-LEDQHMKJBP",
+};
 
+// Inicializar Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// Verificar inicialización
+console.log("Firebase inicializado:", !!firebase);
+
+// Manejo de la UI
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container");
@@ -12,7 +30,7 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
-// Función para registrar un nuevo usuario
+// Registro de usuario
 document
   .getElementById("registration-form")
   .addEventListener("submit", async (e) => {
@@ -20,60 +38,43 @@ document
     const email = document.getElementById("register-email").value;
     const password = document.getElementById("register-password").value;
     const nombre = document.getElementById("nombre").value;
+    const fechaNacimiento = document.getElementById("fecha-nacimiento").value;
 
     try {
-      const userCredential = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      const user = userCredential.user;
-
-      // Guardar datos adicionales en Firestore
-      await db.collection("Users").doc(user.uid).set({
-        nombre,
-        email,
+      // Registrar en el backend
+      const response = await fetch("http://localhost:3000/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          nombre,
+          fechaNacimiento,
+        }),
       });
 
-      // Guardar datos en el almacenamiento local
-      localStorage.setItem("userName", nombre);
-      localStorage.setItem("userEmail", email);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Error al registrar usuario");
+      }
 
-      console.log("Usuario registrado y datos guardados en Firestore:", user);
+      const data = await response.json();
+      console.log("Usuario registrado exitosamente:", data);
+
+      alert("¡Registro exitoso! Por favor, inicia sesión.");
+      container.classList.remove("sign-up-mode");
+
+      // Limpiar el formulario
+      document.getElementById("registration-form").reset();
     } catch (error) {
+      alert(error.message || "Error al registrar usuario");
       console.error("Error al registrar:", error);
     }
   });
 
-// Función para iniciar sesión
-document.getElementById("login-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
-
-  try {
-    const userCredential = await auth.signInWithEmailAndPassword(
-      email,
-      password
-    );
-    const user = userCredential.user;
-
-    // Recuperar datos del usuario desde Firestore
-    const userDoc = await db.collection("Users").doc(user.uid).get();
-    const userData = userDoc.data();
-
-    if (userData) {
-      // Guardar datos en el almacenamiento local
-      localStorage.setItem("userName", userData.nombre);
-      localStorage.setItem("userEmail", userData.email);
-      console.log("Usuario logueado:", user);
-    } else {
-      console.error("No se encontraron datos de usuario en Firestore");
-    }
-  } catch (error) {
-    console.error("Error al iniciar sesión:", error);
-  }
-});
-
+// Login de usuario
 document.getElementById("login-form").addEventListener("submit", async (e) => {
   e.preventDefault();
   const email = document.getElementById("login-email").value;
@@ -89,19 +90,32 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     });
 
     if (!response.ok) {
-      throw new Error("Error al iniciar sesión");
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Error al iniciar sesión");
     }
 
     const data = await response.json();
-    console.log("Usuario logueado:", data);
+    console.log("Login exitoso:", data);
 
-    // Almacenar datos del usuario en localStorage
-    localStorage.setItem("userId", data.userId);
-    localStorage.setItem("userName", data.userName);
+    // Guardar datos en localStorage
+    localStorage.setItem("userName", data.nombre);
+    localStorage.setItem("userEmail", data.email);
+    localStorage.setItem("userId", data.id);
+    localStorage.setItem("userToken", data.token);
 
-    // Redirigir a la página principal después de iniciar sesión
+    // Redirigir a la página principal
     window.location.href = "/Client/pages/Home/home.html";
   } catch (error) {
+    alert(error.message || "Error al iniciar sesión");
     console.error("Error al iniciar sesión:", error);
+  }
+});
+
+// Observador del estado de autenticación
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    console.log("Usuario está logueado:", user.email);
+  } else {
+    console.log("Usuario no está logueado");
   }
 });
