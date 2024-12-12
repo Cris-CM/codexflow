@@ -1,4 +1,3 @@
-// src/gestioncurso.js
 document.addEventListener("DOMContentLoaded", function () {
   // Mostrar el modal para agregar curso
   document.getElementById("agregar-curso-btn").addEventListener("click", () => {
@@ -35,8 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("form-curso")
     .addEventListener("submit", function (event) {
       event.preventDefault();
-      // {{ edit_1 }}
-      // Crear un objeto de datos en lugar de usar FormData
       const data = {
         nombreCurso: this.nombreCurso.value,
         descripcionCurso: this.descripcionCurso.value,
@@ -49,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
         precioCurso: this.precioCurso.value,
         precioPersonalizado: this.precioPersonalizado.value,
       };
-      // {{ edit_1 }}
       fetch("http://localhost:3000/courses/create", {
         method: "POST",
         headers: {
