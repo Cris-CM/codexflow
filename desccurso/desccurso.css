@@ -1,16 +1,33 @@
-:root {
-    --highcharts-background-color: var(--color-white);
-    --highcharts-neutral-color-100: var(--color-gray-600);
-    --highcharts-neutral-color-80: var(--color-gray-550);
-    --highcharts-neutral-color-60: var(--color-gray-500);
-    --highcharts-neutral-color-40: var(--color-gray-400);
-    --highcharts-neutral-color-20: var(--color-gray-200);
-    --highcharts-neutral-color-10: var(--color-gray-100);
-    --highcharts-positive-color: var(--color-green-400);
-    --highcharts-negative-color: var(--color-red-400);
+body.theme01 {
+    --background: #ffffff;
+    --text: #2d3748;
+    --primary: #0FC4F2;
+    --secondary: #63b3ed;
+    --accent: #f97316;
+    --extra-color: #f8fafc;
+}
+
+body.theme02 {
+    --background: #1a202c;
+    --text: #f7fafc;
+    --primary: #63b3ed;
+    --secondary: #ecc94b;
+    --accent: #f97316;
+    --extra-color: #2d3748;
+}
+
+body.theme03 {
+    --background: #000000;
+    --text: #f0f4f8;
+    --primary: #0FC4F2;
+    --secondary: #111111;
+    --accent: #888;
+    --extra-color: #252525;
 }
 
 body {
+    background-color: var(--background) !important;
+    color: var(--text) !important;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -23,7 +40,7 @@ body {
 }
 
 header {
-    background-color:#4aa0fc;
+    background-color: var(--primary) !important;
     padding: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     font-family: 'Lato', sans-serif;
@@ -52,38 +69,16 @@ header {
   }
   
   .search-bar input {
+    background-color: var(--extra-color) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--secondary) !important;
     padding: 0.7rem;
     border-radius: 20px;
-    border: none;
-    background-color: white;
-    color: var(--text-color);
     font-size: clamp(0.8rem, 1.5vw, 1rem);
     width: clamp(200px, 30vw, 400px);
   }
   
-  .nav-links {
-    display: flex;
-    list-style-type: none;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  
-  .nav-links a {
-    color: var(--text-color);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: white;
-  }
-  
-  .nav-links a:hover,
-  .nav-links a:focus {
-    background-color: var(--secondary-bg);
-    color: #c70039;
-  }
+
   
   .user-menu {
     position: relative;
@@ -103,12 +98,13 @@ header {
     display: none;
     position: absolute;
     right: 0;
-    background-color: rgb(226, 226, 226);
+    background-color: var(--background) !important;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     min-width: 160px;
     border-radius: 5px;
     padding: 20px;
+    border: 1px solid var(--secondary) !important;
   }
   
   .user-menu:hover .dropdown-menu {
@@ -117,14 +113,14 @@ header {
   }
 
   .dropdown-menu a {
-    color: var(--text-color);
+    color: var(--text) !important;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
 
   .dropdown-menu a:hover {
-    background-color: var(--secondary-bg);
+    background-color: var(--extra-color) !important;
   }
 
 .curso-info, .cursos-gratuitos {
@@ -161,12 +157,48 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f9f9f9;
+    background-color: var(--extra-color) !important;
     border-radius: 10px;
     margin: 20px;
     box-shadow: none;
     margin-bottom: 20px;
     font-family: 'Comic Sans MS', cursive;
+    border: 1px solid var(--secondary) !important;
+}
+
+.web-development .web-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;  
+    padding: 20px;
+    width: 100%;
+}
+
+.web-development .web-content h1{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary) !important;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.web-development .web-content .descripcion{
+    text-align: justify;
+    width: 100%;
+    flex: 1;
+    margin: 15px 0;
+    overflow-y: auto;
+    color: var(--text) !important;
+}
+
+.web-development .web-content .profesor{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary) !important;
+    align-self: flex-start;
+    width: 100%;
 }
 
 .img-desarrollo {
@@ -186,6 +218,7 @@ h1 {
     line-height: 1.2;
     letter-spacing: 0;
     font-size: clamp(2rem, calc(2rem +(3.2 - 2)* calc((100vw - 36rem) /(144 - 36))), 3.2rem);
+    color: var(--text) !important;
 }
 
 p {
@@ -218,9 +251,9 @@ p {
 }
 
 .btn-curso {
-    background-color: #007bff;
-    color: white;
-    border: none;
+    background-color: var(--primary) !important;
+    color: var(--background) !important;
+    border: none !important;
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
@@ -228,29 +261,31 @@ p {
 }
 
 .btn-curso:hover {
-    background-color: #0056b3;
+    background-color: var(--secondary) !important;
 }
 
 .curso-nav {
-    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    background-color: var(--background) !important;
     margin: 0px 20px;
-    text-decoration: none;
+    z-index: 10;
 }
 
 .curso-nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 10px 20px 0px 20px;
+    margin: 5px 20px;
 }
 
 .curso-nav li {
     display: inline;
-    margin: 20px 15px;
+    margin: 15px;
 }
 
 .curso-nav a {
     text-decoration: none;
-    color: #5d666e;
+    color: var(--text) !important;
     font-weight: bold;
     margin-left: 20px;
 }
@@ -263,15 +298,16 @@ p {
     margin-top: 10px;
     border: 1px solid #ccc;
     margin-left: 20px;
+    border-color: var(--secondary) !important;
 }
 
 .curso-contenido, .curso-reseñas, .curso-instructores {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    margin: 20px;
-    font-family: 'Comic Sans MS', cursive;
+    min-height: 300px;
+    margin: 15px 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .curso-contenido h2, .curso-reseñas h2, .curso-instructores h2 {
@@ -314,32 +350,8 @@ p {
     font-weight: bold;
 }
 
-.rating-summary {
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.rating {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #d67d2b;
-    margin-right: 10px;
-}
-
-.stars {
-    color: #d67d2b;
-    margin-right: 10px;
-}
-
-.calificacion {
-    font-weight: bold;
-    color: #7a7a7a;
-}
-
-.rating-bars {
-    display: flex;
-    flex-direction: column;
+.curso-reseñas{
+    background-color: var(--primary) !important;
 }
 
 .bar {
@@ -357,6 +369,7 @@ p {
     font-weight: bold;
 }
 .comments {
+    color: black;
     margin-top: 20px;
 }
 
@@ -406,8 +419,8 @@ p {
 }
 
 .comment img.avatar {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -429,21 +442,42 @@ p {
     text-decoration: underline;
 }
 
-.instructor-info {
+.curso-instructores{
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary) !important;
+}
+
+.curso-instructores h2{
+    color: var(--text) !important;
+}
+
+.curso-instructores div{
     display: flex;
     align-items: center;
 }
 
 .instructor-avatar {
     width: 100px;
-    height: auto;
+    height: 100px;
     border-radius: 50%;
     border: 1px solid #ccc;
     margin-right: 20px;
+    object-fit: cover;
 }
 
 .instructor-details {
+    flex-direction: column;
     font-size: 16px;
+}
+
+.instructor-details .instructor-name{
+    align-self: flex-start;
+    color: var(--background) !important;
+}
+
+.instructor-details{
+    background-color: var(--primary) !important;
 }
 
 .instructor-details p {
@@ -451,7 +485,10 @@ p {
     font-size: 18px;
     color: #333;
     font-weight: 500;
+    text-align: justify;
 }
+
+
 
 .curso-aprendizaje, .curso-contenido {
     padding: 20px;
@@ -479,20 +516,94 @@ p {
 
 .cursos-recomendados {
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: var(--background) !important;
     border-radius: 8px;
     font-family: 'Comic Sans MS', cursive;
 }
 
-.carrusel {
-    display: flex;
-    overflow: hidden;
+.carousel {
     position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 50px;
 }
 
-.curso {
+.carousel-content {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.course-grid {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s ease;
+    padding: 20px 0;
+    width: max-content;
+}
+
+.course-card {
     min-width: 300px;
-    margin: 0 10px;
+    flex: 0 0 auto;
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.course-card .tag {
+    background-color: var(--extra-color);
+    color: var(--primary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.course-card h3 {
+    color: #333;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.course-card p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.course-meta {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.course-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cta-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary) !important;
+    color: var(--background) !important;
+    border: none !important;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary) !important;
 }
 
 button.prev, button.next {
@@ -570,49 +681,45 @@ button.next {
     font-weight: bold;  
 }
 
-.carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    position: relative;
-    padding: 20px 0;
-    overflow: hidden;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 20px;
-    width: 90%; 
-    overflow: hidden; 
-    scroll-behavior: smooth;
-}
-
-.curso {
-    min-width: 300px;
-    margin: 0 10px;
-}
-
 .carousel-btn {
-    background-color: #0072ff;
-    color: white;
-    border: none;
-    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    font-size: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--primary) !important;
+    color: var(--background) !important;
+    border: none;
     cursor: pointer;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 20px;
 }
 
-.carousel-btn.prev-btn {
-    left: 10px;
+.prev-btn {
+    left: 5px;
 }
 
-.carousel-btn.next-btn {
-    right: 10px;
+.next-btn {
+    right: 5px;
+}
+
+.carousel-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Ocultar scrollbar pero mantener funcionalidad */
+.course-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.course-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .rating-2 {
@@ -678,8 +785,8 @@ button.next {
 }
 
 .comment img.avatar {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -708,4 +815,72 @@ button.next {
 
 #instructores {
   display: none;
+}
+
+.course-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.course-card {
+    min-width: 300px;
+    flex-shrink: 0;
+}
+
+.course-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.course-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Contenedor principal de comentarios */
+.comments {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Área de texto para nuevo comentario */
+.comment-box textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.comment-box button {
+    background-color: #1976d2;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Lista de comentarios */
+.comment {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #eaeaea;
+}
+
+.comment .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
 }

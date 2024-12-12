@@ -109,23 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    let currentIndex = 0;
 
-    function moveSlide(direction) {
-        const track = document.querySelector('.carousel-track');
-        const totalSlides = document.querySelectorAll('.curso').length;
-        
-        currentIndex += direction;
-
-        if (currentIndex < 0) {
-            currentIndex = totalSlides - 1; // Regresar al último
-        } else if (currentIndex >= totalSlides) {
-            currentIndex = 0; // Regresar al primero
-        }
-
-        const slideWidth = document.querySelector('.curso').clientWidth;
-        track.style.transform = 'translateX(' + (-slideWidth * currentIndex) + 'px)';
-    }
 
     // Inicializa el carrusel mostrando solo el primer curso
     moveSlide(0);
@@ -156,6 +140,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+
+
+/*let currentIndex = 0;
+
+function moveSlide(direction) {
+    const track = document.querySelector('.carousel-track');
+    const totalSlides = document.querySelectorAll('.curso').length;
+    
+    currentIndex += direction;
+
+    if (currentIndex < 0) {
+        currentIndex = totalSlides - 1; // Regresar al último
+    } else if (currentIndex >= totalSlides) {
+        currentIndex = 0; // Regresar al primero
+    }
+
+    const slideWidth = document.querySelector('.curso').clientWidth;
+    track.style.transform = 'translateX(' + (-slideWidth * currentIndex) + 'px)';
+}
+
+
 document.querySelectorAll('.carousel').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const prevBtn = carousel.querySelector('.prev-btn');
@@ -168,4 +174,61 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     nextBtn.addEventListener('click', () => {
         track.scrollBy({ left: 300, behavior: 'smooth' });
     });
+});*/
+
+// Nuevo código para el carrusel (reemplazar solo la parte después de los comentarios)
+document.addEventListener('DOMContentLoaded', function() {
+    const courseGrid = document.querySelector('.learning-path .course-grid');
+    const prevBtn = document.querySelector('.carousel .prev-btn');
+    const nextBtn = document.querySelector('.carousel .next-btn');
+    
+    if (!courseGrid || !prevBtn || !nextBtn) {
+        console.error('No se encontraron elementos del carrusel');
+        return;
+    }
+
+    const cards = courseGrid.children;
+    const cardWidth = 320; // Ancho de la tarjeta + gap
+    let currentIndex = 0;
+    const visibleCards = Math.floor(courseGrid.parentElement.offsetWidth / cardWidth);
+    const maxIndex = Math.max(0, cards.length - visibleCards);
+
+    function updateCarousel() {
+        const offset = -currentIndex * cardWidth;
+        courseGrid.style.transform = `translateX(${offset}px)`;
+        
+        // Actualizar estado de los botones
+        prevBtn.disabled = currentIndex <= 0;
+        nextBtn.disabled = currentIndex >= maxIndex;
+        
+        prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
+        nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
+    }
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    // Inicializar carrusel
+    updateCarousel();
+
+    // Actualizar en cambio de tamaño de ventana
+    window.addEventListener('resize', () => {
+        const newVisibleCards = Math.floor(courseGrid.parentElement.offsetWidth / cardWidth);
+        const newMaxIndex = Math.max(0, cards.length - newVisibleCards);
+        currentIndex = Math.min(currentIndex, newMaxIndex);
+        updateCarousel();
+    });
 });
+
+

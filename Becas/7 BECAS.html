@@ -4,27 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Beca - CodexFlow</title>
-    <link rel="icon" href="/Becas/IMG/logo1.ico">
+    <link rel="icon" href="../Client/Images/Guimarbot.png">
     <link rel="stylesheet" href="Becas.css">
 </head>
-<body>
-    <header>
-        
-        <div class="top-bar">
-            <div class="container">
-                <span>Línea gratuita: 0800-00018</span>
-                <span><a href="#"> Normas Beneficiario</a></span>
-                <span><a href="#"> Compromiso SP</a></span>
-                <span><a href="#"> Podcast </a></span>
-                <div class="social-icons">
-                    <a href="#"><img src="/Becas/IMG/fb.png" alt="Facebook"></a>
-                    <a href="#"><img src="/Becas/IMG/yt.png" alt="YouTube"></a>
-                    <a href="#"><img src="/Becas/IMG/tw1.png" alt="Twitter"></a>
-                    <a href="#"><img src="/Becas/IMG/ig1.png" alt="Instagram"></a>
-                </div>
-            </div>
-        </div>
-    </header>
+<body class="theme01">
     
     <main>
         
@@ -49,18 +32,9 @@
                 <img src="/Becas/IMG/Copia de Logo Codexflow (1).png" alt="Embajadora del PRONABEC">
             </div>
         </section>
-        
-        <!-- INFORMACIÓN DE BECAS -->
         <section class="becas-info">
             <div class="becas-content">
-                <div class="becas-icons">
-                    <img src="/Becas/IMG/emoji.png" alt="Icono 1">
-                </div>
                 <h2>20 000 Becas Integrales</h2>
-                <div class="becas-icons">
-                    <img src="/Becas/IMG/emoji2.png" alt="Icono 2">
-                </div>
-            
             </div>
 
             <div class="beneficio">
@@ -117,8 +91,13 @@
                         <label for="reason">Motivo de la Solicitud:</label>
                         <textarea id="reason" name="reason" required></textarea>
         
-                        <label for="evidence">Evidencia de haber completado los cursos (PDF):</label>
-                        <input type="file" id="evidence" name="evidence" accept=".pdf" required>
+                        <div class="file-upload">
+                            <label for="evidence" class="file-upload-label">
+                                <span class="file-upload-icon">📄</span>
+                                <span class="file-upload-text">Seleccionar archivo PDF</span>
+                            </label>
+                            <input type="file" id="evidence" name="evidence" accept=".pdf" required class="file-upload-input">
+                        </div>
         
                         <button type="submit">Enviar Solicitud</button>
                     </form>
