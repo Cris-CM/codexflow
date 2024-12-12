@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Beca - CodexFlow</title>
+    <link rel="icon" href="../Client/Images/Guimarbot.png">
+    <link rel="stylesheet" href="Becas.css">
+</head>
+<body class="theme01">
+    
+    <main>
+        
+        <!-- Bloque de contenido principal -->
+        <section class="description">
+            <div class="text">
+                <!-- Bloque de Beca dentro de la caja de descripción -->
+                <div class="beca-header">
+                    <div class="text-header">
+                        <h1>MI BECA <span> de CODEXFLOW</span></h1>
+                        <h2>Convocatoria <span class="year"> 2024 </span></h2>
+                    </div>
+                </div>
+                <h3>Dirigido a:</h3>
+                <p>Estudiantes de CodexFlow de buen rendimiento académico y de escasos recursos económicos, o que vivan en condiciones de vulnerabilidad, para que estudien una carrera profesional, con todos los gastos cubiertos por el Estado.</p>
+                <div class="buttons">
+                    <a href="" class="btn red"> Subir archivos BECA </a>
+                    <a href="#" class="btn orange">Ver estado de BECA</a>
+                </div>
+            </div>
+            <div class="image">
+                <img src="/Becas/IMG/Copia de Logo Codexflow (1).png" alt="Embajadora del PRONABEC">
+            </div>
+        </section>
+        <section class="becas-info">
+            <div class="becas-content">
+                <h2>20 000 Becas Integrales</h2>
+            </div>
+
+            <div class="beneficio">
+                <h3> -- Beneficios -- </h3>
+               
+            <div class="dropdown">
+                <label for="carrera" class="label">Selecciona tu carrera:</label>
+                <select id="carrera" onchange="changeCourses()">
+                    <option value="programacion">Programación</option>
+                    <option value="medicina">Medicina</option>
+                    <option value="ingenieria">Ingeniería</option>
+                    <option value="derecho">Derecho</option>
+                    <option value="arquitectura">Arquitectura</option>
+                    <option value="administracion">Administración</option>
+                    <option value="arte">Arte</option>
+                    <option value="educacion">Educación</option>
+                    <option value="psicologia">Psicología</option>
+                    <option value="diseño">Diseño</option>
+                    <option value="ciencias">Ciencias</option>
+                </select>
+            </div>
+
+            <div class="courses">
+                <div class="course" id="course1">
+                    <h2 class="course-title">Curso 1: Introducción a la Programación</h2>
+                    <p class="course-duration">Duración: 4 horas</p>
+                    <button class="start-button" onclick="startCourse(this)">¡Comienza tu curso!</button>
+                </div>
+                <div class="course" id="course2">
+                    <h2 class="course-title">Curso 2: Fundamentos de la Programación</h2>
+                    <p class="course-duration">Duración: 5 horas</p>
+                    <button class="start-button" onclick="startCourse(this)">¡Comienza tu curso!</button>
+                </div>
+            </div>
+
+            <button id="apply-button" class="apply-button" disabled onclick="openApplicationForm()">¡Postúlate para la Beca!</button>
+            <button id="back-button" class="back-button" onclick="goBack()">Volver</button>
+            </div>
+
+            <div id="modal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeModal()">×</span>
+                    <h2 class="modal-title">Formulario de Postulación</h2>
+                    <form id="application-form">
+                        <label for="name">Nombre Completo:</label>
+                        <input type="text" id="name" name="name" required>
+        
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+        
+                        <label for="numero">Número de Celular:</label>
+                        <input type="numero" id="numero" name="numero" required>
+        
+                        <label for="reason">Motivo de la Solicitud:</label>
+                        <textarea id="reason" name="reason" required></textarea>
+        
+                        <div class="file-upload">
+                            <label for="evidence" class="file-upload-label">
+                                <span class="file-upload-icon">📄</span>
+                                <span class="file-upload-text">Seleccionar archivo PDF</span>
+                            </label>
+                            <input type="file" id="evidence" name="evidence" accept=".pdf" required class="file-upload-input">
+                        </div>
+        
+                        <button type="submit">Enviar Solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
