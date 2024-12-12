@@ -24,7 +24,22 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("form-curso")
     .addEventListener("submit", function (event) {
       event.preventDefault();
+<<<<<<< HEAD
       const formData = new FormData(this);
+=======
+      const data = {
+        nombreCurso: this.nombreCurso.value,
+        descripcionCurso: this.descripcionCurso.value,
+        courseLevel: this.courseLevel.value,
+        ageRange: this.ageRange.value,
+        nombreDocente: this.nombreDocente.value,
+        descripcionDocente: this.descripcionDocente.value,
+        courseImage: this.courseImage.value, // Enlace de la imagen del curso
+        docenteImage: this.docenteImage.value, // Enlace de la imagen del docente
+        precioCurso: this.precioCurso.value,
+        precioPersonalizado: this.precioPersonalizado.value,
+      };
+>>>>>>> 7536e7629006718798e1956f921c2815eb1713cb
       fetch("http://localhost:3000/courses/create", {
         method: "POST",
         body: formData,
