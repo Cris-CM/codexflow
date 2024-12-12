@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
       id: 1,
       title: "Desarrollo Web Fullstack",
       price: 299.99,
-      image: "/Client/Images/courses/web-dev.jpg",
+      image: "/Client/Images/certificadoprueba.png",
     },
     {
       id: 2,
