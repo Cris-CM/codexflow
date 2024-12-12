@@ -84,6 +84,49 @@
           <button id="agregar-curso-btn">Agregar Curso</button>
           <button id="agregar-ruta-btn">Agregar Ruta</button>
           <button id="agregar-video-btn">Agregar Video</button>
+
+          <!-- Modal para agregar videos -->
+          <div id="modal-video" class="modal oculto">
+            <div class="modal-content">
+              <span class="close" id="close-modal-video">&times;</span>
+              <h3>Agregar Video al Curso</h3>
+              <form id="form-video">
+                <label for="video-title">Título del Video:</label>
+                <input
+                  type="text"
+                  id="video-title"
+                  name="videoTitle"
+                  placeholder="Título del video"
+                  required
+                />
+
+                <label for="video-description">Descripción del Video:</label>
+                <textarea
+                  id="video-description"
+                  name="videoDescription"
+                  placeholder="Descripción detallada del video"
+                  required
+                ></textarea>
+
+                <label for="video-url">URL del Video de YouTube:</label>
+                <input
+                  type="url"
+                  id="video-url"
+                  name="videoUrl"
+                  placeholder="https://www.youtube.com/watch?v=..."
+                  required
+                />
+
+                <label for="curso-select">Seleccionar Curso:</label>
+                <select id="curso-select" name="courseId" required>
+                  <!-- Se llenará dinámicamente -->
+                </select>
+
+                <button type="submit">Guardar Video</button>
+              </form>
+            </div>
+          </div>
+
           <div id="modal-curso" class="modal oculto">
             <div class="modal-content">
               <span class="close" id="close-modal-curso">&times;</span>
@@ -134,7 +177,23 @@
                   required
                 ></textarea>
                 <label for="courseImage">Icono del Curso:</label>
-                <input type="file" id="courseImage" name="courseImage" />
+                <input
+                  type="text"
+                  id="courseImage"
+                  name="courseImage"
+                  placeholder="Ingrese el enlace de la imagen"
+                  required
+                />
+                <label for="docenteImage">Imagen del Docente:</label>
+
+                <input
+                  type="text"
+                  id="docenteImage"
+                  name="docenteImage"
+                  placeholder="Ingrese el enlace de la imagen"
+                  required
+                />
+
                 <label for="precio-curso">Precio:</label>
                 <select id="precio-curso" name="precioCurso">
                   <option value="Gratis">Gratis</option>
@@ -193,45 +252,6 @@
                 <button type="submit" class="btn-guardar">Guardar Ruta</button>
               </form>
             </div>
-          </div>
-          <!-- Modal para agregar videos -->
-          <div class="modal-content">
-            <span class="close" id="close-modal-video">&times;</span>
-            <h3>Agregar Video al Curso</h3>
-            <form id="form-video">
-              <label for="video-title">Título del Video:</label>
-              <input
-                type="text"
-                id="video-title"
-                name="videoTitle"
-                placeholder="Título del video"
-                required
-              />
-
-              <label for="video-description">Descripción del Video:</label>
-              <textarea
-                id="video-description"
-                name="videoDescription"
-                placeholder="Descripción detallada del video"
-                required
-              ></textarea>
-
-              <label for="video-url">URL del Video de YouTube:</label>
-              <input
-                type="url"
-                id="video-url"
-                name="videoUrl"
-                placeholder="https://www.youtube.com/watch?v=..."
-                required
-              />
-
-              <label for="curso-select">Seleccionar Curso:</label>
-              <select id="curso-select" name="courseId" required>
-                <!-- Se llenará dinámicamente -->
-              </select>
-
-              <button type="submit">Guardar Video</button>
-            </form>
           </div>
           <div class="cursos-lista">
             <h3>Cursos Registrados</h3>
